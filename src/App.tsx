@@ -1,4 +1,3 @@
-import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { PublicLayout } from "./pages/PublicLayout.tsx";
 import { HomePage } from "./pages/HomePage.tsx";
@@ -16,8 +15,14 @@ export default function App() {
         <Route path="/features" element={<FeaturesPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/testimonials" element={<TestimonialsPage />} />
-        <Route path="/clients" element={<Navigate to="/testimonials" replace />} />
-        <Route path="/reviews" element={<Navigate to="/testimonials" replace />} />
+        <Route
+          path="/clients"
+          element={<Navigate to="/testimonials" replace />}
+        />
+        <Route
+          path="/reviews"
+          element={<Navigate to="/testimonials" replace />}
+        />
         <Route path="/faqs" element={<FaqPage />} />
         <Route path="/faq" element={<Navigate to="/faqs" replace />} />
         <Route path="/help" element={<Navigate to="/faqs" replace />} />
