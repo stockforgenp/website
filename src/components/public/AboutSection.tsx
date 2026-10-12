@@ -29,7 +29,7 @@ export const AboutSection: React.FC = () => {
       title: isNepali ? 'शून्य-विलम्ब गति (Zero-Lag Speed)' : 'Sub-Second Checkout Velocity',
       desc: isNepali
         ? 'इन्टरनेट ढिलो हुँदा वा बत्ती जाँदा पनि काउन्टर रोकिँदैन। प्रति सेकेन्ड धेरै बिलिङ गर्न सकिने गरी डिजाइन गरिएको प्रणाली।'
-        : 'Engineered for peak rush hours. Zero network round-trips means sales process instantly with barcode scanners and keyboard accelerators.',
+        : 'Engineered for peak rush hours. Zero network round-trips means sales process instantly with rapid item search and keyboard accelerators.',
     },
     {
       icon: Shield,

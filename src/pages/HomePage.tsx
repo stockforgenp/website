@@ -50,7 +50,9 @@ export const HomePage: React.FC = () => {
         "Multi-Unit Product Inventory (piece, kg, litre, dozen, packet, box, meter)",
         "Gross Profit & Cost of Goods Sold (COGS) Snapshot Pricing",
         "Staff Directory & Monthly Payroll Disbursement Vouchers",
-        "Customer Directory & Credit Khata Ledger with Due Balance Alerts",
+        "Sales & Purchase Dues Tracking with Previous Due, Current Due & Total Due Balance",
+        "Partial Payments at Checkout & Inflow with Due Breakdown on Thermal Receipts",
+        "Customer Directory & Credit Khata Ledger with Total Due Balance Tracking",
         "Vendor & Supplier Management with Accounts Payable Tracking",
         "Google Sheets Cloud & SQL File Database Backup & Restore (.sql)",
         "Bilingual Switch (English & नेपाली) with Automatic Currency रु./Rs. Sync",
@@ -132,7 +134,7 @@ export const HomePage: React.FC = () => {
             </h2>
             <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed">
               {isNepali
-                ? "परम्परागत क्लाउड POS ले प्रत्येक बारकोड स्क्यान गर्दा टाढाको सर्भरमा अनुरोध पठाउँछ, जसले गर्दा भीडभाडमा काउन्टर ढिलो हुन्छ। StockForge ले तपाईंको कम्प्युटरभित्रै SQLite WASM मार्फत ०ms मा तुरुन्तै कारोबार सम्पन्न गर्छ।"
+                ? "परम्परागत क्लाउड POS ले प्रत्येक बिलिङ गर्दा टाढाको सर्भरमा अनुरोध पठाउँछ, जसले गर्दा भीडभाडमा काउन्टर ढिलो हुन्छ। StockForge ले तपाईंको कम्प्युटरभित्रै SQLite WASM मार्फत ०ms मा तुरुन्तै कारोबार सम्पन्न गर्छ।"
                 : "Traditional cloud point-of-sale software depends on continuous internet connections. When network traffic spikes during festive shopping, cloud counters freeze. StockForge executes all queries inside your browser with 0ms sub-millisecond local speed."}
             </p>
           </div>
@@ -300,7 +302,7 @@ export const HomePage: React.FC = () => {
               </Link>
             </div>
 
-            {/* 4. Customer Khata */}
+            {/* 4. Customer & Vendor Dues */}
             <div className="p-5 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-emerald-500/40 transition-all flex flex-col justify-between">
               <div>
                 <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-3">
@@ -308,13 +310,13 @@ export const HomePage: React.FC = () => {
                 </div>
                 <h3 className="text-sm sm:text-base font-bold text-neutral-100 mb-1.5">
                   {isNepali
-                    ? "ग्राहक उधारो खाता (Credit Khata)"
-                    : "Customer Credit Khata & Limits"}
+                    ? "ग्राहक तथा आपूर्तिकर्ता बाँकी बक्यौता (Dues Tracking)"
+                    : "Sales & Purchase Dues with Partial Payments"}
                 </h3>
                 <p className="text-xs text-neutral-400 leading-relaxed mb-3">
                   {isNepali
-                    ? "नियमित ग्राहकहरूको उधारो, बाँकी बक्यौता, खरिद इतिहास र भुक्तानी सीमा सहजै ट्र्याक गर्नुहोस्। पारदर्शी खाता व्यवस्थापन।"
-                    : "Manage customer credit balances, payment due dates, historical purchases, and individual credit limits directly from the sales counter."}
+                    ? "काउन्टरमा आंशिक भुक्तानी (Partial Payment) सहजै दर्ता गर्नुहोस्। साविकको बाँकी, हालको बाँकी र कुल बाँकी रसिद तथा इतिहासमा स्वचालित हिसाब।"
+                    : "Full support for partial payments. Seamlessly itemizes Previous Due, Current Due, and Total Due across counter checkouts, restock bills, and receipts."}
                 </p>
               </div>
               <Link
@@ -322,7 +324,7 @@ export const HomePage: React.FC = () => {
                 className="text-[11px] font-semibold text-emerald-400 hover:underline inline-flex items-center gap-1"
               >
                 <span>
-                  {isNepali ? "खाता सुविधा हेर्नुहोस्" : "Customer Khata specs"}
+                  {isNepali ? "बाँकी हिसाब प्रणाली हेर्नुहोस्" : "Dues tracking specs"}
                 </span>
                 <ArrowRight className="w-3 h-3" />
               </Link>
@@ -415,7 +417,7 @@ export const HomePage: React.FC = () => {
               </h3>
               <p className="text-xs text-neutral-400 leading-relaxed">
                 {isNepali
-                  ? "चाडपर्वमा न्यूरोड वा असनमा मोबाइल नेटवर्क जाम हुँदा अनलाइन POS रोकिन्छन्। StockForge मा सबै डेटा स्थानीय ब्राउजरमा चल्ने भएकाले बारकोड स्क्यान र बिलिङ ० सेकेन्डको ढिलाइ बिना चल्छ।"
+                  ? "चाडपर्वमा न्यूरोड वा असनमा मोबाइल नेटवर्क जाम हुँदा अनलाइन POS रोकिन्छन्। StockForge मा सबै डेटा स्थानीय ब्राउजरमा चल्ने भएकाले सामान छनोट र बिलिङ ० सेकेन्डको ढिलाइ बिना चल्छ।"
                   : "Cellular signals in dense commercial centers often collapse during peak festivals. Because StockForge requires zero network round-trips for sales, your cashiers process customers without waiting."}
               </p>
             </div>
@@ -442,13 +444,13 @@ export const HomePage: React.FC = () => {
               </span>
               <h3 className="text-base font-bold text-neutral-100">
                 {isNepali
-                  ? "उधारो खाता र महिनाको अन्त्यमा हिसाब"
-                  : "Credit Khata & Month-End Reconciliation"}
+                  ? "आंशिक भुक्तानी, साविकको बाँकी र कुल बक्यौता हिसाब"
+                  : "Partial Payments & Real-Time Dues Tracking"}
               </h3>
               <p className="text-xs text-neutral-400 leading-relaxed">
                 {isNepali
-                  ? "नियमित ग्राहकहरूको उधारो छुट्टै खातामा चढ्छ। महिनाको अन्त्यमा तलब आउँदा ग्राहकले पैसा तिरेपछि १-क्लिकमा बाँकी बक्यौता शून्य गर्न सकिन्छ।"
-                  : "Neighborhood shoppers frequently buy on credit until month-end salary day. StockForge logs Khata transactions atomically with contact numbers, credit limits, and receipt histories."}
+                  ? "जस्तै ग्राहकको रु. १०,००० को बिलमा रु. ६,००० तिर्दा रु. ४,००० बाँकी रहन्छ। अर्को पटक रु. ५,००० को बिलमा रु. ३,००० तिर्दा साविकको बाँकी (४,०००), हालको बाँकी (२,०००) र कुल बाँकी (६,०००) रसिद र इतिहासमा स्पष्ट देखिन्छ। थोक आपूर्तिकर्ताको खरिदमा पनि यही स्वचालित हिसाब लागू हुन्छ।"
+                  : "If a customer with a Rs. 10,000 bill pays Rs. 6,000, Rs. 4,000 remains due. Next time on a Rs. 5,000 bill with Rs. 3,000 paid, StockForge instantly itemizes Previous Due (4,000), Current Due (2,000), and Total Due (6,000) on the receipt. Wholesale vendor purchases follow the exact same automated ledger."}
               </p>
             </div>
           </div>
@@ -539,8 +541,8 @@ export const HomePage: React.FC = () => {
 
           <p className="text-xs sm:text-sm text-neutral-400 max-w-2xl mx-auto leading-relaxed">
             {isNepali
-              ? "हाम्रा प्राविधिक इन्जिनियरहरू तपाईंको पसलमै आएर निःशुल्क डेमो देखाउन तयार छन्। तपाईंको हालकै ल्यापटप र बारकोड स्क्यानरसँग सिधै चल्छ।"
-              : "Our retail solutions engineers provide hands-on demonstrations across Kathmandu Valley and major retail commercial hubs. Works directly with your existing laptop, barcode scanner, and 80mm receipt printer."}
+              ? "हाम्रा प्राविधिक इन्जिनियरहरू तपाईंको पसलमै आएर निःशुल्क डेमो देखाउन तयार छन्। तपाईंको हालकै ल्यापटप र प्रिन्टरसँग सिधै चल्छ।"
+              : "Our retail solutions engineers provide hands-on demonstrations across Kathmandu Valley and major retail commercial hubs. Works directly with your existing laptop, PC, and 80mm receipt printer."}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">

@@ -142,7 +142,7 @@ export const PublicNavbar: React.FC = () => {
           {/* Primary CTA: Request Demo */}
           <Link
             to="/contact"
-            className="flex items-center gap-1.5 px-3.5 py-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-lg text-xs font-bold shadow-md shadow-emerald-950/40 transition-all cursor-pointer active:scale-98"
+            className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-lg text-xs font-bold shadow-md shadow-emerald-950/40 transition-all cursor-pointer active:scale-98"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>{isNepali ? "डेमो अनुरोध" : "Request Demo"}</span>

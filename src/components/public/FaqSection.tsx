@@ -75,11 +75,19 @@ export const FaqSection: React.FC = () => {
     },
     {
       question: isNepali
+        ? "बिक्री तथा खरिदमा आंशिक भुक्तानी र बाँकी बक्यौता (Dues) कसरी हिसाब हुन्छ?"
+        : "How do partial payments and dues calculations work for sales and purchases?",
+      answer: isNepali
+        ? "StockForge ले बिक्री र खरिद दुवैमा आंशिक भुक्तानी (Partial Payment) समर्थन गर्छ। जस्तै ग्राहकको रु. १०,००० को बिलमा रु. ६,००० भुक्तानी भएमा रु. ४,००० बाँकी रहन्छ। अर्को पटक रु. ५,००० को बिलमा रु. ३,००० मात्र तिरेमा साविकको बाँकी (४,०००), हालको बाँकी (२,०००) र कुल बाँकी (६,०००) बिलिङ स्क्रिन, थर्मल रसिद र बिक्री इतिहासमा स्पष्ट देखाउँछ। थोक आपूर्तिकर्ता (Vendors) को खरिदमा पनि सोही अनुरूप बाँकी रकम ट्र्याक हुन्छ।"
+        : "StockForge natively handles partial payments for both sales (customer dues) and purchases (vendor payables). For example, if a customer has a bill of Rs. 10,000 and pays Rs. 6,000, a Rs. 4,000 due is logged. Next time on a Rs. 5,000 bill with Rs. 3,000 paid, the system automatically itemizes Previous Due (4,000), Current Due (2,000), and Total Due (6,000) on the POS checkout screen, printed thermal receipts, and history tables. The exact same ledger logic applies to vendor purchases.",
+    },
+    {
+      question: isNepali
         ? "के ग्राहकको उधारो खाता (Khata) र आपूर्तिकर्ता (Vendor) को हिसाब राख्न सकिन्छ?"
         : "How does Customer Credit Khata and Vendor Supplier management work?",
       answer: isNepali
-        ? "सकिन्छ! ग्राहकहरूको नाम, फोन नम्बर र खरिद इतिहासका साथै उधारो खाता (Khata) मार्फत बाँकी बक्यौता रकम, भुक्तानी सीमा र रसिद रेकर्ड सहजै ट्र्याक गर्न सकिन्छ। त्यसैगरी, थोक आपूर्तिकर्ता (Vendors) हरूको विवरण, खरिद बिलहरू, र तिर्न बाँकी रकम (Accounts Payable) पनि व्यवस्थित गर्न सकिन्छ।"
-        : "Yes! The platform includes Customer Directory & Credit Khata ledgers to track customer purchase histories, outstanding balances, credit limits, and settled receipts. Additionally, Vendor Management lets you track wholesale distributors, purchase bills, payment due dates, and accounts payable.",
+        ? "सकिन्छ! ग्राहकहरूको नाम, फोन नम्बर र खरिद इतिहासका साथै उधारो खाता (Khata) मार्फत कुल बाँकी बक्यौता रकम (Total Due), भुक्तानी सम्झौता र रसिद रेकर्ड सहजै ट्र्याक गर्न सकिन्छ। त्यसैगरी, थोक आपूर्तिकर्ता (Vendors) हरूको विवरण, खरिद बिलहरू, र तिर्न बाँकी रकम (Accounts Payable) पनि व्यवस्थित गर्न सकिन्छ।"
+        : "Yes! The platform includes Customer Directory & Credit Khata ledgers to track customer purchase histories, total outstanding dues, and settled receipts. Additionally, Vendor Management lets you track wholesale distributors, purchase bills, payment due dates, and accounts payable.",
     },
     {
       question: isNepali

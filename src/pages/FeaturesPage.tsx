@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { SEO } from "../components/common/SEO.tsx";
 import { Breadcrumbs } from "../components/common/Breadcrumbs.tsx";
 import { FeaturesSection } from "../components/public/FeaturesSection.tsx";
@@ -11,9 +11,8 @@ import {
   ArrowRight,
   Monitor,
   Printer,
-  Barcode,
+  Keyboard,
   HardDrive,
-  Cpu,
   ShieldCheck,
   CheckCircle2,
   FileSpreadsheet,
@@ -30,7 +29,6 @@ import { useLanguage } from "../context/LanguageContext.tsx";
 
 export const FeaturesPage: React.FC = () => {
   const { isNepali } = useLanguage();
-  const navigate = useNavigate();
 
   const schemaJson = {
     "@context": "https://schema.org",
@@ -49,12 +47,14 @@ export const FeaturesPage: React.FC = () => {
       "Gross Profit & Cost of Goods Sold (COGS) Snapshot Pricing",
       "Operational Expense Ledger & Net Bottom-Line Profit Analysis",
       "Staff Management & Monthly Salary Disbursement Vouchers",
-      "Customer Directory & Credit Khata Ledger with Due Balance Alerts",
+      "Sales & Purchase Dues Tracking with Previous Due, Current Due & Total Outstanding Due",
+      "Partial Payments at Checkout & Inflow with Due Breakdown on Thermal Receipts",
+      "Customer Directory & Credit Khata Ledger with Total Due Balance Tracking",
       "Vendor & Supplier Management with Wholesale Purchase Payables",
       "Dark & Light Theme Mode Toggle with Ergonomic Contrast Persistence",
       "Bilingual Switch (English & नेपाली) with Automatic Currency रु./Rs. Sync",
       "High-Speed 80mm & 58mm Thermal Receipt Printing",
-      "Barcode Scanning and Keyboard Shortcut Automation",
+      "Keyboard Shortcuts & Fast Counter Automation",
     ],
   };
 
@@ -103,6 +103,16 @@ export const FeaturesPage: React.FC = () => {
       stockforgeNote: "Included supplier directory & invoice ledger",
       cloudPos: false,
       cloudPosNote: "Locked behind enterprise ERP tiers",
+    },
+    {
+      feature: isNepali
+        ? "बिक्री तथा खरिद बाँकी बक्यौता र आंशिक भुक्तानी (Dues Tracking)"
+        : "Sales & Purchase Dues Tracking with Partial Payments",
+      stockforge: true,
+      stockforgeNote:
+        "Auto Previous Due + Current Due = Total Due on bills & ledgers",
+      cloudPos: false,
+      cloudPosNote: "Forces full payment or requires external manual ledger",
     },
     {
       feature: isNepali
@@ -268,15 +278,15 @@ export const FeaturesPage: React.FC = () => {
             </h2>
             <p className="text-xs sm:text-sm text-neutral-400">
               {isNepali
-                ? "बारकोड स्क्यानदेखि ०ms स्थानीय SQLite कमिट र थर्मल रसिद प्रिन्टसम्मको स्वचालित प्रक्रिया।"
-                : "From handheld barcode scan and fractional weighing to instant local ACID SQLite commit and sequential receipt printing."}
+                ? "द्रुत उत्पादन खोजीदेखि ०ms स्थानीय SQLite कमिट र थर्मल रसिद प्रिन्टसम्मको स्वचालित प्रक्रिया।"
+                : "From instant product search and fractional weighing to instant local ACID SQLite commit and sequential receipt printing."}
             </p>
           </div>
 
           <div className="flex justify-center mb-6">
             <img
               src="/pos-workflow-nepal.svg"
-              alt="High-speed offline retail checkout flow in Nepal: barcode scanning, multi-unit measurement, automated sequential bill numbering, zero-latency SQLite WASM, and 80mm thermal printing"
+              alt="High-speed offline retail checkout flow in Nepal: fast product search, multi-unit measurement, automated sequential bill numbering, zero-latency SQLite WASM, and 80mm thermal printing"
               width={960}
               height={420}
               loading="lazy"
@@ -315,11 +325,11 @@ export const FeaturesPage: React.FC = () => {
       </section>
 
       {/* Main Features Section component */}
-      <FeaturesSection onRequestDemo={() => navigate("/contact")} />
+      <FeaturesSection />
 
       {/* Comparison Matrix Table */}
       <section className="py-20 bg-neutral-950 border-t border-neutral-800/80">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-3 mb-12">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold">
               <Sparkles className="w-3.5 h-3.5" />
@@ -350,7 +360,7 @@ export const FeaturesPage: React.FC = () => {
                     <th className="py-4 px-5 font-bold uppercase tracking-wider text-[11px]">
                       {isNepali ? "सुविधा / क्षमता" : "Feature / Capability"}
                     </th>
-                    <th className="py-4 px-5 font-bold uppercase tracking-wider text-[11px] text-emerald-400 bg-emerald-950/20">
+                    <th className="py-4 px-5 font-bold uppercase tracking-wider text-[11px] text-emerald-400 bg-emerald-400/20">
                       StockForge POS
                     </th>
                     <th className="py-4 px-5 font-bold uppercase tracking-wider text-[11px] text-neutral-400">
@@ -367,7 +377,7 @@ export const FeaturesPage: React.FC = () => {
                       <td className="py-3.5 px-5 font-medium text-neutral-200">
                         {row.feature}
                       </td>
-                      <td className="py-3.5 px-5 bg-emerald-950/10 font-semibold text-emerald-300">
+                      <td className="py-3.5 px-5 bg-emerald-200/10 font-semibold text-emerald-500">
                         <div className="flex items-center gap-2">
                           <Check className="w-4 h-4 text-emerald-400 shrink-0" />
                           <span>{row.stockforgeNote}</span>
@@ -531,7 +541,7 @@ export const FeaturesPage: React.FC = () => {
       <section className="py-16 bg-neutral-950 border-t border-neutral-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Card 1: Customer Khata & Vendor Directory */}
+            {/* Card 1: Customer Khata, Vendor Directory & Dues Tracking */}
             <div className="p-7 sm:p-8 rounded-2xl border border-neutral-800 bg-neutral-900/50 space-y-5 hover:border-emerald-500/40 transition-colors">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
@@ -539,20 +549,20 @@ export const FeaturesPage: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                    CRM & Khata
+                    CRM, Khata & Dues
                   </span>
                   <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100">
                     {isNepali
-                      ? "ग्राहक उधारो खाता र आपूर्तिकर्ता (Vendor) व्यवस्थापन"
-                      : "Customer Credit Khata & Vendor Supplier Directory"}
+                      ? "ग्राहक उधारो खाता, आपूर्तिकर्ता र बाँकी बक्यौता (Dues) प्रणाली"
+                      : "Customer Credit Khata, Vendor Directory & Dues Tracking"}
                   </h3>
                 </div>
               </div>
 
               <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
                 {isNepali
-                  ? "नियमित ग्राहकहरूको खरिद विवरण, सम्पर्क, र उधारो खाता (उधारो / Khata) मार्फत बाँकी रकम, भुक्तानी सीमा र रसिद मिलाउनुहोस्। साथै, थोक आपूर्तिकर्ता (Vendors) हरूको खरिद बिल, बाँकी बक्यौता रकम (Accounts Payable) र भुक्तानी मिति एउटै सफ्टवेयरमा सजिलै व्यवस्थापन गर्नुहोस्।"
-                  : "Track customer profiles, purchase history, and credit ledgers (उधारो / Khata) with real-time balance calculations, settled invoices, credit limits, and due date reminders. Simultaneously manage wholesale suppliers, incoming vendor bills, accounts payable, and payment timelines seamlessly."}
+                  ? "काउन्टरमा बिक्री वा खरिद गर्दा ग्राहक र आपूर्तिकर्ताको आंशिक भुक्तानी (Partial Payment) सहजै दर्ता गर्नुहोस्। जस्तै ग्राहकको रु. १०,००० को बिलमा रु. ६,००० तिरेमा रु. ४,००० बाँकी रहन्छ; अर्को पटक रु. ५,००० को बिलमा रु. ३,००० तिर्दा साविकको बाँकी (४,०००), हालको बाँकी (२,०००) र कुल बाँकी (६,०००) रसिद, बिलिङ र इतिहासमा स्पष्ट देखिन्छ। थोक आपूर्तिकर्ता (Vendors) लाई तिर्न बाँकी रकममा पनि यही नियम लागू हुन्छ।"
+                  : "Effortlessly handle partial payments on sales and inventory restocks. For instance, if a customer pays Rs. 6,000 on a Rs. 10,000 bill, Rs. 4,000 remains due. On their next Rs. 5,000 bill with Rs. 3,000 paid, the system automatically itemizes Previous Due (4,000), Current Due (2,000), and Total Due (6,000) on POS screens, printed receipts, and history ledgers. The exact same accounting applies to wholesale vendor purchases."}
               </p>
 
               <div className="grid grid-cols-2 gap-3 pt-1">
@@ -560,26 +570,30 @@ export const FeaturesPage: React.FC = () => {
                   <div className="flex items-center gap-2 text-xs font-bold text-neutral-200 mb-1">
                     <UserCheck className="w-4 h-4 text-emerald-400" />
                     <span>
-                      {isNepali ? "ग्राहक उधारो खाता" : "Customer Credit"}
+                      {isNepali
+                        ? "साविक + हालको बाँकी"
+                        : "Previous + Current Due"}
                     </span>
                   </div>
                   <p className="text-[11px] text-neutral-400">
                     {isNepali
-                      ? "बाँकी बक्यौता, भुक्तानी सीमा र इतिहास"
-                      : "Due tracking & credit limits"}
+                      ? "रसिद र इतिहासमा कुल बाँकी बक्यौता"
+                      : "Total due breakdown on every receipt"}
                   </p>
                 </div>
                 <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800">
                   <div className="flex items-center gap-2 text-xs font-bold text-neutral-200 mb-1">
                     <Truck className="w-4 h-4 text-teal-400" />
                     <span>
-                      {isNepali ? "सप्लायर तथा खरिद" : "Vendor Payables"}
+                      {isNepali
+                        ? "आपूर्तिकर्ता खरिद बाँकी"
+                        : "Vendor Purchase Due"}
                     </span>
                   </div>
                   <p className="text-[11px] text-neutral-400">
                     {isNepali
-                      ? "थोक बिल र भुक्तानी तालिका"
-                      : "Bills & wholesale schedules"}
+                      ? "थोक बिल, आंशिक भुक्तानी र पेएबल्स"
+                      : "Wholesale restock partial payments"}
                   </p>
                 </div>
               </div>
@@ -653,8 +667,8 @@ export const FeaturesPage: React.FC = () => {
             </h2>
             <p className="text-xs text-neutral-400">
               {isNepali
-                ? "कुनै नयाँ महँगो हार्डवेयर किन्नु पर्दैन। तपाईंको हालको ल्यापटप, बारकोड स्क्यानर र प्रिन्टरसँग सिधै चल्छ।"
-                : "Plug and play with standard USB and Bluetooth barcode scanners, cash drawers, and thermal receipt printers."}
+                ? "कुनै नयाँ महँगो हार्डवेयर किन्नु पर्दैन। तपाईंको हालको ल्यापटप, क्यास ड्रयर र प्रिन्टरसँग सिधै चल्छ।"
+                : "Plug and play with standard USB and Bluetooth thermal receipt printers, cash drawers, and existing computers."}
             </p>
           </div>
 
@@ -672,13 +686,13 @@ export const FeaturesPage: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center gap-3">
-              <Barcode className="w-6 h-6 text-teal-400 shrink-0" />
+              <Keyboard className="w-6 h-6 text-teal-400 shrink-0" />
               <div>
                 <div className="text-xs font-bold text-neutral-200">
-                  Barcode Scanners
+                  Keyboard & Hotkeys
                 </div>
                 <div className="text-[10px] text-neutral-400">
-                  1D / 2D / QR Handheld
+                  F2 Quick Sale & Shortcuts
                 </div>
               </div>
             </div>

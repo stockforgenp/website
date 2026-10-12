@@ -15,9 +15,10 @@ import {
   ShieldCheck,
   Headphones,
   MessageCircle,
+  AlertCircle,
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext.tsx";
-import { createEnquiry } from "../lib/services/enquiryService.ts";
+import { submitEnquiry } from "../lib/services/enquiryService.ts";
 
 export const ContactPage: React.FC = () => {
   const { isNepali } = useLanguage();
@@ -35,6 +36,7 @@ export const ContactPage: React.FC = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [submissionResult, setSubmissionResult] = useState<{
     referenceId: string;
     submittedAt: string;
@@ -42,19 +44,62 @@ export const ContactPage: React.FC = () => {
     shopName: string;
   } | null>(null);
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrorMessage(null);
+
+    // Front-end validations
+    if (!formValues.fullName.trim() || formValues.fullName.trim().length < 2) {
+      setErrorMessage(
+        isNepali
+          ? "कृपया कम्तिमा २ अक्षरको पूरा नाम प्रविष्ट गर्नुहोस्।"
+          : "Please enter a valid full name (at least 2 characters).",
+      );
+      return;
+    }
+
+    if (!formValues.email.trim() || !formValues.email.includes("@")) {
+      setErrorMessage(
+        isNepali
+          ? "कृपया मान्य इमेल ठेगाना प्रविष्ट गर्नुहोस्।"
+          : "Please enter a valid email address.",
+      );
+      return;
+    }
+
+    if (!formValues.phone.trim()) {
+      setErrorMessage(
+        isNepali
+          ? "कृपया सम्पर्क फोन नम्बर प्रविष्ट गर्नुहोस्।"
+          : "Please enter a contact phone number.",
+      );
+      return;
+    }
+
+    if (!formValues.message.trim() || formValues.message.trim().length < 10) {
+      setErrorMessage(
+        isNepali
+          ? "कृपया सन्देशमा कम्तिमा १० अक्षर लेख्नुहोस्।"
+          : "Please enter a detailed message (at least 10 characters).",
+      );
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      const enq = createEnquiry({
+      const generatedSubject =
+        formValues.subject.trim() ||
+        `${formValues.storeType} - ${formValues.shopName.trim() || formValues.fullName.trim()} Inquiry`;
+
+      const enq = await submitEnquiry({
         full_name: formValues.fullName,
         shop_name: formValues.shopName || undefined,
         email: formValues.email,
         phone: formValues.phone,
         store_type: formValues.storeType,
         inquiry_type: formValues.inquiryType,
-        subject: formValues.subject || undefined,
+        subject: generatedSubject,
         message: formValues.message,
       });
 
@@ -64,17 +109,14 @@ export const ContactPage: React.FC = () => {
         fullName: enq.full_name,
         shopName: enq.shop_name || "Your Retail Store",
       });
-    } catch (err) {
-      console.error("Error saving inquiry:", err);
-      const randomSeq = Math.floor(1000 + Math.random() * 9000);
-      const todayStr = new Date().toISOString().slice(0, 10).replace(/-/g, "");
-      const refId = `INQ-${todayStr}-${randomSeq}`;
-      setSubmissionResult({
-        referenceId: refId,
-        submittedAt: new Date().toLocaleTimeString(),
-        fullName: formValues.fullName,
-        shopName: formValues.shopName || "Your Retail Store",
-      });
+    } catch (err: any) {
+      console.error("Error submitting inquiry to API:", err);
+      setErrorMessage(
+        err.message ||
+          (isNepali
+            ? "अनुरोध पठाउन सकिएन। कृपया केही समयपछि पुनः प्रयास गर्नुहोस्।"
+            : "Failed to submit inquiry. Please check your network and try again."),
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -82,6 +124,7 @@ export const ContactPage: React.FC = () => {
 
   const handleReset = () => {
     setSubmissionResult(null);
+    setErrorMessage(null);
     setFormValues({
       fullName: "",
       shopName: "",
@@ -356,6 +399,22 @@ export const ContactPage: React.FC = () => {
                       </p>
                     </div>
 
+                    {errorMessage && (
+                      <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs flex items-start gap-2.5">
+                        <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                        <div className="flex-1">
+                          <p className="font-semibold">
+                            {isNepali
+                              ? "अनुरोध पठाउन समस्या भयो"
+                              : "Submission Failed"}
+                          </p>
+                          <p className="mt-0.5 text-neutral-300">
+                            {errorMessage}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-semibold text-neutral-300 mb-1.5">
@@ -512,7 +571,7 @@ export const ContactPage: React.FC = () => {
                             Sequential Invoicing & Billing Setup
                           </option>
                           <option value="hardware_pairing">
-                            Barcode / Thermal Printer Compatibility
+                            Thermal Printer & POS Hardware Compatibility
                           </option>
                           <option value="multi_unit_help">
                             Multi-Unit Inventory Guidance

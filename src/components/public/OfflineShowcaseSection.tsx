@@ -28,8 +28,8 @@ export const OfflineShowcaseSection: React.FC = () => {
       icon: Zap,
       title: isNepali ? '० मि.से. शून्य-विलम्ब प्रतिक्रिया' : '0ms Sub-Millisecond Speed',
       description: isNepali
-        ? 'प्रत्येक बारकोड स्क्यान र बिलिङ सिधै कम्प्युटरको मेमोरीमा हुन्छ। कुनै रिमोट सर्भर अनुरोध कुर्नु पर्दैन।'
-        : 'Every barcode scan, price lookup, and bill generation executes client-side with instant zero-latency speed.',
+        ? 'प्रत्येक उत्पादन खोजी र बिलिङ सिधै कम्प्युटरको मेमोरीमा हुन्छ। कुनै रिमोट सर्भर अनुरोध कुर्नु पर्दैन।'
+        : 'Every item lookup, price calculation, and bill generation executes client-side with instant zero-latency speed.',
     },
     {
       icon: CloudOff,
@@ -176,7 +176,7 @@ export const OfflineShowcaseSection: React.FC = () => {
                 0% <span className="text-xs text-neutral-400 font-normal">({isNepali ? 'शून्य' : 'Zero bytes needed'})</span>
               </div>
               <p className="text-[11px] text-neutral-400 mt-1.5">
-                {isNepali ? 'काउन्टरमा बिक्री र प्रिन्ट गर्दा शून्य इन्टरनेट प्रयोग हुन्छ।' : 'Ring up sales, scan barcodes, and print receipts with zero network calls.'}
+                {isNepali ? 'काउन्टरमा बिक्री र प्रिन्ट गर्दा शून्य इन्टरनेट प्रयोग हुन्छ।' : 'Ring up sales, calculate totals, and print receipts with zero network calls.'}
               </p>
             </div>
 

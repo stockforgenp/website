@@ -65,9 +65,9 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
     question_en: 'What is StockForge POS software?',
     question_np: 'StockForge कस्तो रिटेल POS सफ्टवेयर हो?',
     answer_en:
-      'StockForge is an offline-first Point of Sale (POS) and inventory management software engineered specifically for grocery stores, retail marts, hardware outlets, and boutique shops in Nepal. It operates with 0 internet dependency, saves data in local SQLite WebAssembly, and connects seamlessly to barcode scanners, cash drawers, and thermal receipt printers.',
+      'StockForge is an offline-first Point of Sale (POS) and inventory management software engineered specifically for grocery stores, retail marts, hardware outlets, and boutique shops in Nepal. It operates with 0 internet dependency, saves data in local SQLite WebAssembly, and connects seamlessly to cash drawers and thermal receipt printers.',
     answer_np:
-      'StockForge नेपालका किराना पसल, मार्ट, हार्डवेयर र फेन्सी स्टोरहरूका लागि विशेष रूपमा तयार गरिएको अफलाइन रिटेल POS र इन्भेन्टरी सफ्टवेयर हो। यसमा बिलिङ गर्न इन्टरनेट चाहिँदैन, सम्पूर्ण डेटा तपाईंको आफ्नै कम्प्युटरमा SQLite मा सुरक्षित रहन्छ, र यसले थर्मल प्रिन्टर, बारकोड स्क्यानर तथा ग्राहक खातालाई पूर्ण समर्थन गर्दछ।',
+      'StockForge नेपालका किराना पसल, मार्ट, हार्डवेयर र फेन्सी स्टोरहरूका लागि विशेष रूपमा तयार गरिएको अफलाइन रिटेल POS र इन्भेन्टरी सफ्टवेयर हो। यसमा बिलिङ गर्न इन्टरनेट चाहिँदैन, सम्पूर्ण डेटा तपाईंको आफ्नै कम्प्युटरमा SQLite मा सुरक्षित रहन्छ, र यसले थर्मल प्रिन्टर, क्यास ड्रयर तथा ग्राहक खातालाई पूर्ण समर्थन गर्दछ।',
     actionUrl: '/about',
     actionLabel_en: 'About StockForge',
     actionLabel_np: 'हाम्रोबारे हेर्नुहोस्',
@@ -101,7 +101,7 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
     question_en: 'Does StockForge work completely offline without an internet connection?',
     question_np: 'के StockForge चलाउन इन्टरनेट आवश्यक पर्छ? (Does it work offline?)',
     answer_en:
-      'Yes, 100%! StockForge operates completely client-side using SQLite WebAssembly with local ACID transaction safety. Sales checkout, product catalog management, barcode scanning, sequential billing, and invoice printing operate at 0ms latency with zero internet or cloud dependencies.',
+      'Yes, 100%! StockForge operates completely client-side using SQLite WebAssembly with local ACID transaction safety. Sales checkout, product catalog management, fast item search, sequential billing, and invoice printing operate at 0ms latency with zero internet or cloud dependencies.',
     answer_np:
       'पर्दैन! StockForge १००% अफलाइन-फर्स्ट प्रणाली हो। यो तपाईंको कम्प्युटर वा ल्यापटपको वेब ब्राउजरभित्र SQLite WebAssembly डेटाबेसमा स्थानीय रूपमा चल्छ। इन्टरनेट नभए पनि वा नेटवर्क पूर्ण रूपमा बन्द हुँदा पनि तपाईंले निर्बाध रूपमा सामान थप्न, बिक्री गर्न, र बिल प्रिन्ट गर्न सक्नुहुन्छ।',
     actionUrl: '/features',
@@ -216,6 +216,24 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
 
   // ==================== FEATURES: CRM, KHATA & VENDORS ====================
   {
+    id: 'dues_and_partial_payments',
+    category: 'khata',
+    keywords: [
+      'due', 'dues', 'partial payment', 'paid', 'previous due', 'total due',
+      'current due', 'customer due', 'vendor due', 'ayub', 'balance due', 'बाँकी',
+      'बक्यौता', 'साविकको बाँकी', 'आंशिक भुक्तानी', 'तिर्न बाँकी', 'उधारो बाँकी'
+    ],
+    question_en: 'How do dues, partial payments, and previous balances work for sales and purchases?',
+    question_np: 'बिक्री तथा खरिदमा आंशिक भुक्तानी र साविक तथा कुल बाँकी (Dues) कसरी हिसाब हुन्छ?',
+    answer_en:
+      'StockForge supports flexible partial payments on sales checkouts and wholesale purchase restocks. For instance, if a customer bill is Rs. 10,000 and they only pay Rs. 6,000, Rs. 4,000 is tracked as current bill due. On their next visit with a Rs. 5,000 bill where they pay Rs. 3,000, StockForge automatically calculates and displays Previous Due (Rs. 4,000), Current Due (Rs. 2,000), and Total Due (Rs. 6,000) on POS screens, printed receipts, and sales history columns. The same system applies to vendor wholesale purchases.',
+    answer_np:
+      'StockForge ले बिक्री र खरिद दुवैमा आंशिक भुक्तानी (Partial Payment) र बाँकी बक्यौताको पूर्ण हिसाब राख्छ। जस्तै ग्राहकको रु. १०,००० को बिलमा रु. ६,००० तिर्दा रु. ४,००० बाँकी रहन्छ; अर्को पटक रु. ५,००० को बिलमा रु. ३,००० मात्र तिर्दा साविकको बाँकी (४,०००), हालको बिलको बाँकी (२,०००) र कुल बाँकी (६,०००) रसिद, काउन्टर र बिक्री इतिहासमा स्पष्ट रूपमा देखाउँछ। थोक आपूर्तिकर्ताको खरिदमा पनि यही स्वचालित हिसाब लागू हुन्छ।',
+    actionUrl: '/features',
+    actionLabel_en: 'Explore Dues Feature',
+    actionLabel_np: 'बाँकी हिसाब सुविधा हेर्नुहोस्',
+  },
+  {
     id: 'khata_receivables',
     category: 'khata',
     keywords: [
@@ -225,9 +243,9 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
     question_en: 'How does the Customer Credit Khata (उधारो खाता) ledger work?',
     question_np: 'ग्राहकको उधारो खाता (Credit Khata) ले कसरी काम गर्छ?',
     answer_en:
-      'StockForge features an integrated Customer Directory & Credit Khata ledger. You can register customers, view their complete purchase history, set credit limits, record partial or full cash settlements, and track outstanding balances in real-time.',
+      'StockForge features an integrated Customer Directory & Credit Khata ledger. You can register customers, view their complete purchase history, record partial or full cash settlements, and track total outstanding due balances in real-time.',
     answer_np:
-      'ग्राहकहरूको नाम, फोन नम्बर र खरिद इतिहासका साथै उधारो खाता (Khata) मार्फत बाँकी बक्यौता रकम, भुक्तानी सीमा र रसिद रेकर्ड सहजै ट्र्याक गर्न सकिन्छ। नियमित ग्राहकको उधारो रसिद १-क्लिकमा व्यवस्थापन हुन्छ।',
+      'ग्राहकहरूको नाम, फोन नम्बर र खरिद इतिहासका साथै उधारो खाता (Khata) मार्फत कुल बाँकी बक्यौता रकम, आंशिक भुक्तानी र रसिद रेकर्ड सहजै ट्र्याक गर्न सकिन्छ। नियमित ग्राहकको उधारो रसिद १-क्लिकमा व्यवस्थापन हुन्छ।',
     actionUrl: '/features',
     actionLabel_en: 'Customer Khata Guide',
     actionLabel_np: 'खाता सुविधा हेर्नुहोस्',
@@ -360,15 +378,15 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
       'scanner', 'barcode', 'qr', 'sku', 'usb scanner', 'laser', 'स्क्यानर',
       'बारकोड', 'स्क्यान'
     ],
-    question_en: 'Which barcode scanners and hardware accessories are supported?',
-    question_np: 'कुन-कुन बारकोड स्क्यानर र हार्डवेयर उपकरणहरू जोड्न सकिन्छ?',
+    question_en: 'Are barcode scanners supported in StockForge?',
+    question_np: 'के StockForge मा बारकोड स्क्यानर सपोर्ट छ?',
     answer_en:
-      'StockForge supports all universal USB, Bluetooth, and wireless 1D/2D handheld barcode scanners and QR code readers. When scanned at checkout, items add to cart with sub-second response and auto-increment quantities.',
+      'Barcode scanner hardware integration is currently not implemented in StockForge. Instead, StockForge features ultra-responsive manual product search, quick catalog selection, and keyboard accelerators (F2) for rapid cashier checkout.',
     answer_np:
-      'StockForge ले सबै मानक USB, ब्लुटुथ, र वायरलेस १D/२D ह्यान्डहेल्ड बारकोड स्क्यानर तथा क्युआर कोड रिडरहरूलाई समर्थन गर्दछ। काउन्टरमा स्क्यान गर्नासाथ सामान तत्काल कार्टमा थपिन्छ।',
+      'StockForge मा हाल बारकोड स्क्यानर इन्टिग्रेसन उपलब्ध छैन। यसको सट्टा, द्रुत वस्तु खोजी, क्याटलग छनोट र किबोर्ड सर्टकट (F2) मार्फत काउन्टरमा छिटो बिलिङ गर्न सकिन्छ।',
     actionUrl: '/features',
-    actionLabel_en: 'Barcode Integration',
-    actionLabel_np: 'बारकोड विवरण हेर्नुहोस्',
+    actionLabel_en: 'Explore POS Features',
+    actionLabel_np: 'काउन्टर सुविधाहरू हेर्नुहोस्',
   },
   {
     id: 'integration_cash_drawer_scales',
@@ -504,9 +522,9 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
     question_en: 'Can I test a sample shop or get a live demo?',
     question_np: 'के म प्रत्यक्ष डेमो (Live Demo) वा परामर्श पाउन सक्छु?',
     answer_en:
-      'Yes! You can request a live on-site demo or consultation via our Contact page. Our team will demonstrate barcode scanning, billing, khata ledgers, and thermal prints tailored to your store setup.',
+      'Yes! You can request a live on-site demo or consultation via our Contact page. Our team will demonstrate fast counter billing, khata ledgers, inventory tracking, and thermal prints tailored to your store setup.',
     answer_np:
-      'अवश्य! तपाईंले हाम्रो सम्पर्क पृष्ठमार्फत प्रत्यक्ष डेमो वा परामर्श अनुरोध गर्न सक्नुहुन्छ। हाम्रो टोलीले तपाईंको पसल अनुसार बारकोड स्क्यानिङ, बिलिङ, खाता र प्रिन्टिङ प्रदर्शन गर्नेछ।',
+      'अवश्य! तपाईंले हाम्रो सम्पर्क पृष्ठमार्फत प्रत्यक्ष डेमो वा परामर्श अनुरोध गर्न सक्नुहुन्छ। हाम्रो टोलीले तपाईंको पसल अनुसार द्रुत बिलिङ, खाता, स्टक व्यवस्थापन र प्रिन्टिङ प्रदर्शन गर्नेछ।',
     actionUrl: '/contact',
     actionLabel_en: 'Request Live Demo',
     actionLabel_np: 'प्रत्यक्ष डेमो अनुरोध गर्नुहोस्',
@@ -556,9 +574,9 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
     question_en: 'Can I import my existing product list from Excel or an old POS software?',
     question_np: 'के पुरानो सफ्टवेयर वा एक्सेल (Excel) बाट सामानहरू आयात गर्न सकिन्छ?',
     answer_en:
-      'Yes! We support CSV and Excel spreadsheet import templates. Our technical onboarding team also assists in formatting and migrating your legacy product list, stock numbers, and barcodes into StockForge during setup.',
+      'Yes! We support CSV and Excel spreadsheet import templates. Our technical onboarding team also assists in formatting and migrating your legacy product list, item rates, and opening stock counts into StockForge during setup.',
     answer_np:
-      'सकिन्छ! तपाईंले एक्सेल वा CSV फाइलमार्फत आफ्ना सम्पूर्ण सामान, मूल्य र बारकोडहरू सजिलै आयात गर्न सक्नुहुन्छ। हाम्रो प्राविधिक टोलीले डेटा माइग्रेसनमा पूर्ण सहयोग गर्दछ।',
+      'सकिन्छ! तपाईंले एक्सेल वा CSV फाइलमार्फत आफ्ना सम्पूर्ण सामान, मूल्य र सुरुवाती स्टक संख्या सजिलै आयात गर्न सक्नुहुन्छ। हाम्रो प्राविधिक टोलीले डेटा माइग्रेसनमा पूर्ण सहयोग गर्दछ।',
     actionUrl: '/contact',
     actionLabel_en: 'Request Data Migration',
     actionLabel_np: 'डेटा माइग्रेसन अनुरोध गर्नुहोस्',
