@@ -1,21 +1,13 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { SEO } from "../components/common/SEO.tsx";
 import { Breadcrumbs } from "../components/common/Breadcrumbs.tsx";
 import { FaqSection } from "../components/public/FaqSection.tsx";
-import {
-  HelpCircle,
-  MessageSquare,
-  Sparkles,
-  ArrowRight,
-  Phone,
-  Mail,
-} from "lucide-react";
+import { HelpCircle, MessageSquare, Sparkles, ArrowRight } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext.tsx";
 
 export const FaqPage: React.FC = () => {
   const { isNepali } = useLanguage();
-  const navigate = useNavigate();
 
   const schemaJson = {
     "@context": "https://schema.org",
@@ -175,7 +167,7 @@ export const FaqPage: React.FC = () => {
 
       {/* Still have questions? Help Card */}
       <section className="py-12 bg-neutral-900/40 border-t border-neutral-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="p-8 rounded-2xl bg-neutral-950 border border-neutral-800 text-center space-y-4">
             <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/20">
               <MessageSquare className="w-6 h-6" />
