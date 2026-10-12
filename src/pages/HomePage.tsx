@@ -63,7 +63,7 @@ export const HomePage: React.FC = () => {
       "@type": "Organization",
       name: "StockForge",
       url: "https://stockforge.app/",
-      logo: "https://stockforge.app/og-image.svg",
+      logo: "https://stockforge.app/icon.png",
       description:
         "Developer of zero-latency offline retail POS systems and inventory management engines for modern stores across Nepal.",
       contactPoint: {

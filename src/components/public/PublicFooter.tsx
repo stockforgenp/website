@@ -74,12 +74,13 @@ export const PublicFooter: React.FC = () => {
       {/* Main Multi-Column Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
-          {/* Brand & Mission Column */}
           <div className="lg:col-span-2 space-y-4">
             <Link to="/" className="flex items-center gap-3 group select-none">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
-                <Store className="w-4 h-4" />
-              </div>
+              <img
+                src="/icon.png"
+                alt="StockForge Logo"
+                className="w-9 h-9 rounded-xl object-contain shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform"
+              />
               <div>
                 <span className="text-base font-black text-neutral-100 tracking-tight group-hover:text-emerald-400 transition-colors">
                   StockForge POS

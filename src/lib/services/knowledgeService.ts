@@ -37,6 +37,59 @@ export interface KnowledgeItem {
 }
 
 export const KNOWLEDGE_BASE: KnowledgeItem[] = [
+  // ==================== GREETINGS & INTRODUCTIONS ====================
+  {
+    id: 'general_greetings',
+    category: 'overview',
+    keywords: [
+      'hello', 'hi', 'hey', 'namaste', 'namaskar', 'halo', 'hai', 'नमस्ते', 'नमस्कार',
+      'हेलो', 'हाई', 'के छ', 'k cha', 'k chha', 'good morning', 'help', 'मद्दत', 'सोध्नु'
+    ],
+    question_en: 'Hello / Hi / How can you help me?',
+    question_np: 'नमस्ते / नमस्कार! मलाई के मद्दत गर्न सक्नुहुन्छ?',
+    answer_en:
+      'Hello! I am your StockForge Product Guide. I can help you understand our 100% offline POS, automated billing, multi-unit inventory (kg, litre, pcs), Google Sheets backup, customer credit Khata, thermal printer setup, license pricing, and free on-site demo requests. What can I assist your retail store with today?',
+    answer_np:
+      'नमस्ते तथा नमस्कार! म StockForge उत्पादन सहायता बट हुँ। म तपाईंलाई हाम्रो १००% अफलाइन POS, स्वचालित बिलिङ, केजी/लिटर/पिस एकाइ स्टक, गुगल सिट ब्याकअप, ग्राहक उधारो खाता, थर्मल प्रिन्टर सेटअप, मूल्य र निःशुल्क अन-साइट डेमोबारे जानकारी दिन सक्छु। आज म तपाईंलाई के सम्बन्धी सहयोग गरूँ?',
+    actionUrl: '/features',
+    actionLabel_en: 'Explore Features',
+    actionLabel_np: 'सुविधाहरू हेर्नुहोस्',
+  },
+  {
+    id: 'what_is_stockforge',
+    category: 'overview',
+    keywords: [
+      'what is stockforge', 'about stockforge', 'stockforge k ho', 'kasto software ho',
+      'सफ्टवेयर के हो', 'स्टकफोर्ज', 'परिचय', 'कस्तो सफ्टवेयर', 'pos software', 'के हो'
+    ],
+    question_en: 'What is StockForge POS software?',
+    question_np: 'StockForge कस्तो रिटेल POS सफ्टवेयर हो?',
+    answer_en:
+      'StockForge is an offline-first Point of Sale (POS) and inventory management software engineered specifically for grocery stores, retail marts, hardware outlets, and boutique shops in Nepal. It operates with 0 internet dependency, saves data in local SQLite WebAssembly, and connects seamlessly to barcode scanners, cash drawers, and thermal receipt printers.',
+    answer_np:
+      'StockForge नेपालका किराना पसल, मार्ट, हार्डवेयर र फेन्सी स्टोरहरूका लागि विशेष रूपमा तयार गरिएको अफलाइन रिटेल POS र इन्भेन्टरी सफ्टवेयर हो। यसमा बिलिङ गर्न इन्टरनेट चाहिँदैन, सम्पूर्ण डेटा तपाईंको आफ्नै कम्प्युटरमा SQLite मा सुरक्षित रहन्छ, र यसले थर्मल प्रिन्टर, बारकोड स्क्यानर तथा ग्राहक खातालाई पूर्ण समर्थन गर्दछ।',
+    actionUrl: '/about',
+    actionLabel_en: 'About StockForge',
+    actionLabel_np: 'हाम्रोबारे हेर्नुहोस्',
+  },
+  {
+    id: 'general_thanks',
+    category: 'overview',
+    keywords: [
+      'thank you', 'thanks', 'dhanyabad', 'dhanyabaad', 'धन्यवाद', 'धेरै धन्यवाद', 'thank u', 'thx'
+    ],
+    question_en: 'Thank you!',
+    question_np: 'धन्यवाद!',
+    answer_en:
+      "You're very welcome! If you have any further questions about setting up hardware, pricing licenses, or requesting a free on-site store demo, feel free to ask anytime or connect with our engineering team on WhatsApp (+977 9801234567).",
+    answer_np:
+      'धेरै धेरै धन्यवाद! StockForge, हार्डवेयर सेटअप वा पसलमै आएर डेमो हेर्न चाहनुहुन्छ भने जुनसुकै बेला प्रश्न सोध्न सक्नुहुन्छ वा हाम्रो प्राविधिक टोलीसँग ह्वाट्सएप (+९७७ ९८०१२३४५६७) मा सम्पर्क गर्न सक्नुहुन्छ।',
+    actionUrl: '/contact',
+    actionLabel_en: 'Contact Support',
+    actionLabel_np: 'सम्पर्क गर्नुहोस्',
+    suggestWhatsApp: true,
+  },
+
   // ==================== FEATURES: OFFLINE & ARCHITECTURE ====================
   {
     id: 'offline_mode',
@@ -539,22 +592,26 @@ export const WHATSAPP_NUMBER = '9779801234567';
 export const WHATSAPP_DEFAULT_MESSAGE =
   'Namaste StockForge! I would like to inquire about the offline retail POS software, hardware setup, and on-site demonstration.';
 
-export function getWhatsAppUrl(customMessage?: string): string {
-  const text = encodeURIComponent(customMessage || WHATSAPP_DEFAULT_MESSAGE);
+export function getWhatsAppUrl(customMessage?: string, isNepali = false): string {
+  const defaultMsg = isNepali
+    ? 'नमस्ते StockForge! म अफलाइन रिटेल POS सफ्टवेयर, हार्डवेयर र डेमोबारे थप बुझ्न चाहन्छु।'
+    : WHATSAPP_DEFAULT_MESSAGE;
+  const text = encodeURIComponent(customMessage || defaultMsg);
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 }
 
 /**
  * Deterministic text search over the product knowledge base
- * Evaluates keyword presence, category affinity, and string similarity.
+ * Evaluates keyword presence, category affinity, string containment, and language prioritization.
  * Zero external AI / LLM used.
  */
 export function queryKnowledgeBase(query: string, isNepali = false): KnowledgeItem | null {
   const clean = query.trim().toLowerCase();
   if (!clean) return null;
 
+  // Split with Nepali danda '।' and common separators
   const words = clean
-    .split(/[\s,?.!/]+/)
+    .split(/[\s,?.!/|।_=-]+/)
     .filter((w) => w.length > 1);
 
   let bestMatch: KnowledgeItem | null = null;
@@ -562,43 +619,49 @@ export function queryKnowledgeBase(query: string, isNepali = false): KnowledgeIt
 
   for (const item of KNOWLEDGE_BASE) {
     let score = 0;
+    const qEnLower = item.question_en.toLowerCase();
+    const qNpLower = item.question_np.toLowerCase();
 
-    // 1. Direct whole-query match in questions
-    if (item.question_en.toLowerCase().includes(clean)) score += 15;
-    if (item.question_np.toLowerCase().includes(clean)) score += 15;
+    // 1. Whole-query containment in questions (boosted for selected language)
+    if (qNpLower.includes(clean)) {
+      score += isNepali ? 28 : 16;
+    }
+    if (qEnLower.includes(clean)) {
+      score += isNepali ? 16 : 28;
+    }
 
-    // 2. Keyword exact matches
+    // 2. Keyword exact and substring matches
     for (const kw of item.keywords) {
       const kwLower = kw.toLowerCase();
       if (clean === kwLower) {
-        score += 12;
-      } else if (clean.includes(kwLower)) {
-        score += 8;
+        score += 22;
+      } else if (clean.includes(kwLower) || kwLower.includes(clean)) {
+        score += 14;
       }
       for (const w of words) {
         if (kwLower === w) {
-          score += 5;
+          score += 8;
         } else if (kwLower.includes(w) || w.includes(kwLower)) {
-          score += 2;
+          score += 4;
         }
       }
     }
 
     // 3. Question individual token matches
     for (const w of words) {
-      if (item.question_en.toLowerCase().includes(w)) score += 3;
-      if (item.question_np.toLowerCase().includes(w)) score += 3;
+      if (qNpLower.includes(w)) score += isNepali ? 6 : 3;
+      if (qEnLower.includes(w)) score += isNepali ? 3 : 6;
     }
 
     // 4. Answer text matches
     for (const w of words) {
-      if (item.answer_en.toLowerCase().includes(w)) score += 1;
-      if (item.answer_np.toLowerCase().includes(w)) score += 1;
+      if (item.answer_np.toLowerCase().includes(w)) score += isNepali ? 3 : 1;
+      if (item.answer_en.toLowerCase().includes(w)) score += isNepali ? 1 : 3;
     }
 
     // 5. Category affinity boost
     if (clean.includes(item.category)) {
-      score += 4;
+      score += 5;
     }
 
     if (score > highestScore) {
@@ -607,7 +670,7 @@ export function queryKnowledgeBase(query: string, isNepali = false): KnowledgeIt
     }
   }
 
-  // Threshold to avoid matching completely irrelevant questions
+  // Threshold to avoid matching completely irrelevant queries
   if (highestScore >= 3) {
     return bestMatch;
   }

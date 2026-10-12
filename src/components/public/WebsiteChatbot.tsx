@@ -3,7 +3,7 @@
  * Grounded 100% in local product and website content with zero external AI models.
  * Includes direct WhatsApp button redirection and popular query shortcuts.
  */
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -52,16 +52,38 @@ export const WebsiteChatbot: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
   const [isBotThinking, setIsBotThinking] = useState(false);
   const typingIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const getWelcomeText = useCallback(
+    (nepali: boolean) =>
+      nepali
+        ? 'नमस्ते! म StockForge सहायता बट हुँ। म तपाईंलाई सफ्टवेयरका सुविधाहरू, अफलाइन मोड, बिलिङ, ब्याकअप र प्रिन्टर सेटअप सम्बन्धी जानकारी दिन सक्छु।'
+        : 'Hello! I am the StockForge Product Guide. Ask me anything about offline mode, multi-unit inventory, automated billing, backups, or thermal printer setups!',
+    []
+  );
+
   const [messages, setMessages] = useState<ChatMessage[]>(() => [
     {
       id: 'welcome_1',
       sender: 'bot',
-      text: isNepali
-        ? 'नमस्ते! म StockForge सहायता बट हुँ। म तपाईंलाई सफ्टवेयरका सुविधाहरू, अफलाइन मोड, बिलिङ, ब्याकअप र प्रिन्टर सेटअप सम्बन्धी जानकारी दिन सक्छु।'
-        : 'Hello! I am the StockForge Product Guide. Ask me anything about offline mode, multi-unit inventory, automated billing, backups, or thermal printer setups!',
+      text: getWelcomeText(isNepali),
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     },
   ]);
+
+  // Synchronize initial welcome message whenever user toggles language on website
+  useEffect(() => {
+    setMessages((prev) => {
+      if (prev.length === 1 && prev[0].id.startsWith('welcome')) {
+        return [
+          {
+            ...prev[0],
+            text: getWelcomeText(isNepali),
+          },
+        ];
+      }
+      return prev;
+    });
+  }, [isNepali, getWelcomeText]);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -94,7 +116,6 @@ export const WebsiteChatbot: React.FC = () => {
     if (typingIntervalRef.current) {
       clearInterval(typingIntervalRef.current);
       typingIntervalRef.current = null;
-      // Finish typing any in-progress message
       setMessages((prev) =>
         prev.map((m) => (m.isTyping ? { ...m, isTyping: false } : m))
       );
@@ -119,7 +140,7 @@ export const WebsiteChatbot: React.FC = () => {
           ? match.answer_np
           : match.answer_en
         : isNepali
-        ? 'माफ गर्नुहोला, तपाईंको सोधपुछ वेबसाइट डाटाबेसमा भेटिएन। विस्तृत जानकारी वा तत्काल मद्दतको लागि हाम्रो ह्वाट्सएप वा फोनमा सिधै सम्पर्क गर्न सक्नुहुन्छ।'
+        ? 'माफ गर्नुहोला, तपाईंको सोधपुछ वेबसाइट जानकारीमा ठ्याक्कै भेटिएन। विस्तृत जानकारी वा तत्काल मद्दतको लागि हाम्रो ह्वाट्सएप वा फोनमा सिधै सम्पर्क गर्न सक्नुहुन्छ।'
         : "I couldn't find a direct match for that in our website documentation. For specific inquiries or hardware pairing assistance, our retail engineering team is available directly on WhatsApp and phone!";
 
       const botMessageId = `bot_${Date.now()}`;
@@ -131,15 +152,15 @@ export const WebsiteChatbot: React.FC = () => {
         sender: 'bot',
         text: '',
         timestamp,
-        actionUrl: match ? match.actionUrl : '/contact',
+        actionUrl: match ? (match.actionUrl || '/contact') : '/contact',
         actionLabel: match
           ? isNepali
-            ? match.actionLabel_np
-            : match.actionLabel_en
+            ? match.actionLabel_np || 'थप जानकारी'
+            : match.actionLabel_en || 'Learn More'
           : isNepali
           ? 'सम्पर्क पृष्ठ हेर्नुहोस्'
           : 'Visit Contact Page',
-        suggestWhatsApp: match ? match.suggestWhatsApp : true,
+        suggestWhatsApp: match ? !!match.suggestWhatsApp : true,
         isTyping: true,
       };
 
@@ -205,7 +226,7 @@ export const WebsiteChatbot: React.FC = () => {
         <motion.a
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.94 }}
-          href={getWhatsAppUrl()}
+          href={getWhatsAppUrl(undefined, isNepali)}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs shadow-xl border border-emerald-400/40 transition-all cursor-pointer group"
@@ -355,7 +376,7 @@ export const WebsiteChatbot: React.FC = () => {
                     {!msg.isTyping && msg.suggestWhatsApp && (
                       <div className="mt-2.5 pt-2 border-t border-neutral-800/80">
                         <a
-                          href={getWhatsAppUrl()}
+                          href={getWhatsAppUrl(undefined, isNepali)}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-[11px] transition-colors cursor-pointer"
@@ -399,7 +420,7 @@ export const WebsiteChatbot: React.FC = () => {
                   <span>{isNepali ? 'मुख्य विषयहरू (Topics):' : 'Key Topics:'}</span>
                 </span>
                 <a
-                  href={getWhatsAppUrl()}
+                  href={getWhatsAppUrl(undefined, isNepali)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1"
@@ -412,20 +433,65 @@ export const WebsiteChatbot: React.FC = () => {
               {/* Topic chips */}
               <div className="flex gap-1 overflow-x-auto pb-0.5 no-scrollbar">
                 {[
-                  { en: 'Offline Mode', np: 'अफलाइन मोड', q: 'Does StockForge work completely offline without an internet connection?' },
-                  { en: 'Multi-Units (kg, ltr)', np: 'एकाइ (केजी, लिटर)', q: 'Which measurement units are supported for loose and packaged products?' },
-                  { en: 'Thermal Printers', np: 'थर्मल प्रिन्टर', q: 'Can I print receipts on standard 80mm and 58mm thermal POS printers?' },
-                  { en: 'Google Sheets', np: 'गुगल सिट ब्याकअप', q: 'How does Google Sheets Cloud Backup & Restore integration work?' },
-                  { en: 'Customer Khata', np: 'उधारो खाता', q: 'How does the Customer Credit Khata (उधारो खाता) ledger work?' },
-                  { en: 'Pricing Plans', np: 'लाइसेन्स मूल्य', q: 'What are the pricing plans and licensing options in Nepal?' },
-                  { en: 'On-Site Demo', np: 'अन-साइट डेमो', q: 'Can I get an on-site demonstration at my shop in Nepal?' },
-                  { en: 'Hardware Specs', np: 'कम्प्युटर हार्डवेयर', q: 'What are the computer hardware and operating system requirements?' },
-                  { en: 'Contact Support', np: 'सम्पर्क विवरण', q: 'What are your support contact numbers, office location, and hours?' },
+                  {
+                    en: 'Offline Mode',
+                    np: 'अफलाइन मोड',
+                    q_en: 'Does StockForge work completely offline without an internet connection?',
+                    q_np: 'के StockForge इन्टरनेट नभए पनि पूर्ण रूपमा अफलाइन चल्छ?',
+                  },
+                  {
+                    en: 'Multi-Units (kg, ltr)',
+                    np: 'एकाइ (केजी, लिटर)',
+                    q_en: 'Which measurement units are supported for loose and packaged products?',
+                    q_np: 'सामानहरूमा कुन-कुन एकाइ (केजी, लिटर, पिस आदि) प्रयोग गर्न सकिन्छ?',
+                  },
+                  {
+                    en: 'Thermal Printers',
+                    np: 'थर्मल प्रिन्टर',
+                    q_en: 'Can I print receipts on standard 80mm and 58mm thermal POS printers?',
+                    q_np: 'के थर्मल बिल प्रिन्टर (८०mm/५८mm) मा रसिद छाप्न सकिन्छ?',
+                  },
+                  {
+                    en: 'Google Sheets',
+                    np: 'गुगल सिट ब्याकअप',
+                    q_en: 'How does Google Sheets Cloud Backup & Restore integration work?',
+                    q_np: 'गुगल सिट (Google Sheets) क्लाउड ब्याकअप र रिस्टोर कसरी काम गर्छ?',
+                  },
+                  {
+                    en: 'Customer Khata',
+                    np: 'उधारो खाता',
+                    q_en: 'How does the Customer Credit Khata (उधारो खाता) ledger work?',
+                    q_np: 'ग्राहकको उधारो खाता (Credit Khata) ले कसरी काम गर्छ?',
+                  },
+                  {
+                    en: 'Pricing Plans',
+                    np: 'लाइसेन्स मूल्य',
+                    q_en: 'What are the pricing plans and licensing options in Nepal?',
+                    q_np: 'StockForge को मूल्य, शुल्क र लाइफटाइम लाइसेन्स कति पर्छ?',
+                  },
+                  {
+                    en: 'On-Site Demo',
+                    np: 'अन-साइट डेमो',
+                    q_en: 'Can I get an on-site demonstration at my shop in Nepal?',
+                    q_np: 'के हाम्रो पसलमै आएर प्रत्यक्ष डेमो (On-site Demo) हेर्न मिल्छ?',
+                  },
+                  {
+                    en: 'Hardware Specs',
+                    np: 'कम्प्युटर हार्डवेयर',
+                    q_en: 'What are the computer hardware and operating system requirements?',
+                    q_np: 'सफ्टवेयर चलाउन कस्तो कम्प्युटर वा ल्यापटप चाहिन्छ?',
+                  },
+                  {
+                    en: 'Contact Support',
+                    np: 'सम्पर्क विवरण',
+                    q_en: 'What are your support contact numbers, office location, and hours?',
+                    q_np: 'सहयोगको लागि सम्पर्क फोन नम्बर, कार्यालय र समय के हो?',
+                  },
                 ].map((t, idx) => (
                   <button
                     key={idx}
                     type="button"
-                    onClick={() => handleSendMessage(isNepali ? t.q : t.q)}
+                    onClick={() => handleSendMessage(isNepali ? t.q_np : t.q_en)}
                     className="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-emerald-950/40 hover:bg-emerald-900/60 text-emerald-300 border border-emerald-800/50 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
                   >
                     {isNepali ? t.np : t.en}

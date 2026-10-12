@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import {
   Store,
   Layers,
@@ -14,9 +14,9 @@ import {
   Users,
   Mail,
   Info,
-} from 'lucide-react';
-import { useTheme } from '../../context/ThemeContext.tsx';
-import { useLanguage } from '../../context/LanguageContext.tsx';
+} from "lucide-react";
+import { useTheme } from "../../context/ThemeContext.tsx";
+import { useLanguage } from "../../context/LanguageContext.tsx";
 
 export const PublicNavbar: React.FC = () => {
   const { isDark, toggleTheme } = useTheme();
@@ -30,12 +30,29 @@ export const PublicNavbar: React.FC = () => {
   }, [location.pathname]);
 
   const navLinks = [
-    { path: '/', label: isNepali ? 'गृहपृष्ठ' : 'Home', icon: Store, end: true },
-    { path: '/features', label: isNepali ? 'सुविधाहरू' : 'Features', icon: Layers },
-    { path: '/about', label: isNepali ? 'हाम्रोबारे' : 'About Us', icon: Info },
-    { path: '/testimonials', label: isNepali ? 'ग्राहक प्रतिक्रिया' : 'Happy Clients', icon: Users },
-    { path: '/faqs', label: isNepali ? 'प्रश्नोत्तर' : 'FAQs', icon: HelpCircle },
-    { path: '/contact', label: isNepali ? 'सम्पर्क' : 'Contact', icon: Mail },
+    {
+      path: "/",
+      label: isNepali ? "गृहपृष्ठ" : "Home",
+      icon: Store,
+      end: true,
+    },
+    {
+      path: "/features",
+      label: isNepali ? "सुविधाहरू" : "Features",
+      icon: Layers,
+    },
+    { path: "/about", label: isNepali ? "हाम्रोबारे" : "About Us", icon: Info },
+    {
+      path: "/testimonials",
+      label: isNepali ? "ग्राहक प्रतिक्रिया" : "Happy Clients",
+      icon: Users,
+    },
+    {
+      path: "/faqs",
+      label: isNepali ? "प्रश्नोत्तर" : "FAQs",
+      icon: HelpCircle,
+    },
+    { path: "/contact", label: isNepali ? "सम्पर्क" : "Contact", icon: Mail },
   ];
 
   return (
@@ -47,9 +64,11 @@ export const PublicNavbar: React.FC = () => {
           className="flex items-center gap-3 cursor-pointer group select-none shrink-0"
           aria-label="StockForge POS Home"
         >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
-            <Store className="w-5 h-5" />
-          </div>
+          <img
+            src="/icon.png"
+            alt="StockForge Logo"
+            className="w-10 h-10 rounded-xl object-contain shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform"
+          />
           <div>
             <div className="flex items-center gap-2">
               <span className="text-lg font-black tracking-tight text-neutral-100 group-hover:text-emerald-400 transition-colors">
@@ -77,8 +96,8 @@ export const PublicNavbar: React.FC = () => {
                 className={({ isActive }) =>
                   `flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                     isActive
-                      ? 'text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 font-semibold'
-                      : 'text-neutral-300 hover:text-white hover:bg-neutral-900 border border-transparent'
+                      ? "text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 font-semibold"
+                      : "text-neutral-300 hover:text-emerald-500 hover:bg-emerald-300/20 border border-transparent"
                   }`
                 }
               >
@@ -96,12 +115,12 @@ export const PublicNavbar: React.FC = () => {
             type="button"
             onClick={toggleLanguage}
             className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs text-neutral-300 hover:text-white bg-neutral-900/90 hover:bg-neutral-800 rounded-lg border border-neutral-800 transition-colors cursor-pointer shadow-xs"
-            title={isNepali ? 'Switch to English' : 'नेपाली भाषामा बदल्नुहोस्'}
+            title={isNepali ? "Switch to English" : "नेपाली भाषामा बदल्नुहोस्"}
             aria-label="Toggle language"
           >
             <Languages className="w-3.5 h-3.5 text-emerald-400" />
             <span className="text-[11px] font-bold text-emerald-400 font-mono">
-              {isNepali ? 'नेपाली' : 'EN'}
+              {isNepali ? "नेपाली" : "EN"}
             </span>
           </button>
 
@@ -110,7 +129,7 @@ export const PublicNavbar: React.FC = () => {
             type="button"
             onClick={toggleTheme}
             className="p-2 text-neutral-400 hover:text-white bg-neutral-900/90 hover:bg-neutral-800 rounded-lg border border-neutral-800 transition-colors cursor-pointer shadow-xs"
-            title={isDark ? 'Switch to Light Theme' : 'Switch to Dark Theme'}
+            title={isDark ? "Switch to Light Theme" : "Switch to Dark Theme"}
             aria-label="Toggle Theme"
           >
             {isDark ? (
@@ -120,21 +139,13 @@ export const PublicNavbar: React.FC = () => {
             )}
           </button>
 
-          {/* Contact Us button */}
-          <Link
-            to="/contact"
-            className="hidden sm:inline-flex items-center px-3 py-1.5 text-xs font-medium text-neutral-300 hover:text-white hover:bg-neutral-900 rounded-lg border border-neutral-800 transition-colors cursor-pointer"
-          >
-            {isNepali ? 'सम्पर्क' : 'Contact Us'}
-          </Link>
-
           {/* Primary CTA: Request Demo */}
           <Link
             to="/contact"
             className="flex items-center gap-1.5 px-3.5 py-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-lg text-xs font-bold shadow-md shadow-emerald-950/40 transition-all cursor-pointer active:scale-98"
           >
             <Sparkles className="w-3.5 h-3.5" />
-            <span>{isNepali ? 'डेमो अनुरोध' : 'Request Demo'}</span>
+            <span>{isNepali ? "डेमो अनुरोध" : "Request Demo"}</span>
             <ArrowRight className="w-3 h-3 hidden xs:inline" />
           </Link>
 
@@ -145,7 +156,11 @@ export const PublicNavbar: React.FC = () => {
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+            {mobileMenuOpen ? (
+              <X className="w-4 h-4" />
+            ) : (
+              <Menu className="w-4 h-4" />
+            )}
           </button>
         </div>
       </div>
@@ -164,8 +179,8 @@ export const PublicNavbar: React.FC = () => {
                 className={({ isActive }) =>
                   `w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-left transition-colors ${
                     isActive
-                      ? 'text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 font-semibold'
-                      : 'text-neutral-300 hover:text-white hover:bg-neutral-900 border border-transparent'
+                      ? "text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 font-semibold"
+                      : "text-neutral-300 hover:text-emerald-500 hover:bg-emerald-300/20 border border-transparent"
                   }`
                 }
               >
@@ -179,17 +194,10 @@ export const PublicNavbar: React.FC = () => {
             <Link
               to="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-2 px-3 text-xs font-semibold text-center text-neutral-200 bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 rounded-lg"
-            >
-              {isNepali ? 'सम्पर्क गर्नुहोस्' : 'Contact Us'}
-            </Link>
-            <Link
-              to="/contact"
-              onClick={() => setMobileMenuOpen(false)}
               className="w-full py-2.5 px-3 text-xs font-bold text-center text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 rounded-lg flex items-center justify-center gap-2 shadow-md"
             >
               <Sparkles className="w-4 h-4" />
-              <span>{isNepali ? 'डेमो अनुरोध गर्नुहोस्' : 'Request Demo'}</span>
+              <span>{isNepali ? "डेमो अनुरोध गर्नुहोस्" : "Request Demo"}</span>
             </Link>
           </div>
         </div>
