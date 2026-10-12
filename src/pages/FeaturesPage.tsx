@@ -1,0 +1,748 @@
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { SEO } from "../components/common/SEO.tsx";
+import { Breadcrumbs } from "../components/common/Breadcrumbs.tsx";
+import { FeaturesSection } from "../components/public/FeaturesSection.tsx";
+import {
+  Check,
+  X,
+  Layers,
+  Sparkles,
+  ArrowRight,
+  Monitor,
+  Printer,
+  Barcode,
+  HardDrive,
+  Cpu,
+  ShieldCheck,
+  CheckCircle2,
+  FileSpreadsheet,
+  FileCode,
+  Cloud,
+  RefreshCw,
+  UserCheck,
+  Truck,
+  Sun,
+  Moon,
+  Languages,
+} from "lucide-react";
+import { useLanguage } from "../context/LanguageContext.tsx";
+
+export const FeaturesPage: React.FC = () => {
+  const { isNepali } = useLanguage();
+  const navigate = useNavigate();
+
+  const schemaJson = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "StockForge Retail Engine",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Windows, macOS, Linux, Web, Android",
+    description:
+      "Features breakdown of StockForge POS: multi-unit inventory (piece, kg, litre), automated sequential billing, offline SQLite database, COGS profit analytics, and staff payroll.",
+    featureList: [
+      "Multi-Unit Inventory (kg, litre, piece, dozen, packet, box, meter)",
+      "Automated Sequential Invoicing and Bill Number Generation",
+      "Offline-First SQLite WASM Architecture with Local ACID Persistence",
+      "Google Sheets Cloud Backup & Restore with Google OAuth Permission (Internet Required)",
+      "SQL File Database Backup & Restore (.sql) with Standard DDL & DML Schema Dumps",
+      "Gross Profit & Cost of Goods Sold (COGS) Snapshot Pricing",
+      "Operational Expense Ledger & Net Bottom-Line Profit Analysis",
+      "Staff Management & Monthly Salary Disbursement Vouchers",
+      "Customer Directory & Credit Khata Ledger with Due Balance Alerts",
+      "Vendor & Supplier Management with Wholesale Purchase Payables",
+      "Dark & Light Theme Mode Toggle with Ergonomic Contrast Persistence",
+      "Bilingual Switch (English & नेपाली) with Automatic Currency रु./Rs. Sync",
+      "High-Speed 80mm & 58mm Thermal Receipt Printing",
+      "Barcode Scanning and Keyboard Shortcut Automation",
+    ],
+  };
+
+  const comparisonRows = [
+    {
+      feature: isNepali
+        ? "इन्टरनेट नहुँदा काउन्टर चल्ने (Offline Operation)"
+        : "Works During Complete Internet Blackout",
+      stockforge: true,
+      stockforgeNote: "100% Offline (SQLite WASM)",
+      cloudPos: false,
+      cloudPosNote: "Freezes or shows error page",
+    },
+    {
+      feature: isNepali
+        ? "द्विभाषिक प्रणाली (नेपाली / English Switch)"
+        : "Bilingual UI Switch (English / नेपाली)",
+      stockforge: true,
+      stockforgeNote: "Zero-reload instant switch & रु./Rs. sync",
+      cloudPos: false,
+      cloudPosNote: "English-only with no native Nepali support",
+    },
+    {
+      feature: isNepali
+        ? "डार्क र लाइट थिम (Dark & Light Mode)"
+        : "Dark & Light Theme Ergonomics",
+      stockforge: true,
+      stockforgeNote: "1-Click theme toggle for eye comfort",
+      cloudPos: false,
+      cloudPosNote: "Fixed glaring white screen only",
+    },
+    {
+      feature: isNepali
+        ? "ग्राहक खाता र उधारो ट्र्याकिङ (Customer Khata Ledger)"
+        : "Customer Directory & Credit Khata Ledger",
+      stockforge: true,
+      stockforgeNote: "Built-in customer profiles & credit tracking",
+      cloudPos: false,
+      cloudPosNote: "Requires expensive standalone CRM addon",
+    },
+    {
+      feature: isNepali
+        ? "भेन्डर र आपूर्तिकर्ता व्यवस्थापन (Vendor & Supplier Mgmt)"
+        : "Vendor Directory & Wholesale Accounts Payable",
+      stockforge: true,
+      stockforgeNote: "Included supplier directory & invoice ledger",
+      cloudPos: false,
+      cloudPosNote: "Locked behind enterprise ERP tiers",
+    },
+    {
+      feature: isNepali
+        ? "गुगल सिट ब्याकअप र रिस्टोर (Google Sheets Backup & Restore)"
+        : "Google Sheets Cloud Backup & Restore (Internet Required)",
+      stockforge: true,
+      stockforgeNote: "Authenticated Google Sheet Sync & Restore",
+      cloudPos: false,
+      cloudPosNote: "Locked into proprietary cloud databases",
+    },
+    {
+      feature: isNepali
+        ? "SQL फाइलमार्फत ब्याकअप र रिस्टोर (SQL File Backup & Restore)"
+        : "SQL File Database Backup & Restore (.sql)",
+      stockforge: true,
+      stockforgeNote: "Standard .sql dump export & 1-click restore",
+      cloudPos: false,
+      cloudPosNote: "No raw database script access or export",
+    },
+    {
+      feature: isNepali
+        ? "क्रमबद्ध बिल नम्बर र इनभ्वाइस (Sequential Billing)"
+        : "Automated Sequential Billing & Custom Invoicing",
+      stockforge: true,
+      stockforgeNote: "Automatic BILL-YYYYMMDD-XXXX",
+      cloudPos: false,
+      cloudPosNote: "Manual bill numbering or extra addon",
+    },
+    {
+      feature: isNepali
+        ? "बहु-एकाइ सामान (piece, kg, litre, dozen, packet)"
+        : "Granular Multi-Unit Inventory (kg, ltr, pcs)",
+      stockforge: true,
+      stockforgeNote: "Native unit conversions & alerts",
+      cloudPos: false,
+      cloudPosNote: "Only supports generic piece units",
+    },
+    {
+      feature: isNepali
+        ? "डेटाको गोपनीयता र स्वामित्व (Data Sovereignty)"
+        : "Data Privacy & Local Storage Ownership",
+      stockforge: true,
+      stockforgeNote: "Stored 100% on local hardware",
+      cloudPos: false,
+      cloudPosNote: "Stored on 3rd party remote server",
+    },
+    {
+      feature: isNepali
+        ? "मासिक वा वार्षिक शुल्क (Recurring Subscription)"
+        : "No Forced Monthly Cloud Subscription Fees",
+      stockforge: true,
+      stockforgeNote: "Zero monthly hostage fees",
+      cloudPos: false,
+      cloudPosNote: "Locks you into expensive recurring plans",
+    },
+    {
+      feature: isNepali
+        ? "कर्मचारी पेरोल र तलब भौचर (Staff Payroll)"
+        : "Integrated Staff Directory & Payroll Slips",
+      stockforge: true,
+      stockforgeNote: "Included out-of-the-box",
+      cloudPos: false,
+      cloudPosNote: "Requires expensive 3rd-party ERP add-on",
+    },
+    {
+      feature: isNepali
+        ? "थर्मल रसिद प्रिन्टिङ (Thermal POS 80mm/58mm)"
+        : "Instant 80mm & 58mm Thermal Print Stylings",
+      stockforge: true,
+      stockforgeNote: "Custom CSS thermal print format",
+      cloudPos: true,
+      cloudPosNote: "Basic browser print dialog",
+    },
+  ];
+
+  return (
+    <div>
+      <SEO
+        title={
+          isNepali
+            ? "सुविधाहरू – बहु-एकाइ इन्भेन्टरी र बिलिङ POS"
+            : "Platform Features – Multi-Unit Inventory & Khata POS"
+        }
+        description={
+          isNepali
+            ? "StockForge का सम्पूर्ण सुविधाहरू: बहु-एकाइ इन्भेन्टरी, क्रमबद्ध इनभ्वाइस, ग्राहक उधारो खाता, र गुगल सिट ब्याकअप। सम्पूर्ण क्षमताहरू हेर्नुहोस्।"
+            : "Explore StockForge retail POS capabilities: multi-unit inventory (kg, ltr, pcs), sequential bills, customer Khata, Google Sheets backup, and thermal print."
+        }
+        keywords={[
+          "retail POS features Nepal",
+          "multi unit inventory management",
+          "sequential invoicing BILL",
+          "offline SQLite WASM POS",
+          "customer credit khata ledger",
+          "vendor wholesale ledger",
+          "Google Sheets backup POS",
+          "SQL file database dump",
+          "dark mode retail POS",
+          "thermal printer 80mm 58mm",
+          "खुद्रा पसल सुविधाहरू",
+        ]}
+        locale={isNepali ? "ne_NP" : "en_NP"}
+        canonicalPath="/features"
+        breadcrumbs={[
+          { name: isNepali ? "गृहपृष्ठ" : "Home", path: "/" },
+          { name: isNepali ? "सुविधाहरू" : "Features", path: "/features" },
+        ]}
+        schemaJson={schemaJson}
+      />
+
+      {/* Hero Header */}
+      <section className="pt-16 pb-12 bg-neutral-950 border-b border-neutral-800/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+          <Breadcrumbs
+            items={[
+              { name: isNepali ? "गृहपृष्ठ" : "Home", path: "/" },
+              { name: isNepali ? "सुविधाहरू" : "Features", path: "/features" },
+            ]}
+            className="justify-center mb-2"
+          />
+
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-semibold">
+            <Layers className="w-3.5 h-3.5" />
+            <span>
+              {isNepali
+                ? "विस्तृत सुविधाहरू"
+                : "Platform Features & Capabilities"}
+            </span>
+          </div>
+
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-neutral-100 tracking-tight">
+            {isNepali ? (
+              <>
+                आधुनिक खुद्रा पसलका लागि{" "}
+                <span className="text-emerald-400">शक्तिशाली सुविधाहरू</span>
+              </>
+            ) : (
+              <>
+                Engineered for High Velocity,{" "}
+                <span className="text-emerald-400">
+                  Precision & Offline Independence
+                </span>
+              </>
+            )}
+          </h1>
+
+          <p className="text-sm sm:text-base text-neutral-400 max-w-2xl mx-auto">
+            {isNepali
+              ? "बिक्री काउन्टर, इन्भेन्टरी एकाइहरू, इनभ्वाइस नियमहरू, र कर्मचारी तलब व्यवस्थापन गर्न आवश्यक पर्ने हरेक सुविधाको विस्तृत विवरण।"
+              : "Discover how StockForge harmonizes multi-unit tracking, automated sequential calculation, SQLite ACID transaction safety, and comprehensive staff management."}
+          </p>
+        </div>
+      </section>
+
+      {/* Visual Checkout Workflow Section */}
+      <section className="py-12 bg-neutral-900/30 border-b border-neutral-800/80">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-neutral-100">
+              {isNepali
+                ? "दैनिक खुद्रा काउन्टर कार्यप्रवाह (POS Flow)"
+                : "High-Velocity Counter Checkout Workflow"}
+            </h2>
+            <p className="text-xs sm:text-sm text-neutral-400">
+              {isNepali
+                ? "बारकोड स्क्यानदेखि ०ms स्थानीय SQLite कमिट र थर्मल रसिद प्रिन्टसम्मको स्वचालित प्रक्रिया।"
+                : "From handheld barcode scan and fractional weighing to instant local ACID SQLite commit and sequential receipt printing."}
+            </p>
+          </div>
+
+          <div className="flex justify-center mb-6">
+            <img
+              src="/pos-workflow-nepal.svg"
+              alt="High-speed offline retail checkout flow in Nepal: barcode scanning, multi-unit measurement, automated sequential bill numbering, zero-latency SQLite WASM, and 80mm thermal printing"
+              width={960}
+              height={420}
+              loading="lazy"
+              decoding="async"
+              className="w-full max-w-4xl rounded-2xl border border-neutral-800 shadow-2xl bg-neutral-950/70"
+            />
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-neutral-400">
+            <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
+              <CheckCircle2 className="w-4 h-4" />
+              <span>
+                {isNepali
+                  ? "इन्टरनेट नहुँदा पनि ०ms गति"
+                  : "Zero Cloud Overhead (0ms)"}
+              </span>
+            </span>
+            <span>•</span>
+            <span className="flex items-center gap-1.5 text-teal-400 font-semibold">
+              <ShieldCheck className="w-4 h-4" />
+              <span>
+                {isNepali ? "क्रमबद्ध बिलिङ" : "Atomic Sequential Numbers"}
+              </span>
+            </span>
+            <span>•</span>
+            <Link
+              to="/contact"
+              className="text-neutral-300 hover:text-emerald-400 underline font-semibold transition-colors"
+            >
+              {isNepali
+                ? "अन-साइट डेमो अनुरोध गर्नुहोस् →"
+                : "Request On-Site Hardware Demo →"}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Features Section component */}
+      <FeaturesSection onRequestDemo={() => navigate("/contact")} />
+
+      {/* Comparison Matrix Table */}
+      <section className="py-20 bg-neutral-950 border-t border-neutral-800/80">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-3 mb-12">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>
+                {isNepali
+                  ? "तुलनात्मक समीक्षा"
+                  : "Direct Architecture Comparison"}
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-100">
+              {isNepali
+                ? "StockForge बनाम परम्परागत क्लाउड POS"
+                : "StockForge POS vs. Generic Cloud POS"}
+            </h2>
+            <p className="text-xs sm:text-sm text-neutral-400">
+              {isNepali
+                ? "किन स्थानीय खुद्रा व्यापारीहरू इन्टरनेट-निर्भर सफ्टवेयर छोडेर StockForge रोज्दैछन्?"
+                : "Why retail storekeepers are ditching slow internet-dependent systems."}
+            </p>
+          </div>
+
+          {/* Comparison Table */}
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/40 overflow-hidden shadow-xl">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs">
+                <thead>
+                  <tr className="bg-neutral-900 border-b border-neutral-800 text-neutral-300">
+                    <th className="py-4 px-5 font-bold uppercase tracking-wider text-[11px]">
+                      {isNepali ? "सुविधा / क्षमता" : "Feature / Capability"}
+                    </th>
+                    <th className="py-4 px-5 font-bold uppercase tracking-wider text-[11px] text-emerald-400 bg-emerald-950/20">
+                      StockForge POS
+                    </th>
+                    <th className="py-4 px-5 font-bold uppercase tracking-wider text-[11px] text-neutral-400">
+                      Generic Cloud POS
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-800/80">
+                  {comparisonRows.map((row, idx) => (
+                    <tr
+                      key={idx}
+                      className="hover:bg-neutral-900/60 transition-colors"
+                    >
+                      <td className="py-3.5 px-5 font-medium text-neutral-200">
+                        {row.feature}
+                      </td>
+                      <td className="py-3.5 px-5 bg-emerald-950/10 font-semibold text-emerald-300">
+                        <div className="flex items-center gap-2">
+                          <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                          <span>{row.stockforgeNote}</span>
+                        </div>
+                      </td>
+                      <td className="py-3.5 px-5 text-neutral-400">
+                        <div className="flex items-center gap-2">
+                          {row.cloudPos ? (
+                            <Check className="w-4 h-4 text-neutral-400 shrink-0" />
+                          ) : (
+                            <X className="w-4 h-4 text-rose-400 shrink-0" />
+                          )}
+                          <span>{row.cloudPosNote}</span>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Google Sheets Cloud Backup & Restore Spotlight */}
+      <section className="py-16 bg-neutral-900/60 border-t border-neutral-800/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-950/40 via-neutral-950 to-teal-950/30 p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+              <div className="lg:col-span-7 space-y-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-semibold">
+                  <FileSpreadsheet className="w-4 h-4" />
+                  <span>
+                    {isNepali
+                      ? "क्लाउड ब्याकअप र रिस्टोर"
+                      : "Cloud Backup & Restore"}
+                  </span>
+                </div>
+
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-100 tracking-tight">
+                  {isNepali ? (
+                    <>
+                      गुगल सिटमार्फत{" "}
+                      <span className="text-emerald-400">
+                        सजिलो ब्याकअप र रिस्टोर
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      Backup & Restore Your Data Through{" "}
+                      <span className="text-emerald-400">Google Sheets</span>
+                    </>
+                  )}
+                </h2>
+
+                <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                  {isNepali
+                    ? 'तपाईंले आफ्नो पसलको सम्पूर्ण डेटा गुगल सिटमार्फत ब्याकअप र रिस्टोर गर्न सक्नुहुन्छ। जब तपाईं "ब्याकअप" मा क्लिक गर्नुहुन्छ, ग्राहक गुगलसँग सुरक्षित रूपमा प्रमाणीकरण भई गुगल सिटको अनुमति मागिनेछ, र त्यसपछि सबै सामानहरू, बिक्री, स्टक तथा हिसाब सुरक्षित रूपमा सिटमा ब्याकअप हुनेछ। रिस्टोर गर्दा पनि सोही प्रक्रियामार्फत सिटबाट सम्पूर्ण डेटा पुनः प्राप्त गर्न सकिन्छ (यस कार्यका लागि इन्टरनेट आवश्यक पर्दछ)। साथै, तपाईंले मानक SQL (.sql) फाइलमार्फत पनि अफलाइन १-क्लिकमा पुरै डेटाबेस ब्याकअप र रिस्टोर गर्न सक्नुहुन्छ।'
+                    : "You can backup and restore your data through Google Sheet. When you click backup, the client will be authenticated with Google and asked for Google Sheet permission, then all the data will be backed up. The same seamless process applies for restore back into your store (internet connection required). Additionally, you can backup and restore your entire database using standard SQL (.sql) script files."}
+                </p>
+
+                <div className="flex flex-wrap gap-2 pt-2">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-neutral-900 border border-emerald-500/20 text-[11px] font-mono text-emerald-300">
+                    <Cloud className="w-3.5 h-3.5 text-emerald-400" />
+                    Google OAuth Authentication
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-neutral-900 border border-emerald-500/20 text-[11px] font-mono text-teal-300">
+                    <FileSpreadsheet className="w-3.5 h-3.5 text-teal-400" />
+                    Google Sheets Permission
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-neutral-900 border border-emerald-500/20 text-[11px] font-mono text-teal-300">
+                    <FileCode className="w-3.5 h-3.5 text-emerald-400" />
+                    .sql File Backup & Restore
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-neutral-900 border border-emerald-500/20 text-[11px] font-mono text-cyan-300">
+                    <RefreshCw className="w-3.5 h-3.5 text-cyan-400" />
+                    1-Click Restore (Offline or Cloud)
+                  </span>
+                </div>
+              </div>
+
+              {/* Visual Flow diagram */}
+              <div className="lg:col-span-5">
+                <div className="rounded-xl border border-neutral-800 bg-neutral-950/90 p-5 space-y-3 shadow-inner">
+                  <div className="text-xs font-mono font-semibold text-neutral-400 uppercase tracking-wider flex items-center justify-between pb-2 border-b border-neutral-800">
+                    <span>
+                      {isNepali
+                        ? "ब्याकअप र रिस्टोर कार्यप्रवाह"
+                        : "Backup & Restore Flow"}
+                    </span>
+                    <span className="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                      Cloud Sync
+                    </span>
+                  </div>
+
+                  <div className="space-y-2.5 text-xs">
+                    <div className="flex items-start gap-3 p-2.5 rounded-lg bg-neutral-900/60 border border-neutral-800">
+                      <div className="w-6 h-6 rounded-md bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 font-bold text-xs">
+                        1
+                      </div>
+                      <div>
+                        <div className="font-semibold text-neutral-200">
+                          {isNepali
+                            ? "क्लिक ब्याकअप (Click Backup)"
+                            : "Click Backup"}
+                        </div>
+                        <div className="text-[11px] text-neutral-400">
+                          {isNepali
+                            ? "ग्राहक गुगलसँग प्रमाणीकरण हुन्छ र गुगल सिटको अनुमति मागिन्छ"
+                            : "Client authenticated with Google & asked for Google Sheet permission"}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-2.5 rounded-lg bg-neutral-900/60 border border-neutral-800">
+                      <div className="w-6 h-6 rounded-md bg-teal-500/20 text-teal-400 flex items-center justify-center shrink-0 font-bold text-xs">
+                        2
+                      </div>
+                      <div>
+                        <div className="font-semibold text-neutral-200">
+                          {isNepali
+                            ? "सम्पूर्ण डेटा ब्याकअप (All Data Backed Up)"
+                            : "All Data Backed Up"}
+                        </div>
+                        <div className="text-[11px] text-neutral-400">
+                          {isNepali
+                            ? "सामान, बिक्री, स्टक र खर्च गुगल सिटमा सुरक्षित भण्डारण हुन्छ"
+                            : "Products, sales history, inventory, and expenses sync to your Sheet"}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-2.5 rounded-lg bg-neutral-900/60 border border-neutral-800">
+                      <div className="w-6 h-6 rounded-md bg-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0 font-bold text-xs">
+                        3
+                      </div>
+                      <div>
+                        <div className="font-semibold text-neutral-200">
+                          {isNepali
+                            ? "सोही प्रक्रियाबाट रिस्टोर (Restore from Sheet)"
+                            : "Same Flow to Restore"}
+                        </div>
+                        <div className="text-[11px] text-neutral-400">
+                          {isNepali
+                            ? "गुगल प्रमाणीकरणपछि सिटबाट सबै डेटा पुनः प्राप्ति (इन्टरनेट आवश्यक)"
+                            : "Restore all records effortlessly back into StockForge (internet required)"}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Customer & Vendor Ledger + Theme & Language Showcase */}
+      <section className="py-16 bg-neutral-950 border-t border-neutral-800/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Card 1: Customer Khata & Vendor Directory */}
+            <div className="p-7 sm:p-8 rounded-2xl border border-neutral-800 bg-neutral-900/50 space-y-5 hover:border-emerald-500/40 transition-colors">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                  <UserCheck className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                    CRM & Khata
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100">
+                    {isNepali
+                      ? "ग्राहक उधारो खाता र आपूर्तिकर्ता (Vendor) व्यवस्थापन"
+                      : "Customer Credit Khata & Vendor Supplier Directory"}
+                  </h3>
+                </div>
+              </div>
+
+              <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                {isNepali
+                  ? "नियमित ग्राहकहरूको खरिद विवरण, सम्पर्क, र उधारो खाता (उधारो / Khata) मार्फत बाँकी रकम, भुक्तानी सीमा र रसिद मिलाउनुहोस्। साथै, थोक आपूर्तिकर्ता (Vendors) हरूको खरिद बिल, बाँकी बक्यौता रकम (Accounts Payable) र भुक्तानी मिति एउटै सफ्टवेयरमा सजिलै व्यवस्थापन गर्नुहोस्।"
+                  : "Track customer profiles, purchase history, and credit ledgers (उधारो / Khata) with real-time balance calculations, settled invoices, credit limits, and due date reminders. Simultaneously manage wholesale suppliers, incoming vendor bills, accounts payable, and payment timelines seamlessly."}
+              </p>
+
+              <div className="grid grid-cols-2 gap-3 pt-1">
+                <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800">
+                  <div className="flex items-center gap-2 text-xs font-bold text-neutral-200 mb-1">
+                    <UserCheck className="w-4 h-4 text-emerald-400" />
+                    <span>
+                      {isNepali ? "ग्राहक उधारो खाता" : "Customer Credit"}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-neutral-400">
+                    {isNepali
+                      ? "बाँकी बक्यौता, भुक्तानी सीमा र इतिहास"
+                      : "Due tracking & credit limits"}
+                  </p>
+                </div>
+                <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800">
+                  <div className="flex items-center gap-2 text-xs font-bold text-neutral-200 mb-1">
+                    <Truck className="w-4 h-4 text-teal-400" />
+                    <span>
+                      {isNepali ? "सप्लायर तथा खरिद" : "Vendor Payables"}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-neutral-400">
+                    {isNepali
+                      ? "थोक बिल र भुक्तानी तालिका"
+                      : "Bills & wholesale schedules"}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: Theme Toggle & Bilingual UI */}
+            <div className="p-7 sm:p-8 rounded-2xl border border-neutral-800 bg-neutral-900/50 space-y-5 hover:border-emerald-500/40 transition-colors">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                  <Sun className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                    UI Experience
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100">
+                    {isNepali
+                      ? "डार्क र लाइट थिम तथा द्विभाषिक (नेपाली/English) प्रणाली"
+                      : "Dark & Light Theme Toggle and Bilingual UI Switch"}
+                  </h3>
+                </div>
+              </div>
+
+              <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                {isNepali
+                  ? "१-क्लिकमै उच्च-कन्ट्रास्ट डार्क मोड र सफा लाइट मोडबीच स्विच गर्नुहोस्। दिनभर काउन्टरमा बस्ने क्यासियरको आँखाको सुरक्षाका लागि विशेष डिजाइन। साथै, सम्पूर्ण सफ्टवेयरलाई बिना रिलोड नेपाली वा अङ्ग्रेजीमा बदल्नुहोस्, मुद्रा (रु. / Rs.) स्वतः समायोजित हुन्छ।"
+                  : "Effortlessly toggle between crisp high-contrast dark mode and clean daylight mode with 1-click. Designed for visual ergonomics during prolonged cashier shifts. Switch instantly between English and Nepali with automatic currency symbol adaptation (रु. / Rs.) and zero page reloads."}
+              </p>
+
+              <div className="grid grid-cols-2 gap-3 pt-1">
+                <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800">
+                  <div className="flex items-center gap-2 text-xs font-bold text-neutral-200 mb-1">
+                    <Moon className="w-4 h-4 text-amber-400" />
+                    <span>
+                      {isNepali ? "डार्क र लाइट मोड" : "Dark & Light Mode"}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-neutral-400">
+                    {isNepali
+                      ? "आँखाको आराम र कन्ट्रास्ट बचत"
+                      : "Low-glare shift ergonomics"}
+                  </p>
+                </div>
+                <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800">
+                  <div className="flex items-center gap-2 text-xs font-bold text-neutral-200 mb-1">
+                    <Languages className="w-4 h-4 text-emerald-400" />
+                    <span>
+                      {isNepali ? "नेपाली र English" : "Bilingual Switch"}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-neutral-400">
+                    {isNepali
+                      ? "रु. र Rs. तत्काल सिङ्क"
+                      : "Instant रु. / Rs. synchronization"}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hardware Compatibility Showcase */}
+      <section className="py-16 bg-neutral-900/40 border-t border-neutral-800/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <h2 className="text-xl sm:text-2xl font-bold text-neutral-100 mb-2">
+              {isNepali
+                ? "हार्डवेयर र उपकरण अनुकूलता"
+                : "Universal Hardware Compatibility"}
+            </h2>
+            <p className="text-xs text-neutral-400">
+              {isNepali
+                ? "कुनै नयाँ महँगो हार्डवेयर किन्नु पर्दैन। तपाईंको हालको ल्यापटप, बारकोड स्क्यानर र प्रिन्टरसँग सिधै चल्छ।"
+                : "Plug and play with standard USB and Bluetooth barcode scanners, cash drawers, and thermal receipt printers."}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="p-4 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center gap-3">
+              <Printer className="w-6 h-6 text-emerald-400 shrink-0" />
+              <div>
+                <div className="text-xs font-bold text-neutral-200">
+                  80mm & 58mm Thermal
+                </div>
+                <div className="text-[10px] text-neutral-400">
+                  USB, Bluetooth, Wi-Fi
+                </div>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center gap-3">
+              <Barcode className="w-6 h-6 text-teal-400 shrink-0" />
+              <div>
+                <div className="text-xs font-bold text-neutral-200">
+                  Barcode Scanners
+                </div>
+                <div className="text-[10px] text-neutral-400">
+                  1D / 2D / QR Handheld
+                </div>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center gap-3">
+              <Monitor className="w-6 h-6 text-cyan-400 shrink-0" />
+              <div>
+                <div className="text-xs font-bold text-neutral-200">
+                  Desktop & Tablets
+                </div>
+                <div className="text-[10px] text-neutral-400">
+                  Windows, Mac, Linux
+                </div>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center gap-3">
+              <HardDrive className="w-6 h-6 text-amber-400 shrink-0" />
+              <div>
+                <div className="text-xs font-bold text-neutral-200">
+                  Local Flash Drives
+                </div>
+                <div className="text-[10px] text-neutral-400">
+                  Instant .db & .sql backups
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom CTA */}
+      <section className="py-12 bg-neutral-950 border-t border-neutral-800 text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-neutral-100 mb-2">
+            {isNepali
+              ? "डेमो अनुरोध वा परामर्श लिनुहोस्"
+              : "Request an On-Site Demo or Consultation"}
+          </h2>
+          <p className="text-xs sm:text-sm text-neutral-400 mb-6">
+            {isNepali
+              ? "हाम्रो प्राविधिक टोलीसँग प्रत्यक्ष कुरा गर्नुहोस् र आफ्नो पसलका लागि उपयुक्त समाधान पाउनुहोस्।"
+              : "Connect with our retail implementation specialists for customized multi-unit setups and streamlined invoicing."}
+          </p>
+          <div className="flex items-center justify-center gap-3">
+            <Link
+              to="/contact"
+              className="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-emerald-950 cursor-pointer"
+            >
+              <Sparkles className="w-4 h-4" />
+              <span>
+                {isNepali ? "डेमो अनुरोध गर्नुहोस्" : "Request a Live Demo"}
+              </span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/contact"
+              className="px-5 py-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-neutral-200 text-xs sm:text-sm font-semibold border border-neutral-800"
+            >
+              {isNepali ? "सम्पर्क गर्नुहोस्" : "Contact Support Hub"}
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};

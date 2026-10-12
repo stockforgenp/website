@@ -1,0 +1,580 @@
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { SEO } from "../components/common/SEO.tsx";
+import { HeroSection } from "../components/public/HeroSection.tsx";
+import { OfflineShowcaseSection } from "../components/public/OfflineShowcaseSection.tsx";
+import {
+  Scale,
+  Receipt,
+  Database,
+  TrendingUp,
+  ArrowRight,
+  ShieldCheck,
+  CheckCircle2,
+  Users,
+  HelpCircle,
+  Sparkles,
+  UserCheck,
+  FileSpreadsheet,
+  Cpu,
+  Layers,
+  PhoneCall,
+} from "lucide-react";
+import { useLanguage } from "../context/LanguageContext.tsx";
+
+export const HomePage: React.FC = () => {
+  const { isNepali } = useLanguage();
+  const navigate = useNavigate();
+
+  const schemaJson = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      name: "StockForge POS",
+      alternateName: "StockForge Offline Retail POS",
+      url: "https://stockforge.app/",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Windows, macOS, Linux, Web, Android",
+      browserRequirements: "Requires JavaScript and HTML5 WebAssembly support",
+      softwareVersion: "2.5.0",
+      description:
+        "Zero-latency offline retail POS & inventory management platform powered by SQLite WASM with automated sequential billing, multi-unit stock, and Khata ledger.",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "NPR",
+      },
+      featureList: [
+        "100% Offline-First SQLite WASM Database with ACID Durability",
+        "Automated Sequential Invoicing & BILL-YYYYMMDD-XXXX Bill Numbering",
+        "Multi-Unit Product Inventory (piece, kg, litre, dozen, packet, box, meter)",
+        "Gross Profit & Cost of Goods Sold (COGS) Snapshot Pricing",
+        "Staff Directory & Monthly Payroll Disbursement Vouchers",
+        "Customer Directory & Credit Khata Ledger with Due Balance Alerts",
+        "Vendor & Supplier Management with Accounts Payable Tracking",
+        "Google Sheets Cloud & SQL File Database Backup & Restore (.sql)",
+        "Bilingual Switch (English & नेपाली) with Automatic Currency रु./Rs. Sync",
+        "Dark & Light Theme Mode Ergonomic Toggle",
+        "Thermal Receipt Printing (80mm / 58mm)",
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "StockForge",
+      url: "https://stockforge.app/",
+      logo: "https://stockforge.app/og-image.svg",
+      description:
+        "Developer of zero-latency offline retail POS systems and inventory management engines for modern stores across Nepal.",
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+977-1-4245678",
+        contactType: "customer service",
+        availableLanguage: ["English", "Nepali"],
+        areaServed: "NP",
+      },
+    },
+  ];
+
+  return (
+    <div>
+      <SEO
+        title={
+          isNepali
+            ? "StockForge – नेपालको अफलाइन खुद्रा POS र बिलिङ सफ्टवेयर"
+            : "StockForge POS – Offline Retail POS & Inventory in Nepal"
+        }
+        description={
+          isNepali
+            ? "इन्टरनेट बिना चल्ने द्रुत खुद्रा POS। बहु-एकाइ इन्भेन्टरी, क्रमबद्ध बिलिङ र ग्राहक खाता व्यवस्थापन गर्नुहोस्। आजै प्रत्यक्ष डेमो अनुरोध गर्नुहोस्।"
+            : "Speed up store checkouts with zero-latency offline POS. Manage multi-unit stock, sequential bills, and customer khata in Nepal. Request a live demo today."
+        }
+        keywords={[
+          "offline POS software Nepal",
+          "retail billing software Nepal",
+          "SQLite WASM POS",
+          "grocery store inventory management",
+          "multi unit inventory kg litre pcs",
+          "customer credit khata ledger",
+          "thermal receipt printing 80mm",
+          "sequential invoicing BILL",
+          "zero downtime POS Kathmandu",
+          "खुद्रा पसल बिलिङ सफ्टवेयर",
+          "नेपाल इन्भेन्टरी व्यवस्थापन",
+        ]}
+        locale={isNepali ? "ne_NP" : "en_NP"}
+        canonicalPath="/"
+        breadcrumbs={[{ name: isNepali ? "गृहपृष्ठ" : "Home", path: "/" }]}
+        schemaJson={schemaJson}
+      />
+
+      {/* Hero Section (Contains the single <h1>) */}
+      <HeroSection
+        onRequestDemo={() => navigate("/contact")}
+        onExploreFeatures={() => navigate("/features")}
+        onContactUs={() => navigate("/contact")}
+      />
+
+      {/* Section 1: Architecture Comparison Diagram (H2) */}
+      <section className="py-16 bg-neutral-950 border-t border-neutral-800/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-semibold">
+              <Cpu className="w-3.5 h-3.5" />
+              <span>
+                {isNepali ? "इन्जिनको संरचना" : "Architecture Breakdown"}
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-neutral-100 tracking-tight">
+              {isNepali
+                ? "नेपालका खुद्रा व्यापारीहरू किन अफलाइन प्रणाली रोज्छन्?"
+                : "Why Independent Retailers in Nepal Choose Offline-First Architecture"}
+            </h2>
+            <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed">
+              {isNepali
+                ? "परम्परागत क्लाउड POS ले प्रत्येक बारकोड स्क्यान गर्दा टाढाको सर्भरमा अनुरोध पठाउँछ, जसले गर्दा भीडभाडमा काउन्टर ढिलो हुन्छ। StockForge ले तपाईंको कम्प्युटरभित्रै SQLite WASM मार्फत ०ms मा तुरुन्तै कारोबार सम्पन्न गर्छ।"
+                : "Traditional cloud point-of-sale software depends on continuous internet connections. When network traffic spikes during festive shopping, cloud counters freeze. StockForge executes all queries inside your browser with 0ms sub-millisecond local speed."}
+            </p>
+          </div>
+
+          {/* Visual Architecture Comparison Image */}
+          <div className="flex justify-center mb-8">
+            <img
+              src="/architecture-diagram.svg"
+              alt="Visual comparison between legacy cloud POS latency and StockForge offline SQLite WebAssembly zero millisecond response time in Nepal"
+              width={900}
+              height={480}
+              loading="lazy"
+              decoding="async"
+              className="w-full max-w-4xl rounded-2xl border border-neutral-800 shadow-2xl bg-neutral-900/60"
+            />
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-neutral-400">
+            <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
+              <CheckCircle2 className="w-4 h-4" />
+              <span>
+                {isNepali
+                  ? "इन्टरनेट नहुँदा पनि शतप्रतिशत काम"
+                  : "100% Functional Without Internet"}
+              </span>
+            </span>
+            <span>•</span>
+            <span className="flex items-center gap-1.5 text-teal-400 font-semibold">
+              <ShieldCheck className="w-4 h-4" />
+              <span>
+                {isNepali
+                  ? "स्थानीय हार्डवेयरमा सुरक्षित डेटा"
+                  : "Complete Data Privacy On Device"}
+              </span>
+            </span>
+            <span>•</span>
+            <Link
+              to="/features"
+              className="text-neutral-300 hover:text-emerald-400 underline font-semibold transition-colors"
+            >
+              {isNepali
+                ? "थप सुविधाहरू हेर्नुहोस् →"
+                : "Learn more about platform features →"}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Promoted Section: 100% Offline-First Interactive Showcase */}
+      <OfflineShowcaseSection />
+
+      {/* Section 2: Core Capabilities Strip (H2 & H3) */}
+      <section className="py-16 bg-neutral-900/40 border-y border-neutral-800/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
+            <div>
+              <div className="text-xs font-semibold text-emerald-400 font-mono uppercase tracking-wider mb-1">
+                {isNepali
+                  ? "इन्जिनका मुख्य आधारहरू"
+                  : "Core Architecture Pillars"}
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-100 tracking-tight">
+                {isNepali
+                  ? "आधुनिक खुद्रा काउन्टरका लागि आवश्यक ६ शक्तिशाली क्षमताहरू"
+                  : "Essential Capabilities for Modern High-Velocity Retail Counters"}
+              </h2>
+            </div>
+            <Link
+              to="/features"
+              className="inline-flex items-center gap-2 text-xs font-bold text-emerald-400 hover:text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 px-4 py-2.5 rounded-xl border border-emerald-500/25 transition-all shrink-0"
+            >
+              <span>
+                {isNepali
+                  ? "सबै सुविधाहरू हेर्नुहोस्"
+                  : "Explore All 14 Features"}
+              </span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {/* 1. Multi-Unit Inventory */}
+            <div className="p-5 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-3">
+                  <Scale className="w-5 h-5" />
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-neutral-100 mb-1.5">
+                  {isNepali
+                    ? "बहु-एकाइ इन्भेन्टरी (kg, litre, pcs)"
+                    : "Multi-Unit Inventory (kg, litre, pcs)"}
+                </h3>
+                <p className="text-xs text-neutral-400 leading-relaxed mb-3">
+                  {isNepali
+                    ? "खुला चामल, तेल, वा प्याकेट चाउचाउ — सामानहरू किलोग्राम, लिटर वा पिसमा बिक्री गर्नुहोस्। दशमलव मात्रा (जस्तै १.५ kg) को सही स्टक घट्ने सुविधा।"
+                    : "Track bulk grains in kg, cooking oils in litres, and packaged items in pieces. Native support for fractional decimal weights with real-time stock deduction."}
+                </p>
+              </div>
+              <Link
+                to="/features"
+                className="text-[11px] font-semibold text-emerald-400 hover:underline inline-flex items-center gap-1"
+              >
+                <span>
+                  {isNepali ? "एकाइ प्रणाली हेर्नुहोस्" : "Multi-unit details"}
+                </span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+
+            {/* 2. Sequential Billing */}
+            <div className="p-5 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-400 mb-3">
+                  <Receipt className="w-5 h-5" />
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-neutral-100 mb-1.5">
+                  {isNepali
+                    ? "क्रमबद्ध बिलिङ (BILL-YYYYMMDD-XXXX)"
+                    : "Sequential Invoicing & Bill Numbers"}
+                </h3>
+                <p className="text-xs text-neutral-400 leading-relaxed mb-3">
+                  {isNepali
+                    ? "प्रत्येक बिक्रीमा अद्वितीय क्रमबद्ध बिल नम्बर स्वतः सिर्जना हुन्छ। करयोग्य रकम, छुट, र कुल जम्मा रकम स्पष्ट रूपमा देखिन्छ।"
+                    : "Standardized automated invoice sequences generated per checkout. Clean subtotal breakdowns, customer discount rules, and audit-ready receipt formatting."}
+                </p>
+              </div>
+              <Link
+                to="/features"
+                className="text-[11px] font-semibold text-teal-400 hover:underline inline-flex items-center gap-1"
+              >
+                <span>
+                  {isNepali ? "बिलिङ ढाँचा हेर्नुहोस्" : "Invoice formats"}
+                </span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+
+            {/* 3. 100% Offline SQLite */}
+            <div className="p-5 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-3">
+                  <Database className="w-5 h-5" />
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-neutral-100 mb-1.5">
+                  {isNepali
+                    ? "१००% अफलाइन SQLite ACID डेटाबेस"
+                    : "100% In-Browser SQLite ACID"}
+                </h3>
+                <p className="text-xs text-neutral-400 leading-relaxed mb-3">
+                  {isNepali
+                    ? "इन्टरनेट नहुँदा पनि ०ms गतिमा काउन्टर चल्छ। तपाईंको सम्पूर्ण डेटा कम्प्युटरमै सुरक्षित रहन्छ र १-क्लिकमा .db ब्याकअप लिन सकिन्छ।"
+                    : "Operates completely client-side via SQLite WebAssembly. Absolute immunity from cellular outages and complete ownership of your database records."}
+                </p>
+              </div>
+              <Link
+                to="/about"
+                className="text-[11px] font-semibold text-cyan-400 hover:underline inline-flex items-center gap-1"
+              >
+                <span>
+                  {isNepali
+                    ? "सुरक्षा प्रविधि पढ्नुहोस्"
+                    : "Offline architecture story"}
+                </span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+
+            {/* 4. Customer Khata */}
+            <div className="p-5 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-3">
+                  <UserCheck className="w-5 h-5" />
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-neutral-100 mb-1.5">
+                  {isNepali
+                    ? "ग्राहक उधारो खाता (Credit Khata)"
+                    : "Customer Credit Khata & Limits"}
+                </h3>
+                <p className="text-xs text-neutral-400 leading-relaxed mb-3">
+                  {isNepali
+                    ? "नियमित ग्राहकहरूको उधारो, बाँकी बक्यौता, खरिद इतिहास र भुक्तानी सीमा सहजै ट्र्याक गर्नुहोस्। पारदर्शी खाता व्यवस्थापन।"
+                    : "Manage customer credit balances, payment due dates, historical purchases, and individual credit limits directly from the sales counter."}
+                </p>
+              </div>
+              <Link
+                to="/features"
+                className="text-[11px] font-semibold text-emerald-400 hover:underline inline-flex items-center gap-1"
+              >
+                <span>
+                  {isNepali ? "खाता सुविधा हेर्नुहोस्" : "Customer Khata specs"}
+                </span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+
+            {/* 5. Profit & Payroll */}
+            <div className="p-5 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-3">
+                  <TrendingUp className="w-5 h-5" />
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-neutral-100 mb-1.5">
+                  {isNepali
+                    ? "नाफा (COGS) र कर्मचारी पेरोल"
+                    : "Gross Margin & Staff Payroll"}
+                </h3>
+                <p className="text-xs text-neutral-400 leading-relaxed mb-3">
+                  {isNepali
+                    ? "खरिद मूल्य स्न्यापसटबाट वास्तविक कुल नाफा (COGS), पसलको दैनिक खर्च, र कर्मचारीहरूको मासिक तलब भुक्तानी भौचर।"
+                    : "Snapshot cost price captures real gross profit after COGS. Manage employee rosters and generate printable monthly wage disbursement vouchers."}
+                </p>
+              </div>
+              <Link
+                to="/features"
+                className="text-[11px] font-semibold text-amber-400 hover:underline inline-flex items-center gap-1"
+              >
+                <span>
+                  {isNepali ? "पेरोल सुविधा हेर्नुहोस्" : "Payroll workflow"}
+                </span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+
+            {/* 6. Google Sheets & SQL Backup */}
+            <div className="p-5 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 mb-3">
+                  <FileSpreadsheet className="w-5 h-5" />
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-neutral-100 mb-1.5">
+                  {isNepali
+                    ? "गुगल सिट र .sql डेटा ब्याकअप"
+                    : "Google Sheets & SQL File Backups"}
+                </h3>
+                <p className="text-xs text-neutral-400 leading-relaxed mb-3">
+                  {isNepali
+                    ? "१-क्लिकमा गुगल सिटमा क्लाउड ब्याकअप वा मानक .sql स्क्रिप्ट निर्यात। कुनै पनि समयमा डेटा पुनःस्थापना गर्न सकिने।"
+                    : "Secure backup to your personal Google Sheets via authorized permission, plus portable SQL file (.sql) dumps for offline archival and device migrations."}
+                </p>
+              </div>
+              <Link
+                to="/faqs"
+                className="text-[11px] font-semibold text-purple-400 hover:underline inline-flex items-center gap-1"
+              >
+                <span>
+                  {isNepali ? "ब्याकअप प्रश्नोत्तर हेर्नुहोस्" : "Backup FAQs"}
+                </span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Helpful Everyday Store Scenarios (H2 & H3) */}
+      <section className="py-16 bg-neutral-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-100 tracking-tight">
+              {isNepali
+                ? "दैनिक खुद्रा व्यापारका वास्तविक समस्याहरूको भरपर्दो समाधान"
+                : "Built to Solve Everyday Retail Bottlenecks in Nepal"}
+            </h2>
+            <p className="text-xs sm:text-sm text-neutral-400">
+              {isNepali
+                ? "काठमाडौँ उपत्यकादेखि विभिन्न सहरका खुद्रा व्यापारीहरूको अनुभवका आधारमा तयार गरिएका व्यावहारिक समाधानहरू।"
+                : "Engineered from direct field observations in grocery marts, dairies, and hardware supply stores."}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-6 rounded-2xl bg-neutral-900/50 border border-neutral-800 space-y-3">
+              <span className="text-xs font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                Scenario 1
+              </span>
+              <h3 className="text-base font-bold text-neutral-100">
+                {isNepali
+                  ? "दशैँ-तिहारको भीडभाड र नेटवर्क ढिलाइ"
+                  : "Festival Rush Counter Congestion"}
+              </h3>
+              <p className="text-xs text-neutral-400 leading-relaxed">
+                {isNepali
+                  ? "चाडपर्वमा न्यूरोड वा असनमा मोबाइल नेटवर्क जाम हुँदा अनलाइन POS रोकिन्छन्। StockForge मा सबै डेटा स्थानीय ब्राउजरमा चल्ने भएकाले बारकोड स्क्यान र बिलिङ ० सेकेन्डको ढिलाइ बिना चल्छ।"
+                  : "Cellular signals in dense commercial centers often collapse during peak festivals. Because StockForge requires zero network round-trips for sales, your cashiers process customers without waiting."}
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-neutral-900/50 border border-neutral-800 space-y-3">
+              <span className="text-xs font-mono font-bold text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded border border-teal-500/20">
+                Scenario 2
+              </span>
+              <h3 className="text-base font-bold text-neutral-100">
+                {isNepali
+                  ? "तौल र तरल पदार्थको सटीक बिक्री"
+                  : "Fractional Weight & Liquid Precision"}
+              </h3>
+              <p className="text-xs text-neutral-400 leading-relaxed">
+                {isNepali
+                  ? "२.५ किलोग्राम बासमती चामल वा १.५ लिटर तोरीको तेल बेच्दा दशमलव मात्राको हिसाब गर्न झन्झट हुँदैन। प्रणालीले स्वतः स्टक घटाउँछ र न्यूनतम स्टक चेतावनी दिन्छ।"
+                  : "Selling 2.75 kg of loose lentils or 1.5 litres of milk requires decimal arithmetic. StockForge calculates line totals accurately and updates bulk inventories in real time."}
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-neutral-900/50 border border-neutral-800 space-y-3">
+              <span className="text-xs font-mono font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                Scenario 3
+              </span>
+              <h3 className="text-base font-bold text-neutral-100">
+                {isNepali
+                  ? "उधारो खाता र महिनाको अन्त्यमा हिसाब"
+                  : "Credit Khata & Month-End Reconciliation"}
+              </h3>
+              <p className="text-xs text-neutral-400 leading-relaxed">
+                {isNepali
+                  ? "नियमित ग्राहकहरूको उधारो छुट्टै खातामा चढ्छ। महिनाको अन्त्यमा तलब आउँदा ग्राहकले पैसा तिरेपछि १-क्लिकमा बाँकी बक्यौता शून्य गर्न सकिन्छ।"
+                  : "Neighborhood shoppers frequently buy on credit until month-end salary day. StockForge logs Khata transactions atomically with contact numbers, credit limits, and receipt histories."}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Verified Social Proof Teaser (H2 & H3) */}
+      <section className="py-16 bg-neutral-900/40 border-t border-neutral-800/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-emerald-950/40 via-neutral-900 to-teal-950/40 border border-neutral-800 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-3 text-center md:text-left">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold">
+                <Users className="w-3.5 h-3.5" />
+                <span>
+                  {isNepali
+                    ? "३५०+ सक्रिय पसलहरूको विश्वास"
+                    : "350+ Verified Retail Stores Across Nepal"}
+                </span>
+              </div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-neutral-100 tracking-tight">
+                {isNepali
+                  ? "खुद्रा व्यापारीहरू के भन्छन्? वास्तविक प्रतिक्रिया पढ्नुहोस्"
+                  : "See How Supermarts & Retailers Save 3+ Hours Daily"}
+              </h2>
+              <p className="text-xs sm:text-sm text-neutral-400 max-w-xl">
+                {isNepali
+                  ? "किराना मार्ट, डेरी, हार्डवेयर र बुटिक पसलहरू कसरी शून्य-ढिलाइ बिलिङबाट लाभान्वित भइरहेका छन् हेर्नुहोस्।"
+                  : "Read firsthand testimonials on how offline stability, customer Khata, and multi-unit billing eliminated counter stress."}
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
+              <Link
+                to="/testimonials"
+                className="px-5 py-3 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-neutral-200 text-xs font-semibold border border-neutral-700 transition-all flex items-center gap-2 cursor-pointer"
+              >
+                <span>
+                  {isNepali
+                    ? "प्रतिक्रियाहरू पढ्नुहोस्"
+                    : "Read Client Stories"}
+                </span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+              <Link
+                to="/contact"
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold shadow-lg shadow-emerald-950 transition-all flex items-center gap-2 cursor-pointer"
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>
+                  {isNepali ? "डेमो अनुरोध गर्नुहोस्" : "Request Free Demo"}
+                </span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: Strong Final CTA Section with Helpful Next Steps */}
+      <section className="py-20 bg-neutral-950 border-t border-neutral-800 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 space-y-6">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-semibold">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>
+              {isNepali
+                ? "कुनै प्रतिबद्धता बिना निःशुल्क डेमो"
+                : "Zero Commitment · On-Site Setup Available"}
+            </span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl font-black text-neutral-100 tracking-tight">
+            {isNepali ? (
+              <>
+                आफ्नो पसल काउन्टरलाई{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">
+                  शून्य-ढिलाइ गतिमा
+                </span>{" "}
+                ल्याउनुहोस्
+              </>
+            ) : (
+              <>
+                Ready to Upgrade Your Store Counter to{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">
+                  Zero-Downtime Speed?
+                </span>
+              </>
+            )}
+          </h2>
+
+          <p className="text-xs sm:text-sm text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+            {isNepali
+              ? "हाम्रा प्राविधिक इन्जिनियरहरू तपाईंको पसलमै आएर निःशुल्क डेमो देखाउन तयार छन्। तपाईंको हालकै ल्यापटप र बारकोड स्क्यानरसँग सिधै चल्छ।"
+              : "Our retail solutions engineers provide hands-on demonstrations across Kathmandu Valley and major retail commercial hubs. Works directly with your existing laptop, barcode scanner, and 80mm receipt printer."}
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <Link
+              to="/contact"
+              className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-bold text-sm flex items-center gap-2 shadow-xl shadow-emerald-950 cursor-pointer"
+            >
+              <PhoneCall className="w-4 h-4" />
+              <span>
+                {isNepali
+                  ? "प्रत्यक्ष डेमो अनुरोध गर्नुहोस्"
+                  : "Schedule On-Site Demo"}
+              </span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <Link
+              to="/faqs"
+              className="px-6 py-3.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-neutral-200 text-sm font-semibold border border-neutral-800 transition-colors flex items-center gap-2 cursor-pointer"
+            >
+              <HelpCircle className="w-4 h-4 text-neutral-400" />
+              <span>
+                {isNepali ? "बारम्बार सोधिने प्रश्नहरू" : "Read POS FAQs"}
+              </span>
+            </Link>
+          </div>
+
+          <div className="pt-6 flex flex-wrap justify-center items-center gap-6 text-[11px] text-neutral-500">
+            <span>✓ Works on Existing Windows, Mac, Linux Laptops</span>
+            <span>✓ Standard 80mm / 58mm Thermal Printers Supported</span>
+            <span>✓ No Forced Monthly Cloud Fees</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
