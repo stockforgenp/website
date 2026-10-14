@@ -57,10 +57,10 @@ export const AboutSection: React.FC = () => {
     },
     {
       year: '2025',
-      title: isNepali ? 'SQLite WASM इन्जिन विकास' : 'Offline WASM Architecture',
+      title: isNepali ? 'नेटिभ डेस्कटप SQLite इन्जिन' : 'Native Desktop Architecture',
       desc: isNepali
-        ? 'इन्टरनेट बिना नै ब्राउजरमै स्थानीय SQLite चलाउने पहिलो अफलाइन-फर्स्ट रिटेल इन्जिन तयार।'
-        : 'Pioneered browser-local SQLite engine with ACID integrity, sequential billing, and multi-unit support.',
+        ? 'इन्टरनेट बिना नै Windows, macOS र Linux मा स्थानीय SQLite चलाउने पूर्ण अफलाइन-फर्स्ट डेस्कटप सफ्टवेयर तयार।'
+        : 'Pioneered native offline desktop app with local SQLite ACID integrity, sequential billing, and multi-unit support for Windows, macOS & Linux.',
     },
     {
       year: '2026',

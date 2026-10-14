@@ -21,6 +21,7 @@ import {
   PhoneCall,
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext.tsx";
+import { CONTACT_INFO } from "../constants/contactInfo.ts";
 
 export const HomePage: React.FC = () => {
   const { isNepali } = useLanguage();
@@ -29,23 +30,23 @@ export const HomePage: React.FC = () => {
   const schemaJson = [
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
-      name: "StockForge POS",
-      alternateName: "StockForge Offline Retail POS",
+      "@type": "SoftwareApplication",
+      name: "StockForge Desktop POS",
+      alternateName: "StockForge Offline Desktop Retail POS",
       url: "https://stockforge.app/",
       applicationCategory: "BusinessApplication",
-      operatingSystem: "Windows, macOS, Linux, Web, Android",
-      browserRequirements: "Requires JavaScript and HTML5 WebAssembly support",
+      operatingSystem: "Windows, macOS, Linux",
       softwareVersion: "2.5.0",
       description:
-        "Zero-latency offline retail POS & inventory management platform powered by SQLite WASM with automated sequential billing, multi-unit stock, and Khata ledger.",
+        "Zero-latency native desktop retail POS & inventory management software for Windows, macOS, and Linux powered by embedded SQLite with automated sequential billing, multi-unit stock, and Khata ledger.",
       offers: {
         "@type": "Offer",
         price: "0",
         priceCurrency: "NPR",
       },
       featureList: [
-        "100% Offline-First SQLite WASM Database with ACID Durability",
+        "100% Offline Native Desktop Application (Windows, macOS, Linux)",
+        "Embedded Local SQLite Database with ACID Durability",
         "Automated Sequential Invoicing & BILL-YYYYMMDD-XXXX Bill Numbering",
         "Multi-Unit Product Inventory (piece, kg, litre, dozen, packet, box, meter)",
         "Gross Profit & Cost of Goods Sold (COGS) Snapshot Pricing",
@@ -70,7 +71,7 @@ export const HomePage: React.FC = () => {
         "Developer of zero-latency offline retail POS systems and inventory management engines for modern stores across Nepal.",
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+977-1-4245678",
+        telephone: CONTACT_INFO.phone.clean,
         contactType: "customer service",
         availableLanguage: ["English", "Nepali"],
         areaServed: "NP",
@@ -92,16 +93,16 @@ export const HomePage: React.FC = () => {
             : "Speed up store checkouts with zero-latency offline POS. Manage multi-unit stock, sequential bills, and customer khata in Nepal. Request a live demo today."
         }
         keywords={[
-          "offline POS software Nepal",
+          "offline desktop POS software",
+          "desktop POS Windows Mac Linux",
           "retail billing software Nepal",
-          "SQLite WASM POS",
-          "grocery store inventory management",
+          "desktop inventory management software",
           "multi unit inventory kg litre pcs",
           "customer credit khata ledger",
           "thermal receipt printing 80mm",
           "sequential invoicing BILL",
-          "zero downtime POS Kathmandu",
-          "खुद्रा पसल बिलिङ सफ्टवेयर",
+          "zero downtime POS Nepal",
+          "डेस्कटप बिलिङ सफ्टवेयर",
           "नेपाल इन्भेन्टरी व्यवस्थापन",
         ]}
         locale={isNepali ? "ne_NP" : "en_NP"}
@@ -134,8 +135,8 @@ export const HomePage: React.FC = () => {
             </h2>
             <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed">
               {isNepali
-                ? "परम्परागत क्लाउड POS ले प्रत्येक बिलिङ गर्दा टाढाको सर्भरमा अनुरोध पठाउँछ, जसले गर्दा भीडभाडमा काउन्टर ढिलो हुन्छ। StockForge ले तपाईंको कम्प्युटरभित्रै SQLite WASM मार्फत ०ms मा तुरुन्तै कारोबार सम्पन्न गर्छ।"
-                : "Traditional cloud point-of-sale software depends on continuous internet connections. When network traffic spikes during festive shopping, cloud counters freeze. StockForge executes all queries inside your browser with 0ms sub-millisecond local speed."}
+                ? "परम्परागत क्लाउड POS ले प्रत्येक बिलिङ गर्दा टाढाको सर्भरमा अनुरोध पठाउँछ, जसले गर्दा भीडभाडमा काउन्टर ढिलो हुन्छ। StockForge विन्डोज, म्याक र लिनक्स (Windows, macOS, Linux) का लागि नेटिभ डेस्कटप सफ्टवेयर हो, जसले तपाईंको कम्प्युटरमै स्थानीय SQLite मार्फत ०ms मा तुरुन्तै कारोबार सम्पन्न गर्छ।"
+                : "Traditional cloud point-of-sale software depends on continuous internet connections. When network traffic spikes during festive shopping, cloud counters freeze. StockForge runs as a native desktop application on Windows, macOS, and Linux, executing all queries locally with 0ms sub-millisecond SQLite speed."}
             </p>
           </div>
 
@@ -143,7 +144,7 @@ export const HomePage: React.FC = () => {
           <div className="flex justify-center mb-8">
             <img
               src="/architecture-diagram.svg"
-              alt="Visual comparison between legacy cloud POS latency and StockForge offline SQLite WebAssembly zero millisecond response time in Nepal"
+              alt="Visual comparison between legacy cloud POS latency and StockForge offline native desktop application zero millisecond response time in Nepal"
               width={900}
               height={480}
               loading="lazy"
@@ -229,8 +230,8 @@ export const HomePage: React.FC = () => {
                 </h3>
                 <p className="text-xs text-neutral-400 leading-relaxed mb-3">
                   {isNepali
-                    ? "खुला चामल, तेल, वा प्याकेट चाउचाउ — सामानहरू किलोग्राम, लिटर वा पिसमा बिक्री गर्नुहोस्। दशमलव मात्रा (जस्तै १.५ kg) को सही स्टक घट्ने सुविधा।"
-                    : "Track bulk grains in kg, cooking oils in litres, and packaged items in pieces. Native support for fractional decimal weights with real-time stock deduction."}
+                    ? "खुला चामल, तेल वा प्याकेट सामान—केजी, लिटर वा पिसमा सजिलै बिक्री गर्नुहोस्। दशमलव तौल (जस्तै १.५ kg) मा पनि तत्काल स्टक कटौती।"
+                    : "Sell loose or packaged items by kg, litre, or piece. Full support for fractional weights (like 1.5 kg) with real-time stock deductions."}
                 </p>
               </div>
               <Link
@@ -257,8 +258,8 @@ export const HomePage: React.FC = () => {
                 </h3>
                 <p className="text-xs text-neutral-400 leading-relaxed mb-3">
                   {isNepali
-                    ? "प्रत्येक बिक्रीमा अद्वितीय क्रमबद्ध बिल नम्बर स्वतः सिर्जना हुन्छ। करयोग्य रकम, छुट, र कुल जम्मा रकम स्पष्ट रूपमा देखिन्छ।"
-                    : "Standardized automated invoice sequences generated per checkout. Clean subtotal breakdowns, customer discount rules, and audit-ready receipt formatting."}
+                    ? "हरेक बिक्रीमा स्वतः अद्वितीय क्रमबद्ध बिल नम्बर तयार। छुट, कर र कुल रकम १ सेकेन्डमै सटीक हिसाब!"
+                    : "Automated audit-proof bill numbers per checkout. Subtotals, discounts, and taxes calculated in a snap."}
                 </p>
               </div>
               <Link
@@ -280,13 +281,13 @@ export const HomePage: React.FC = () => {
                 </div>
                 <h3 className="text-sm sm:text-base font-bold text-neutral-100 mb-1.5">
                   {isNepali
-                    ? "१००% अफलाइन SQLite ACID डेटाबेस"
-                    : "100% In-Browser SQLite ACID"}
+                    ? "१००% नेटिभ डेस्कटप SQLite ACID डेटाबेस"
+                    : "100% Native Desktop SQLite ACID"}
                 </h3>
                 <p className="text-xs text-neutral-400 leading-relaxed mb-3">
                   {isNepali
-                    ? "इन्टरनेट नहुँदा पनि ०ms गतिमा काउन्टर चल्छ। तपाईंको सम्पूर्ण डेटा कम्प्युटरमै सुरक्षित रहन्छ र १-क्लिकमा .db ब्याकअप लिन सकिन्छ।"
-                    : "Operates completely client-side via SQLite WebAssembly. Absolute immunity from cellular outages and complete ownership of your database records."}
+                    ? "Windows, macOS र Linux मा चल्ने नेटिभ डेस्कटप एप। इन्टरनेट बिना पनि ०ms गतिमा चल्छ र सम्पूर्ण डेटा कम्प्युटरमै १००% सुरक्षित!"
+                    : "Native desktop app for Windows, Mac & Linux with embedded SQLite. Zero internet needed, zero cloud lag, and 100% local privacy."}
                 </p>
               </div>
               <Link
@@ -315,8 +316,8 @@ export const HomePage: React.FC = () => {
                 </h3>
                 <p className="text-xs text-neutral-400 leading-relaxed mb-3">
                   {isNepali
-                    ? "काउन्टरमा आंशिक भुक्तानी (Partial Payment) सहजै दर्ता गर्नुहोस्। साविकको बाँकी, हालको बाँकी र कुल बाँकी रसिद तथा इतिहासमा स्वचालित हिसाब।"
-                    : "Full support for partial payments. Seamlessly itemizes Previous Due, Current Due, and Total Due across counter checkouts, restock bills, and receipts."}
+                    ? "आंशिक भुक्तानी सहजै दर्ता गर्नुहोस्। साविकको बाँकी र हालको बाँकी जोडेर कुल बाँकी रकम रसिद तथा खातामा स्वतः हिसाब!"
+                    : "Accept partial payments without math headaches. Automatically tracks previous, current, and total dues on receipts."}
                 </p>
               </div>
               <Link
@@ -343,8 +344,8 @@ export const HomePage: React.FC = () => {
                 </h3>
                 <p className="text-xs text-neutral-400 leading-relaxed mb-3">
                   {isNepali
-                    ? "खरिद मूल्य स्न्यापसटबाट वास्तविक कुल नाफा (COGS), पसलको दैनिक खर्च, र कर्मचारीहरूको मासिक तलब भुक्तानी भौचर।"
-                    : "Snapshot cost price captures real gross profit after COGS. Manage employee rosters and generate printable monthly wage disbursement vouchers."}
+                    ? "बिक्री हुँदाकै खरिद मूल्यबाट वास्तविक कुल नाफा (COGS) हेर्नुहोस् र १-क्लिकमा कर्मचारीको मासिक तलब भौचर निकाल्नुहोस्।"
+                    : "Lock in buy prices at checkout to see real gross margins. Manage staff wages and print monthly salary slips in seconds."}
                 </p>
               </div>
               <Link
@@ -371,8 +372,8 @@ export const HomePage: React.FC = () => {
                 </h3>
                 <p className="text-xs text-neutral-400 leading-relaxed mb-3">
                   {isNepali
-                    ? "१-क्लिकमा गुगल सिटमा क्लाउड ब्याकअप वा मानक .sql स्क्रिप्ट निर्यात। कुनै पनि समयमा डेटा पुनःस्थापना गर्न सकिने।"
-                    : "Secure backup to your personal Google Sheets via authorized permission, plus portable SQL file (.sql) dumps for offline archival and device migrations."}
+                    ? "१-क्लिकमै गुगल सिटमा क्लाउड ब्याकअप वा पेनड्राइभमा .sql स्क्रिप्ट सेभ गर्नुहोस्। कुनै पनि समयमा तत्काल डेटा रिस्टोर!"
+                    : "Back up your store to your Google Sheet in 1 click, or export clean .sql files for USB storage and quick PC migration."}
                 </p>
               </div>
               <Link
@@ -417,7 +418,7 @@ export const HomePage: React.FC = () => {
               </h3>
               <p className="text-xs text-neutral-400 leading-relaxed">
                 {isNepali
-                  ? "चाडपर्वमा न्यूरोड वा असनमा मोबाइल नेटवर्क जाम हुँदा अनलाइन POS रोकिन्छन्। StockForge मा सबै डेटा स्थानीय ब्राउजरमा चल्ने भएकाले सामान छनोट र बिलिङ ० सेकेन्डको ढिलाइ बिना चल्छ।"
+                  ? "चाडपर्वमा न्यूरोड वा असनमा मोबाइल नेटवर्क जाम हुँदा अनलाइन POS रोकिन्छन्। StockForge डेस्कटप एप्लिकेसनमा सबै डेटा स्थानीय SQLite इन्जिनमार्फत चल्ने भएकाले सामान छनोट र बिलिङ ० सेकेन्डको ढिलाइ बिना चल्छ।"
                   : "Cellular signals in dense commercial centers often collapse during peak festivals. Because StockForge requires zero network round-trips for sales, your cashiers process customers without waiting."}
               </p>
             </div>
@@ -571,7 +572,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="pt-6 flex flex-wrap justify-center items-center gap-6 text-[11px] text-neutral-500">
-            <span>✓ Works on Existing Windows, Mac, Linux Laptops</span>
+            <span>✓ Native Desktop App for Windows, macOS & Linux</span>
             <span>✓ Standard 80mm / 58mm Thermal Printers Supported</span>
             <span>✓ No Forced Monthly Cloud Fees</span>
           </div>

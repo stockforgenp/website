@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { SEO } from "../components/common/SEO.tsx";
 import { Breadcrumbs } from "../components/common/Breadcrumbs.tsx";
 import {
@@ -10,19 +10,18 @@ import {
   Send,
   CheckCircle2,
   Building2,
-  Sparkles,
   ArrowRight,
   ShieldCheck,
-  Headphones,
   MessageCircle,
   AlertCircle,
+  User,
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext.tsx";
 import { submitEnquiry } from "../lib/services/enquiryService.ts";
+import { CONTACT_INFO } from "../constants/contactInfo.ts";
 
 export const ContactPage: React.FC = () => {
   const { isNepali } = useLanguage();
-  const navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({
     fullName: "",
@@ -145,7 +144,7 @@ export const ContactPage: React.FC = () => {
       "Contact our retail solutions engineering team for billing inquiries, hardware integration, and on-site POS demonstrations.",
     mainEntity: {
       "@type": "ContactPoint",
-      telephone: "+977-1-4245678",
+      telephone: CONTACT_INFO.phone.clean,
       contactType: "customer support",
       areaServed: "NP",
       availableLanguage: ["English", "Nepali"],
@@ -242,17 +241,32 @@ export const ContactPage: React.FC = () => {
                 <div className="space-y-4 text-xs sm:text-sm">
                   <div className="flex items-start gap-3.5">
                     <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0">
+                      <User className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-neutral-200">
+                        {isNepali ? "सम्पर्क व्यक्ति" : "Contact Person"}
+                      </div>
+                      <div className="text-neutral-400 text-xs mt-0.5">
+                        {isNepali ? CONTACT_INFO.nameNp : CONTACT_INFO.name}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0">
                       <MapPin className="w-4 h-4" />
                     </div>
                     <div>
                       <div className="font-semibold text-neutral-200">
                         {isNepali
-                          ? "प्रधान कार्यालय र टेक ल्याब"
-                          : "Retail Technology Hub"}
+                          ? "स्थान तथा कार्यालय"
+                          : "Location & Office"}
                       </div>
                       <div className="text-neutral-400 text-xs mt-0.5 leading-relaxed">
-                        New Road Retail Center, Kathmandu & Patan Distribution
-                        Hub, Nepal
+                        {isNepali
+                          ? CONTACT_INFO.address.displayNp
+                          : CONTACT_INFO.address.displayEn}
                       </div>
                     </div>
                   </div>
@@ -263,11 +277,14 @@ export const ContactPage: React.FC = () => {
                     </div>
                     <div>
                       <div className="font-semibold text-neutral-200">
-                        {isNepali ? "हटलाइन फोन" : "Direct Support Hotline"}
+                        {isNepali ? "मोबाइल नम्बर" : "Direct Mobile"}
                       </div>
-                      <div className="text-neutral-400 text-xs font-mono mt-0.5">
-                        +977 1-4245678 / +977 9801234567
-                      </div>
+                      <a
+                        href={CONTACT_INFO.phone.telLink}
+                        className="text-neutral-400 text-xs font-mono mt-0.5 block hover:text-emerald-400 transition-colors"
+                      >
+                        {CONTACT_INFO.phone.display}
+                      </a>
                     </div>
                   </div>
 
@@ -278,12 +295,17 @@ export const ContactPage: React.FC = () => {
                     <div>
                       <div className="font-semibold text-neutral-200">
                         {isNepali
-                          ? "ह्वाट्सएप / भाइबर सहयोग"
+                          ? "ह्वाट्सएप च्याट"
                           : "WhatsApp & Instant Messaging"}
                       </div>
-                      <div className="text-neutral-400 text-xs font-mono mt-0.5">
-                        +977 9801234567 (Chat available)
-                      </div>
+                      <a
+                        href={CONTACT_INFO.whatsapp.getUrl(undefined, isNepali)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-neutral-400 text-xs font-mono mt-0.5 block hover:text-emerald-400 transition-colors"
+                      >
+                        {CONTACT_INFO.whatsapp.display} ({isNepali ? "च्याट उपलब्ध" : "Chat available"})
+                      </a>
                     </div>
                   </div>
 
@@ -295,9 +317,12 @@ export const ContactPage: React.FC = () => {
                       <div className="font-semibold text-neutral-200">
                         {isNepali ? "इमेल सम्पर्क" : "Email Enquiries"}
                       </div>
-                      <div className="text-neutral-400 text-xs font-mono mt-0.5">
-                        support@stockforge.pos / sales@stockforge.pos
-                      </div>
+                      <a
+                        href={CONTACT_INFO.email.mailtoLink}
+                        className="text-neutral-400 text-xs font-mono mt-0.5 block hover:text-emerald-400 transition-colors"
+                      >
+                        {CONTACT_INFO.email.address}
+                      </a>
                     </div>
                   </div>
 
@@ -310,7 +335,7 @@ export const ContactPage: React.FC = () => {
                         {isNepali ? "सञ्चालन समय" : "Store Support Hours"}
                       </div>
                       <div className="text-neutral-400 text-xs mt-0.5">
-                        7:00 AM – 10:00 PM NST (All 7 Days Open)
+                        {isNepali ? CONTACT_INFO.hours.np : CONTACT_INFO.hours.en}
                       </div>
                     </div>
                   </div>
@@ -318,7 +343,7 @@ export const ContactPage: React.FC = () => {
               </div>
 
               {/* Service Level Commitment */}
-              <div className="p-5 rounded-2xl bg-gradient-to-br from-emerald-950/30 to-teal-950/30 border border-emerald-800/30 space-y-2">
+              <div className="p-5 rounded-2xl bg-gradient-to-br from-emerald-500/30 to-teal-950/30 border border-emerald-800/30 space-y-2">
                 <div className="flex items-center gap-2 text-emerald-400 text-xs font-bold">
                   <ShieldCheck className="w-4 h-4" />
                   <span>
@@ -356,7 +381,7 @@ export const ContactPage: React.FC = () => {
 
                     <p className="text-xs sm:text-sm text-neutral-400 max-w-md mx-auto leading-relaxed">
                       {isNepali
-                        ? `धन्यवाद ${submissionResult.fullName}! तपाईंको अनुरोध (Ref: ${submissionResult.referenceId}) हाम्रो काठमाडौँ सहयोग केन्द्रमा प्राप्त भएको छ। हाम्रा खुद्रा विज्ञहरूले २ घण्टाभित्र सम्पर्क गर्नेछन्।`
+                        ? `धन्यवाद ${submissionResult.fullName}! तपाईंको अनुरोध (Ref: ${submissionResult.referenceId}) हाम्रो सहयोग केन्द्रमा प्राप्त भएको छ। हाम्रा खुद्रा विज्ञहरूले २ घण्टाभित्र सम्पर्क गर्नेछन्।`
                         : `Thank you, ${submissionResult.fullName}! Your inquiry for ${submissionResult.shopName} has been routed to our retail specialists. We will reach out via phone or email shortly.`}
                     </p>
 

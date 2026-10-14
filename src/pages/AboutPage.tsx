@@ -16,6 +16,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext.tsx";
+import { CONTACT_INFO } from "../constants/contactInfo.ts";
 
 export const AboutPage: React.FC = () => {
   const { isNepali } = useLanguage();
@@ -33,13 +34,14 @@ export const AboutPage: React.FC = () => {
       url: "https://stockforge.app",
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+977-1-4245678",
+        telephone: CONTACT_INFO.phone.clean,
         contactType: "customer service",
       },
     },
   };
 
   const hubs = [
+    { city: "Birgunj", area: "Main Road & Parsa Retail Hub" },
     { city: "Kathmandu", area: "New Road & Asan Mart Hub" },
     { city: "Lalitpur", area: "Patan, Kumaripati & Sanepa" },
     { city: "Bhaktapur", area: "Suryabinayak & Durbar Square" },
@@ -58,15 +60,16 @@ export const AboutPage: React.FC = () => {
         }
         description={
           isNepali
-            ? "क्लाउडPOS को ढिलाइ हटाएर नेपालका किराना र मार्टहरूलाई शून्य-विलम्ब स्थानीय SQLite प्रविधि प्रदान गर्ने StockForge को कथा र मिसन जान्नुहोस्।"
-            : "Learn how StockForge was built to free grocery stores and retail marts in Nepal from cloud downtime with browser-local SQLite storage and data privacy."
+            ? "क्लाउडPOS को ढिलाइ हटाएर नेपालका किराना र मार्टहरूलाई शून्य-विलम्ब स्थानीय डेस्कटप SQLite प्रविधि प्रदान गर्ने StockForge को कथा र मिसन जान्नुहोस्।"
+            : "Learn how StockForge was built to free grocery stores and retail marts in Nepal from cloud downtime with native desktop offline SQLite storage and data privacy."
         }
         keywords={[
           "about StockForge",
-          "offline POS mission Nepal",
+          "offline desktop POS Nepal",
+          "desktop POS Windows Mac Linux",
           "retail tech Nepal",
           "local retail store POS",
-          "SQLite retail engine",
+          "desktop SQLite retail engine",
           "store data sovereignty",
           "हाम्रोबारे",
           "नेपाल खुद्रा बिलिङ",
@@ -147,7 +150,7 @@ export const AboutPage: React.FC = () => {
           <div className="flex justify-center mb-10">
             <img
               src="/nepal-retail-network.svg"
-              alt="Autonomous decentralized retail store nodes across Nepal powered by StockForge offline SQLite WebAssembly"
+              alt="Autonomous decentralized retail store nodes across Nepal powered by StockForge offline native desktop application for Windows, macOS, and Linux"
               width={920}
               height={400}
               loading="lazy"

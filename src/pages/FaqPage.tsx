@@ -18,7 +18,15 @@ export const FaqPage: React.FC = () => {
         name: "Does StockForge work completely offline without an internet connection?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. StockForge operates entirely client-side using SQLite WebAssembly with local ACID transaction safety. Sales, stock updates, and billing work at 0ms latency with zero network dependencies.",
+          text: "Yes. StockForge is a native desktop application for Windows, macOS, and Linux that runs entirely locally with an embedded SQLite engine. Sales, stock updates, and billing work at 0ms latency with zero network dependencies.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is StockForge a desktop application or a web app?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "StockForge is a native desktop application, not a web application. It installs directly on Windows, macOS, and Linux computers with zero browser dependencies.",
         },
       },
       {
@@ -99,12 +107,12 @@ export const FaqPage: React.FC = () => {
         description={
           isNepali
             ? "अफलाइन POS प्रविधि, ८०mm/५८mm थर्मल प्रिन्टर, लिटर/केजी एकाइ, र सुरक्षित डेटाबेस ब्याकअप बारे बारम्बार सोधिने प्रश्नहरूको स्पष्ट जवाफ पाउनुहोस्।"
-            : "Get answers to common retail POS questions: offline WebAssembly SQLite safety, 80mm/58mm thermal printing, fractional units, and database backups in Nepal."
+            : "Get answers to common retail POS questions: native desktop offline SQLite safety, 80mm/58mm thermal printing, fractional units, and database backups in Nepal."
         }
         keywords={[
           "offline POS FAQ Nepal",
-          "retail POS questions and answers",
-          "SQLite POS troubleshooting",
+          "desktop POS questions and answers",
+          "native desktop SQLite POS",
           "thermal printer pairing POS",
           "Google Sheets restore POS",
           "customer khata credit FAQ",

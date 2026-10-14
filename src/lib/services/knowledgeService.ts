@@ -4,6 +4,7 @@
  * Zero external AI / LLMs used - all answers are matched deterministically based on product capabilities.
  * Direct WhatsApp redirection provided for immediate human assistance.
  */
+import { CONTACT_INFO } from '../../constants/contactInfo.ts';
 
 export type KnowledgeCategory =
   | 'overview'
@@ -65,9 +66,9 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
     question_en: 'What is StockForge POS software?',
     question_np: 'StockForge कस्तो रिटेल POS सफ्टवेयर हो?',
     answer_en:
-      'StockForge is an offline-first Point of Sale (POS) and inventory management software engineered specifically for grocery stores, retail marts, hardware outlets, and boutique shops in Nepal. It operates with 0 internet dependency, saves data in local SQLite WebAssembly, and connects seamlessly to cash drawers and thermal receipt printers.',
+      'StockForge is an offline-first native desktop Point of Sale (POS) and inventory management application (Windows, macOS, Linux) engineered specifically for grocery stores, retail marts, hardware outlets, and boutique shops in Nepal. It operates with 0 internet dependency, saves data in a local embedded SQLite engine, and connects seamlessly to cash drawers and thermal receipt printers.',
     answer_np:
-      'StockForge नेपालका किराना पसल, मार्ट, हार्डवेयर र फेन्सी स्टोरहरूका लागि विशेष रूपमा तयार गरिएको अफलाइन रिटेल POS र इन्भेन्टरी सफ्टवेयर हो। यसमा बिलिङ गर्न इन्टरनेट चाहिँदैन, सम्पूर्ण डेटा तपाईंको आफ्नै कम्प्युटरमा SQLite मा सुरक्षित रहन्छ, र यसले थर्मल प्रिन्टर, क्यास ड्रयर तथा ग्राहक खातालाई पूर्ण समर्थन गर्दछ।',
+      'StockForge नेपालका किराना पसल, मार्ट, हार्डवेयर र फेन्सी स्टोरहरूका लागि विशेष रूपमा तयार गरिएको अफलाइन नेटिभ डेस्कटप रिटेल POS र इन्भेन्टरी एप्लिकेसन (Windows, macOS, Linux) हो। यसमा बिलिङ गर्न इन्टरनेट चाहिँदैन, सम्पूर्ण डेटा तपाईंको आफ्नै कम्प्युटरमा स्थानीय SQLite इन्जिनमा सुरक्षित रहन्छ, र यसले थर्मल प्रिन्टर, क्यास ड्रयर तथा ग्राहक खातालाई पूर्ण समर्थन गर्दछ।',
     actionUrl: '/about',
     actionLabel_en: 'About StockForge',
     actionLabel_np: 'हाम्रोबारे हेर्नुहोस्',
@@ -81,9 +82,9 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
     question_en: 'Thank you!',
     question_np: 'धन्यवाद!',
     answer_en:
-      "You're very welcome! If you have any further questions about setting up hardware, pricing licenses, or requesting a free on-site store demo, feel free to ask anytime or connect with our engineering team on WhatsApp (+977 9801234567).",
+      `You're very welcome! If you have any further questions about setting up hardware, pricing licenses, or requesting a free on-site store demo, feel free to ask anytime or connect with ${CONTACT_INFO.name} on WhatsApp (${CONTACT_INFO.whatsapp.display}).`,
     answer_np:
-      'धेरै धेरै धन्यवाद! StockForge, हार्डवेयर सेटअप वा पसलमै आएर डेमो हेर्न चाहनुहुन्छ भने जुनसुकै बेला प्रश्न सोध्न सक्नुहुन्छ वा हाम्रो प्राविधिक टोलीसँग ह्वाट्सएप (+९७७ ९८०१२३४५६७) मा सम्पर्क गर्न सक्नुहुन्छ।',
+      `धेरै धेरै धन्यवाद! StockForge, हार्डवेयर सेटअप वा पसलमै आएर डेमो हेर्न चाहनुहुन्छ भने जुनसुकै बेला प्रश्न सोध्न सक्नुहुन्छ वा हाम्रो प्राविधिक टोलीसँग ह्वाट्सएप (${CONTACT_INFO.whatsapp.display}) मा सम्पर्क गर्न सक्नुहुन्छ।`,
     actionUrl: '/contact',
     actionLabel_en: 'Contact Support',
     actionLabel_np: 'सम्पर्क गर्नुहोस्',
@@ -101,9 +102,9 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
     question_en: 'Does StockForge work completely offline without an internet connection?',
     question_np: 'के StockForge चलाउन इन्टरनेट आवश्यक पर्छ? (Does it work offline?)',
     answer_en:
-      'Yes, 100%! StockForge operates completely client-side using SQLite WebAssembly with local ACID transaction safety. Sales checkout, product catalog management, fast item search, sequential billing, and invoice printing operate at 0ms latency with zero internet or cloud dependencies.',
+      'Yes, 100%! StockForge is a native desktop application for Windows, macOS, and Linux that operates completely offline using a local embedded SQLite engine with ACID transaction safety. Sales checkout, product catalog management, fast item search, sequential billing, and invoice printing operate at 0ms latency with zero internet or cloud dependencies.',
     answer_np:
-      'पर्दैन! StockForge १००% अफलाइन-फर्स्ट प्रणाली हो। यो तपाईंको कम्प्युटर वा ल्यापटपको वेब ब्राउजरभित्र SQLite WebAssembly डेटाबेसमा स्थानीय रूपमा चल्छ। इन्टरनेट नभए पनि वा नेटवर्क पूर्ण रूपमा बन्द हुँदा पनि तपाईंले निर्बाध रूपमा सामान थप्न, बिक्री गर्न, र बिल प्रिन्ट गर्न सक्नुहुन्छ।',
+      'पर्दैन! StockForge १००% अफलाइन-फर्स्ट नेटिभ डेस्कटप एप्लिकेसन (Windows, macOS, Linux) हो। यो कुनै वेब एप होइन र ब्राउजर बिना नै तपाईंको कम्प्युटरमा स्थानीय SQLite इन्जिनमार्फत चल्छ। इन्टरनेट नभए पनि वा नेटवर्क पूर्ण रूपमा बन्द हुँदा पनि तपाईंले निर्बाध रूपमा सामान थप्न, बिक्री गर्न, र बिल प्रिन्ट गर्न सक्नुहुन्छ।',
     actionUrl: '/features',
     actionLabel_en: 'Explore Offline Architecture',
     actionLabel_np: 'अफलाइन प्रविधि हेर्नुहोस्',
@@ -118,7 +119,7 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
     question_en: 'Where is my shop data stored, and is it private and secure?',
     question_np: 'हाम्रो पसलको डेटा कहाँ सुरक्षित रहन्छ र यो कत्तिको गोप्य छ?',
     answer_en:
-      'Your store database is stored 100% locally on your computer in encrypted browser-native SQLite storage. No customer transaction, revenue number, or inventory record is ever uploaded to third-party cloud servers without your explicit action. Complete data privacy and sovereignty.',
+      'Your store database is stored 100% locally on your computer hard drive in local embedded SQLite storage. No customer transaction, revenue number, or inventory record is ever uploaded to third-party cloud servers without your explicit action. Complete data privacy and sovereignty.',
     answer_np:
       'तपाईंको पसलको सम्पूर्ण डेटा तपाईंको आफ्नै कम्प्युटरमा स्थानीय रूपमा सुरक्षित रहन्छ। कुनै पनि तेस्रो पक्ष वा क्लाउड सर्भरमा तपाईंको डेटा पठाउने गरिँदैन। यसले तपाईंको व्यापारको गोपनीयता, ग्राहक विवरण र नाफाको तथ्याङ्कलाई १००% सुरक्षित राख्छ।',
     actionUrl: '/about',
@@ -482,14 +483,14 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
     category: 'contact',
     keywords: [
       'contact', 'support', 'help', 'phone', 'call', 'location', 'office',
-      'kathmandu', 'hours', 'whatsapp', 'number', 'सम्पर्क', 'फोन', 'ह्वाट्सएप', 'ठेगाना', 'कार्यालय'
+      'birgunj', 'parsa', 'nepal', 'hours', 'whatsapp', 'number', 'ayub', 'सम्पर्क', 'फोन', 'ह्वाट्सएप', 'ठेगाना', 'कार्यालय'
     ],
     question_en: 'What are your support contact numbers, office location, and hours?',
     question_np: 'सहयोगको लागि सम्पर्क फोन नम्बर, कार्यालय र समय के हो?',
     answer_en:
-      'You can reach our retail engineering team directly:\n• Phone Hotline: +977 1-4245678 / +977 9801234567\n• WhatsApp: +977 9801234567 (Instant Chat)\n• Email: support@stockforge.pos / info@stockforge.pos\n• Office: New Road Retail Technology Center, Kathmandu / Patan Hub, Nepal\n• Support Hours: 7:00 AM – 8:30 PM NPT (7 days a week)',
+      `You can reach our team directly:\n• Contact Person: ${CONTACT_INFO.name}\n• Mobile / WhatsApp: ${CONTACT_INFO.phone.display}\n• Email: ${CONTACT_INFO.email.address}\n• Office: ${CONTACT_INFO.address.displayEn}\n• Support Hours: ${CONTACT_INFO.hours.en}`,
     answer_np:
-      'तपाईंले हाम्रो प्राविधिक टोलीसँग प्रत्यक्ष सम्पर्क गर्न सक्नुहुन्छ:\n• फोन: +977 1-4245678 / +977 9801234567\n• ह्वाट्सएप: +977 9801234567\n• इमेल: support@stockforge.pos\n• कार्यालय: न्यूरोड, काठमाडौं / पाटन, नेपाल\n• समय: बिहान ७:०० देखि साँझ ८:३० सम्म (साताको ७ दिन)',
+      `तपाईंले हाम्रो टोलीसँग प्रत्यक्ष सम्पर्क गर्न सक्नुहुन्छ:\n• सम्पर्क व्यक्ति: ${CONTACT_INFO.nameNp} (${CONTACT_INFO.name})\n• मोबाइल / ह्वाट्सएप: ${CONTACT_INFO.phone.display}\n• इमेल: ${CONTACT_INFO.email.address}\n• कार्यालय: ${CONTACT_INFO.address.displayNp}\n• समय: ${CONTACT_INFO.hours.np}`,
     actionUrl: '/contact',
     actionLabel_en: 'Open Contact Form',
     actionLabel_np: 'सम्पर्क फाराम खोल्नुहोस्',
@@ -505,9 +506,9 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
     question_en: 'Can I get an on-site demonstration at my shop in Nepal?',
     question_np: 'के हाम्रो पसलमै आएर प्रत्यक्ष डेमो (On-site Demo) देखाउन मिल्छ?',
     answer_en:
-      'Yes! Our field technicians provide free on-site demonstrations and hardware pairing tests across Kathmandu Valley (Kathmandu, Lalitpur, Bhaktapur), Pokhara, Chitwan, Butwal, Biratnagar, and major retail centers. Send us a request via WhatsApp or our Contact form.',
+      'Yes! Our field technicians provide free on-site demonstrations and hardware pairing tests across Birgunj, Parsa, Kathmandu Valley (Kathmandu, Lalitpur, Bhaktapur), Pokhara, Chitwan, Butwal, Biratnagar, and major retail centers. Send us a request via WhatsApp or our Contact form.',
     answer_np:
-      'मिल्छ! हाम्रो प्राविधिक टोलीले काठमाडौं उपत्यका, पोखरा, चितवन, बुटवल, विराटनगरलगायत प्रमुख सहरहरूमा तपाईंको पसलमै आएर निःशुल्क अन-साइट डेमो र प्रिन्टर/स्क्यानर परीक्षण गरिदिन्छ। ह्वाट्सएप वा सम्पर्क फाराममार्फत अनुरोध गर्नुहोस्।',
+      'मिल्छ! हाम्रो प्राविधिक टोलीले वीरगन्ज, पर्सा, काठमाडौं उपत्यका, पोखरा, चितवन, बुटवल, विराटनगरलगायत प्रमुख सहरहरूमा तपाईंको पसलमै आएर निःशुल्क अन-साइट डेमो र प्रिन्टर/स्क्यानर परीक्षण गरिदिन्छ। ह्वाट्सएप वा सम्पर्क फाराममार्फत अनुरोध गर्नुहोस्।',
     actionUrl: '/contact',
     actionLabel_en: 'Request On-Site Demo',
     actionLabel_np: 'अन-साइट डेमो अनुरोध गर्नुहोस्',
@@ -530,23 +531,39 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
     actionLabel_np: 'प्रत्यक्ष डेमो अनुरोध गर्नुहोस्',
   },
 
-  // ==================== FAQS ====================
   {
     id: 'faq_hardware_specs',
     category: 'faqs',
     keywords: [
-      'computer', 'laptop', 'hardware', 'spec', 'ram', 'windows', 'mac', 'requirements',
-      'कम्प्युटर', 'ल्यापटप', 'विन्डोज'
+      'computer', 'laptop', 'hardware', 'spec', 'ram', 'windows', 'mac', 'linux', 'requirements',
+      'कम्प्युटर', 'ल्यापटप', 'विन्डोज', 'म्याक', 'लिनक्स'
     ],
     question_en: 'What are the computer hardware and operating system requirements?',
     question_np: 'सफ्टवेयर चलाउन कस्तो कम्प्युटर वा ल्यापटप चाहिन्छ?',
     answer_en:
-      'StockForge runs smoothly on ANY standard laptop, desktop PC, or POS terminal with 2GB+ RAM. Compatible with Windows 10/11, macOS, Linux, and ChromeOS using any modern browser (Google Chrome, Microsoft Edge, Firefox, Safari). No heavy GPU or dedicated server required.',
+      'StockForge is a native desktop application that installs directly on ANY standard laptop, desktop PC, or touchscreen POS terminal with 2GB+ RAM. Available for Windows 10/11, macOS, and Linux. No web browser, heavy GPU, or dedicated server required.',
     answer_np:
-      'StockForge चलाउन कुनै महँगो कम्प्युटर चाहिँदैन। २GB र्‍याम भएको सामान्य ल्यापटप, डेस्कटप वा टच POS टर्मिनलमा विन्डोज १०/११, म्याक वा लिनक्समा क्रोम वा एज ब्राउजरमार्फत सजिलै चल्छ।',
+      'StockForge चलाउन कुनै महँगो कम्प्युटर चाहिँदैन। २GB र्‍याम भएको सामान्य ल्यापटप, डेस्कटप वा टच POS टर्मिनलमा विन्डोज १०/११, म्याक वा लिनक्समा नेटिभ डेस्कटप एपको रूपमा सिधै इन्स्टल भई चल्छ। यसका लागि कुनै वेब ब्राउजर आवश्यक पर्दैन।',
     actionUrl: '/features',
     actionLabel_en: 'Hardware Specs',
     actionLabel_np: 'हार्डवेयर विवरण हेर्नुहोस्',
+  },
+  {
+    id: 'faq_desktop_vs_web',
+    category: 'faqs',
+    keywords: [
+      'desktop app', 'web app', 'website', 'browser', 'native app', 'windows app', 'mac app', 'linux app',
+      'डेस्कटप', 'वेब एप', 'इन्स्टल', 'ब्राउजर'
+    ],
+    question_en: 'Is StockForge a native desktop application or a web app?',
+    question_np: 'के StockForge डेस्कटप एप हो कि वेब एप?',
+    answer_en:
+      'StockForge is a true native desktop application (for Windows, macOS, and Linux), NOT a web application. It runs directly on your computer hardware with an embedded local SQLite engine, completely free from browser limitations and cloud outages.',
+    answer_np:
+      'StockForge एक वास्तविक नेटिभ डेस्कटप एप्लिकेसन (Windows, macOS, Linux) हो, वेब एप होइन। यो कुनै ब्राउजर बिना नै कम्प्युटरको स्थानीय SQLite इन्जिनमार्फत चल्छ र सम्पूर्ण डेटा तपाईंको आफ्नै कम्प्युटरमा सुरक्षित रहन्छ।',
+    actionUrl: '/features',
+    actionLabel_en: 'View Desktop Architecture',
+    actionLabel_np: 'डेस्कटप प्रविधि हेर्नुहोस्',
   },
   {
     id: 'faq_multiple_counters',
@@ -586,6 +603,7 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
 
 export const POPULAR_QUESTIONS = [
   'Does StockForge work completely offline?',
+  'Is StockForge a native desktop app or a web app?',
   'How do measurement units (kg, litre, pcs) work?',
   'How do I backup to Google Sheets or flash drive?',
   'Can I print receipts on 80mm/58mm thermal printers?',
@@ -597,6 +615,7 @@ export const POPULAR_QUESTIONS = [
 
 export const POPULAR_QUESTIONS_NP = [
   'के StockForge इन्टरनेट नभए पनि चल्छ?',
+  'के StockForge डेस्कटप एप हो कि वेब एप?',
   'सामानको एकाइ (केजी, लिटर, पिस) कसरी चल्छ?',
   'गुगल सिट वा पेनड्राइभमा डेटा ब्याकअप कसरी लिने?',
   'थर्मल बिल प्रिन्टरमा रसिद छाप्न सकिन्छ?',
@@ -606,17 +625,9 @@ export const POPULAR_QUESTIONS_NP = [
   'के पसलमै आएर प्रत्यक्ष डेमो हेर्न मिल्छ?',
 ];
 
-export const WHATSAPP_NUMBER = '9779801234567';
-export const WHATSAPP_DEFAULT_MESSAGE =
-  'Namaste StockForge! I would like to inquire about the offline retail POS software, hardware setup, and on-site demonstration.';
-
-export function getWhatsAppUrl(customMessage?: string, isNepali = false): string {
-  const defaultMsg = isNepali
-    ? 'नमस्ते StockForge! म अफलाइन रिटेल POS सफ्टवेयर, हार्डवेयर र डेमोबारे थप बुझ्न चाहन्छु।'
-    : WHATSAPP_DEFAULT_MESSAGE;
-  const text = encodeURIComponent(customMessage || defaultMsg);
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
-}
+export const WHATSAPP_NUMBER = CONTACT_INFO.whatsapp.number;
+export const WHATSAPP_DEFAULT_MESSAGE = CONTACT_INFO.whatsapp.defaultMessageEn;
+export const getWhatsAppUrl = CONTACT_INFO.whatsapp.getUrl;
 
 /**
  * Deterministic text search over the product knowledge base

@@ -47,7 +47,7 @@ export const OfflineShowcaseSection: React.FC = () => {
     },
     {
       icon: Database,
-      title: isNepali ? 'SQLite ACID विश्वसनीयता र सुरक्षा' : 'Industrial SQLite WASM ACID Durability',
+      title: isNepali ? 'SQLite ACID विश्वसनीयता र सुरक्षा' : 'Industrial Desktop SQLite ACID Durability',
       description: isNepali
         ? 'बैंकिङ स्तरको डेटाबेस प्रविधि जसले आकस्मिक बत्ती जाँदा वा कम्प्युटर बन्द हुँदा पनि कारोबार सुरक्षित राख्छ।'
         : 'Atomicity, Consistency, Isolation, and Durability ensure zero corrupted bills even if power is abruptly unplugged.',
@@ -102,8 +102,8 @@ export const OfflineShowcaseSection: React.FC = () => {
 
           <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed">
             {isNepali
-              ? 'क्लाउड-आधारित सफ्टवेयरहरू इन्टरनेट ढिलो हुँदा रोकिन्छन्। StockForge ले तपाईंको कम्प्युटरमै SQLite WASM इन्जिन चलाउँछ, जसले शून्य विलम्बमा काम गर्छ र कुनै मासिक सर्भर शुल्क लाग्दैन।'
-              : 'Legacy cloud POS terminals stall during fiber cuts and festival shopping surges. StockForge boots an industrial SQLite engine directly inside your device, giving you instant checkouts with zero dependence on remote servers.'}
+              ? 'क्लाउड-आधारित सफ्टवेयरहरू इन्टरनेट ढिलो हुँदा रोकिन्छन्। StockForge विन्डोज, म्याक र लिनक्स (Windows, macOS, Linux) का लागि निर्मित पूर्ण नेटिभ डेस्कटप सफ्टवेयर हो, जसले कम्प्युटरमै स्थानीय SQLite इन्जिन चलाउँछ र शून्य विलम्बमा काम गर्छ।'
+              : 'Legacy cloud POS terminals stall during fiber cuts and festival shopping surges. StockForge is a native desktop application for Windows, macOS, and Linux that runs an industrial SQLite engine directly on your machine, giving you instant checkouts with zero dependence on remote servers.'}
           </p>
         </div>
 
@@ -120,7 +120,7 @@ export const OfflineShowcaseSection: React.FC = () => {
                 </span>
                 <span className="text-sm font-bold text-neutral-100">
                   {isNepali ? 'स्थानीय इन्जिन स्थिति:' : 'Local Engine Status:'}{' '}
-                  <span className="text-emerald-400 font-mono">SQLite WebAssembly ACID (Active)</span>
+                  <span className="text-emerald-400 font-mono">Native Desktop SQLite ACID (Active)</span>
                 </span>
               </div>
               <p className="text-xs text-neutral-400 mt-1">
@@ -185,10 +185,10 @@ export const OfflineShowcaseSection: React.FC = () => {
                 {isNepali ? 'डेटा भण्डारण (Data Storage)' : 'Primary Data Location'}
               </div>
               <div className="text-xl font-bold font-mono text-emerald-400 truncate">
-                Local Hardware <span className="text-xs text-neutral-400 font-normal">({isNepali ? 'स्थानीय' : 'Browser DB'})</span>
+                Local Hardware <span className="text-xs text-neutral-400 font-normal">({isNepali ? 'स्थानीय' : 'Local SQLite DB'})</span>
               </div>
               <p className="text-[11px] text-neutral-400 mt-1.5">
-                {isNepali ? 'तपाईंको आफ्नै ल्यापटप वा काउन्टर कम्प्युटरमा सुरक्षित।' : 'Stored securely inside your local Origin Private File System / SQLite WASM.'}
+                {isNepali ? 'तपाईंको आफ्नै ल्यापटप वा काउन्टर कम्प्युटरको डिस्कमा सुरक्षित।' : 'Stored securely inside your local machine hard drive in standalone SQLite database files.'}
               </p>
             </div>
           </div>

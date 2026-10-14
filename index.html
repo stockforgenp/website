@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StockForge - Offline Desktop Inventory & Sales</title>
     <meta name="description" content="Reliable offline-first desktop inventory management and sales tracking system with SQLite, transaction safety, and gross profit analytics." />
-    <meta name="keywords" content="offline POS, retail billing software, SQLite WASM, inventory management, multi-unit stock, customer khata ledger, thermal receipt printing, grocery store POS, barcode scanner billing" />
+    <meta name="keywords" content="offline POS, desktop POS, retail billing software, native desktop SQLite, inventory management, multi-unit stock, customer khata ledger, thermal receipt printing, grocery store POS, barcode scanner billing" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#f8fafc" />
     <script>
@@ -65,10 +65,10 @@
     <script id="seo-schema-jsonld" type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "StockForge",
+      "@type": "SoftwareApplication",
+      "name": "StockForge Desktop POS",
       "applicationCategory": "BusinessApplication",
-      "operatingSystem": "All",
+      "operatingSystem": "Windows, macOS, Linux",
       "description": "Reliable offline-first desktop inventory management and sales tracking system with SQLite, transaction safety, and gross profit analytics.",
       "offers": {
         "@type": "Offer",
@@ -76,7 +76,7 @@
         "priceCurrency": "NPR"
       },
       "featureList": [
-        "Offline-first WebAssembly SQLite storage with IndexedDB persistence",
+        "Offline-first native desktop SQLite storage with local ACID persistence",
         "Point of Sale checkout with barcode and SKU scanning",
         "Snapshot cost tracking for accurate Gross and Net profit calculation",
         "Inventory stock movements audit trail and low-stock alerts",

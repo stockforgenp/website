@@ -79,7 +79,7 @@ export const PublicNavbar: React.FC = () => {
               </span>
             </div>
             <span className="block text-[10px] text-neutral-400 font-mono -mt-0.5">
-              Nepal Retail Engine
+              Desktop POS (Win / Mac / Linux)
             </span>
           </div>
         </Link>

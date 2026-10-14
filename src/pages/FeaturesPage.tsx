@@ -35,13 +35,13 @@ export const FeaturesPage: React.FC = () => {
     "@type": "SoftwareApplication",
     name: "StockForge Retail Engine",
     applicationCategory: "BusinessApplication",
-    operatingSystem: "Windows, macOS, Linux, Web, Android",
+    operatingSystem: "Windows, macOS, Linux",
     description:
       "Features breakdown of StockForge POS: multi-unit inventory (piece, kg, litre), automated sequential billing, offline SQLite database, COGS profit analytics, and staff payroll.",
     featureList: [
       "Multi-Unit Inventory (kg, litre, piece, dozen, packet, box, meter)",
       "Automated Sequential Invoicing and Bill Number Generation",
-      "Offline-First SQLite WASM Architecture with Local ACID Persistence",
+      "Offline-First Native Desktop SQLite Architecture with Local ACID Persistence",
       "Google Sheets Cloud Backup & Restore with Google OAuth Permission (Internet Required)",
       "SQL File Database Backup & Restore (.sql) with Standard DDL & DML Schema Dumps",
       "Gross Profit & Cost of Goods Sold (COGS) Snapshot Pricing",
@@ -64,7 +64,7 @@ export const FeaturesPage: React.FC = () => {
         ? "इन्टरनेट नहुँदा काउन्टर चल्ने (Offline Operation)"
         : "Works During Complete Internet Blackout",
       stockforge: true,
-      stockforgeNote: "100% Offline (SQLite WASM)",
+      stockforgeNote: "100% Offline Desktop App",
       cloudPos: false,
       cloudPosNote: "Freezes or shows error page",
     },
@@ -184,7 +184,7 @@ export const FeaturesPage: React.FC = () => {
       stockforge: true,
       stockforgeNote: "Custom CSS thermal print format",
       cloudPos: true,
-      cloudPosNote: "Basic browser print dialog",
+      cloudPosNote: "Basic unformatted print dialog",
     },
   ];
 
@@ -205,7 +205,7 @@ export const FeaturesPage: React.FC = () => {
           "retail POS features Nepal",
           "multi unit inventory management",
           "sequential invoicing BILL",
-          "offline SQLite WASM POS",
+          "offline desktop SQLite POS",
           "customer credit khata ledger",
           "vendor wholesale ledger",
           "Google Sheets backup POS",
@@ -261,8 +261,8 @@ export const FeaturesPage: React.FC = () => {
 
           <p className="text-sm sm:text-base text-neutral-400 max-w-2xl mx-auto">
             {isNepali
-              ? "बिक्री काउन्टर, इन्भेन्टरी एकाइहरू, इनभ्वाइस नियमहरू, र कर्मचारी तलब व्यवस्थापन गर्न आवश्यक पर्ने हरेक सुविधाको विस्तृत विवरण।"
-              : "Discover how StockForge harmonizes multi-unit tracking, automated sequential calculation, SQLite ACID transaction safety, and comprehensive staff management."}
+              ? "बहु-एकाइ इन्भेन्टरी, द्रुत बिलिङ, डिजिटल उधारो खाता र १००% अफलाइन डेस्कटप गतिको साथ आफ्नो काउन्टर आधुनिक बनाउनुहोस्।"
+              : "Everything your retail counter needs: multi-unit inventory, instant billing, customer khata, and 100% offline desktop speed."}
           </p>
         </div>
       </section>
@@ -286,7 +286,7 @@ export const FeaturesPage: React.FC = () => {
           <div className="flex justify-center mb-6">
             <img
               src="/pos-workflow-nepal.svg"
-              alt="High-speed offline retail checkout flow in Nepal: fast product search, multi-unit measurement, automated sequential bill numbering, zero-latency SQLite WASM, and 80mm thermal printing"
+              alt="High-speed offline retail checkout flow in Nepal: fast product search, multi-unit measurement, automated sequential bill numbering, zero-latency desktop SQLite, and 80mm thermal printing"
               width={960}
               height={420}
               loading="lazy"
@@ -701,10 +701,10 @@ export const FeaturesPage: React.FC = () => {
               <Monitor className="w-6 h-6 text-cyan-400 shrink-0" />
               <div>
                 <div className="text-xs font-bold text-neutral-200">
-                  Desktop & Tablets
+                  Native Desktop App
                 </div>
                 <div className="text-[10px] text-neutral-400">
-                  Windows, Mac, Linux
+                  Windows, macOS, Linux
                 </div>
               </div>
             </div>

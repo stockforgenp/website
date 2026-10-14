@@ -14,8 +14,17 @@ export const FaqSection: React.FC = () => {
         : "Does StockForge work completely offline without an internet connection?",
       category: "offline",
       answer: isNepali
-        ? "पर्दैन! StockForge १००% अफलाइन-फर्स्ट प्रणाली हो। यो तपाईंको कम्प्युटर वा ल्यापटपको वेब ब्राउजरभित्र SQLite WebAssembly डेटाबेसमा स्थानीय रूपमा चल्छ। इन्टरनेट नभए पनि वा नेटवर्क पूर्ण रूपमा बन्द हुँदा पनि तपाईंले निर्बाध रूपमा सामान थप्न, बिक्री गर्न, र बिल प्रिन्ट गर्न सक्नुहुन्छ।"
-        : "No internet connection is required. StockForge operates entirely client-side using SQLite WebAssembly compiled directly into the application. Your counter operates at 0ms latency even during severe internet blackouts, network congestion, or rural connectivity drops.",
+        ? "पर्दैन! StockForge १००% अफलाइन-फर्स्ट नेटिभ डेस्कटप एप्लिकेसन (Windows, macOS, Linux) हो। यो ब्राउजर बिना नै तपाईंको कम्प्युटरमा स्थानीय SQLite इन्जिनमार्फत सिधै चल्छ। इन्टरनेट नभए पनि वा नेटवर्क पूर्ण रूपमा बन्द हुँदा पनि तपाईंले निर्बाध रूपमा सामान थप्न, बिक्री गर्न, र बिल प्रिन्ट गर्न सक्नुहुन्छ।"
+        : "No internet connection is required! StockForge is a 100% offline-first native desktop application for Windows, macOS, and Linux. It operates directly on your computer using an embedded SQLite engine with zero browser dependencies. Your counter operates at 0ms latency even during severe internet blackouts or network drops.",
+    },
+    {
+      question: isNepali
+        ? "के StockForge डेस्कटप एप हो कि वेब एप? (Desktop vs Web App)"
+        : "Is StockForge a desktop application or a web app?",
+      category: "platform",
+      answer: isNepali
+        ? "StockForge एक वास्तविक नेटिभ डेस्कटप एप्लिकेसन हो, वेब एप होइन। यो विन्डोज (Windows), म्याक (macOS), र लिनक्स (Linux) कम्प्युटरमा इन्स्टल भई सिधै चल्छ। यसका लागि कुनै ब्राउजर खोल्नु पर्दैन र तपाईंको पसलको सम्पूर्ण डेटा तपाईंको आफ्नै कम्प्युटरको हार्डड्राइभमा स्थानीय SQLite डेटाबेसमा पूर्ण सुरक्षित रहन्छ।"
+        : "StockForge is a true native desktop application, NOT a web application. It installs and runs directly on Windows, macOS, and Linux PCs. You do not need a web browser to operate it, and all store records stay 100% private and persistent on your local hard drive inside an embedded SQLite database.",
     },
     {
       question: isNepali
