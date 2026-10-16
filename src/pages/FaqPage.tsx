@@ -93,6 +93,14 @@ export const FaqPage: React.FC = () => {
           text: "Yes. StockForge features custom CSS print stylesheets calibrated for 80mm and 58mm thermal receipt printers with store header, bill numbers, unit breakdown, tax breakdown, and footer notes.",
         },
       },
+      {
+        "@type": "Question",
+        name: "Does StockForge support Nepali Bikram Sambat (B.S.) dates on bills and reports?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes, and it is enabled by default. StockForge includes a 100% offline Bikram Sambat (B.S.) calendar engine that displays official Nepali dates across bills, invoices, salary slips, and accounting ledgers, with a 1-click toggle to A.D. in Settings.",
+        },
+      },
     ],
   };
 

@@ -11,6 +11,7 @@ import {
   Printer,
   Plus,
   Minus,
+  Calendar,
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 
@@ -83,8 +84,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <Zap className="w-3.5 h-3.5" />
               <span>
                 {isNepali
-                  ? '१००% अफलाइन · स्वचालित क्रमबद्ध बिलिङ · बहु-एकाइ इन्भेन्टरी'
-                  : '100% Offline-First · Automated Sequential Billing · Multi-Unit Engine'}
+                  ? '१००% अफलाइन · विक्रम संवत् (वि.सं.) मिति · बहु-एकाइ इन्भेन्टरी'
+                  : '100% Offline-First · Bikram Sambat (B.S.) Calendar · Multi-Unit Engine'}
               </span>
             </motion.div>
 
@@ -201,6 +202,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <div>
                   <div className="text-xs font-bold text-neutral-200">ACID SQLite</div>
                   <div className="text-[10px] text-neutral-400">Total data privacy</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0">
+                  <Calendar className="w-3.5 h-3.5" />
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-neutral-200">{isNepali ? 'वि.सं. क्यालेन्डर' : 'B.S. Calendar'}</div>
+                  <div className="text-[10px] text-neutral-400">{isNepali ? 'अफलाइन नेपाली मिति' : 'Bikram Sambat'}</div>
                 </div>
               </div>
             </motion.div>

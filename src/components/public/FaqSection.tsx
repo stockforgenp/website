@@ -108,6 +108,15 @@ export const FaqSection: React.FC = () => {
     },
     {
       question: isNepali
+        ? "के बिल र रसिदहरूमा विक्रम संवत् (वि.सं. / B.S.) मिति प्रयोग गर्न सकिन्छ?"
+        : "Does StockForge support Nepali Bikram Sambat (B.S.) dates on bills and reports?",
+      category: "localization",
+      answer: isNepali
+        ? "सकिन्छ, र यो सुरुदेखि नै पूर्वनिर्धारित (Default) रूपमा सक्रिय रहन्छ! StockForge ले १००% अफलाइन विक्रम संवत् (वि.सं.) क्यालेन्डर इन्जिन प्रयोग गर्दछ। बिल, थर्मल रसिद, तलब भौचर, र आर्थिक रिपोर्टहरूमा मिति स्वतः नेपाली ढाँचा (जस्तै २०८३ असोज ३०) मा प्रिन्ट हुन्छ। साथै, सेटिङ्सबाट कुनै पनि बेला वि.सं. (B.S.) वा ई.सं. (A.D.) बीच १-क्लिकमै स्विच गर्न सकिन्छ।"
+        : "Yes, and it is enabled by default! StockForge includes a 100% offline Bikram Sambat (B.S.) conversion and calendar engine. All printed receipts, purchase invoices, salary slips, and accounting ledgers display official Nepali dates (e.g. 2083-06-30 / २०८३ असोज ३०). You can also toggle between B.S. and A.D. anytime in Settings with zero internet required.",
+    },
+    {
+      question: isNepali
         ? "के म वास्तविक सामानहरू प्रविष्ट गर्नुअघि नमूना (Demo) डेटाबाट परीक्षण गर्न सक्छु?"
         : "Can I test StockForge with sample demo data before entering real stock?",
       answer: isNepali

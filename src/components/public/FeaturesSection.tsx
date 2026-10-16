@@ -18,6 +18,7 @@ import {
   Truck,
   Sun,
   Languages,
+  Calendar,
 } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext.tsx";
 
@@ -288,6 +289,26 @@ export const FeaturesSection = () => {
         "English & नेपाली",
         "रु. / Rs. Sync",
         "Zero Reload",
+      ],
+    },
+    {
+      category: "experience",
+      icon: Calendar,
+      color: "teal",
+      title: isNepali
+        ? "विक्रम संवत् मिति र क्यालेन्डर (Bikram Sambat B.S.)"
+        : "Offline Bikram Sambat (B.S.) Nepali Calendar",
+      subtitle: isNepali
+        ? "नेपाली महिना (बैशाख - चैत) र वि.सं./ई.सं. स्विच"
+        : "Official B.S. dates on bills with 1-click A.D. toggle",
+      description: isNepali
+        ? "बिल, रसिद, पेरोल र लेखा रिपोर्टहरूमा स्वचालित रूपमा विक्रम संवत् (वि.सं.) मिति। सेटिङ्सबाट सजिलै वि.सं. वा ई.सं. (A.D.) छान्नुहोस्—१००% अफलाइन क्यालेन्डर इन्जिन!"
+        : "Native Bikram Sambat date formatting enabled by default across retail bills, salary slips, and accounting ledgers. Switch between B.S. and A.D. in Settings anytime offline with zero network required.",
+      badges: [
+        "Bikram Sambat (B.S.)",
+        "100% Offline B.S. Engine",
+        "B.S. & A.D. Toggle",
+        "Nepali Fiscal Accounting",
       ],
     },
   ];

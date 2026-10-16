@@ -24,6 +24,7 @@ import {
   Sun,
   Moon,
   Languages,
+  Calendar,
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext.tsx";
 
@@ -53,6 +54,7 @@ export const FeaturesPage: React.FC = () => {
       "Vendor & Supplier Management with Wholesale Purchase Payables",
       "Dark & Light Theme Mode Toggle with Ergonomic Contrast Persistence",
       "Bilingual Switch (English & नेपाली) with Automatic Currency रु./Rs. Sync",
+      "Offline Bikram Sambat (B.S.) Nepali Calendar with A.D. / B.S. Toggle and Fiscal Year Month Boundaries",
       "High-Speed 80mm & 58mm Thermal Receipt Printing",
       "Keyboard Shortcuts & Fast Counter Automation",
     ],
@@ -67,6 +69,15 @@ export const FeaturesPage: React.FC = () => {
       stockforgeNote: "100% Offline Desktop App",
       cloudPos: false,
       cloudPosNote: "Freezes or shows error page",
+    },
+    {
+      feature: isNepali
+        ? "विक्रम संवत् मिति र क्यालेन्डर (Bikram Sambat B.S.)"
+        : "Bikram Sambat (B.S.) Official Nepali Calendar",
+      stockforge: true,
+      stockforgeNote: "Native offline B.S. calendar, bills & fiscal month filters",
+      cloudPos: false,
+      cloudPosNote: "English Gregorian (A.D.) dates only",
     },
     {
       feature: isNepali
@@ -648,6 +659,73 @@ export const FeaturesPage: React.FC = () => {
                     {isNepali
                       ? "रु. र Rs. तत्काल सिङ्क"
                       : "Instant रु. / Rs. synchronization"}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3: Bikram Sambat (B.S.) Nepali Calendar & Fiscal Accounting */}
+            <div className="md:col-span-2 p-7 sm:p-8 rounded-2xl border border-neutral-800 bg-neutral-900/50 space-y-5 hover:border-emerald-500/40 transition-colors">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400">
+                  <Calendar className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded border border-teal-500/20">
+                    Nepal Localization
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100">
+                    {isNepali
+                      ? "अफलाइन विक्रम संवत् (वि.सं.) मिति प्रणाली र क्यालेन्डर"
+                      : "Offline Bikram Sambat (B.S.) Nepali Calendar & Fiscal Accounting"}
+                  </h3>
+                </div>
+              </div>
+
+              <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                {isNepali
+                  ? "नेपाली खुद्रा बजार र कर प्रणालीलाई ध्यानमा राखी निर्मित। बिल, इनभ्वाइस, तलब भौचर र रिपोर्टहरूमा स्वचालित रूपमा विक्रम संवत् (वि.सं.) मिति प्रदर्शित हुन्छ। नेपालको आर्थिक वर्ष (साउन १ - असार मसान्त) र महिना सीमा (बैशाख - चैत) अनुसार स्वतः हिसाब-किताब मिल्छ। आवश्यक परेमा सेटिङ्सबाट १-क्लिकमै ईस्वी संवत् (A.D.) मा बदल्न सकिन्छ।"
+                  : "Engineered specifically for Nepali commerce. All point-of-sale bills, thermal receipts, staff salary slips, and financial ledgers natively display official Bikram Sambat (B.S.) dates. Accounting filters automatically calculate by Nepali months (Baisakh to Chaitra) and fiscal periods (Shrawan 1 to Ashadh 32). Toggle between B.S. and A.D. anytime in Settings with 100% offline precision."}
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800">
+                  <div className="flex items-center gap-2 text-xs font-bold text-neutral-200 mb-1">
+                    <Calendar className="w-4 h-4 text-teal-400" />
+                    <span>
+                      {isNepali ? "पूर्वनिर्धारित वि.सं. (Default B.S.)" : "Default B.S. Format"}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-neutral-400">
+                    {isNepali
+                      ? "रसिद र बिलमा मिति: २०८३/०७/०१"
+                      : "Official Nepali dates on all receipts"}
+                  </p>
+                </div>
+                <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800">
+                  <div className="flex items-center gap-2 text-xs font-bold text-neutral-200 mb-1">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                    <span>
+                      {isNepali ? "१००% अफलाइन इन्जिन" : "100% Offline Engine"}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-neutral-400">
+                    {isNepali
+                      ? "इन्टरनेट बिना तत्काल वि.सं. मिति चयन"
+                      : "Zero cloud latency, works without net"}
+                  </p>
+                </div>
+                <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800">
+                  <div className="flex items-center gap-2 text-xs font-bold text-neutral-200 mb-1">
+                    <RefreshCw className="w-4 h-4 text-amber-400" />
+                    <span>
+                      {isNepali ? "वि.सं. र ई.सं. टगल" : "B.S. & A.D. Toggle"}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-neutral-400">
+                    {isNepali
+                      ? "सेटिङ्सबाट सजिलै ढाँचा परिवर्तन"
+                      : "1-Click switch in Settings anytime"}
                   </p>
                 </div>
               </div>
