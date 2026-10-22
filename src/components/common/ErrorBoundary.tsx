@@ -65,7 +65,7 @@ export class ErrorBoundary extends Component<Props, State> {
                 {this.state.error?.message || 'An unexpected runtime error occurred.'}
               </div>
               {this.state.errorInfo?.componentStack && (
-                <details className="mt-2 text-[11px] text-neutral-500 font-mono">
+                <details className="mt-2 text-[11px] text-neutral-400 font-mono">
                   <summary className="cursor-pointer text-neutral-400 hover:text-neutral-200 transition-colors">
                     View Component Stack
                   </summary>

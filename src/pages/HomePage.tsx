@@ -571,7 +571,7 @@ export const HomePage: React.FC = () => {
             </Link>
           </div>
 
-          <div className="pt-6 flex flex-wrap justify-center items-center gap-6 text-[11px] text-neutral-500">
+          <div className="pt-6 flex flex-wrap justify-center items-center gap-6 text-[11px] text-neutral-400">
             <span>✓ Native Desktop App for Windows, macOS & Linux</span>
             <span>✓ Standard 80mm / 58mm Thermal Printers Supported</span>
             <span>✓ No Forced Monthly Cloud Fees</span>

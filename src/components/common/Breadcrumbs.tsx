@@ -24,7 +24,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' 
           return (
             <li key={item.path} className="flex items-center gap-1.5">
               {index > 0 && (
-                <ChevronRight className="w-3.5 h-3.5 text-neutral-600 shrink-0 select-none" aria-hidden="true" />
+                <ChevronRight className="w-3.5 h-3.5 text-neutral-400 shrink-0 select-none" aria-hidden="true" />
               )}
               {isLast ? (
                 <span
@@ -38,7 +38,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' 
                   to={item.path}
                   className="hover:text-neutral-200 transition-colors flex items-center gap-1 hover:underline"
                 >
-                  {isHome && <Home className="w-3.5 h-3.5 text-neutral-500" aria-hidden="true" />}
+                  {isHome && <Home className="w-3.5 h-3.5 text-neutral-400" aria-hidden="true" />}
                   <span>{item.name}</span>
                 </Link>
               )}

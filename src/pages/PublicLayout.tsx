@@ -1,8 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { PublicNavbar } from "../components/public/PublicNavbar.tsx";
 import { PublicFooter } from "../components/public/PublicFooter.tsx";
-import { WebsiteChatbot } from "../components/public/WebsiteChatbot.tsx";
+
+const WebsiteChatbot = lazy(() =>
+  import("../components/public/WebsiteChatbot.tsx").then((m) => ({
+    default: m.WebsiteChatbot,
+  }))
+);
 
 export const PublicLayout: React.FC = () => {
   const { pathname } = useLocation();
@@ -20,7 +25,9 @@ export const PublicLayout: React.FC = () => {
       </main>
       <PublicFooter />
       {/* Product Knowledge Chatbot with direct WhatsApp integration */}
-      <WebsiteChatbot />
+      <Suspense fallback={null}>
+        <WebsiteChatbot />
+      </Suspense>
     </div>
   );
 };

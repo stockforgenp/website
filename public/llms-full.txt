@@ -1,0 +1,47 @@
+# StockForge POS - Comprehensive Product & Technical Documentation
+
+> Complete guide for AI agents and automated crawlers navigating StockForge POS specifications, architecture, and operational workflows.
+
+## 1. Product Overview
+StockForge is a standalone desktop point-of-sale (POS) and inventory management application designed for grocery marts, supermarkets, hardware stores, dairies, and retail businesses. Unlike traditional cloud POS systems that require continuous internet access and make remote API calls on every checkout, StockForge runs completely offline on Windows, macOS, and Linux using an embedded SQLite database.
+
+## 2. Technical Architecture
+- **Runtime Model**: Standalone native desktop application with zero external runtime dependencies.
+- **Data Persistence**: Local embedded SQLite with Write-Ahead Logging (WAL) and ACID (Atomicity, Consistency, Isolation, Durability) guarantees.
+- **Latency**: Sub-millisecond (0.2ms) local transaction execution. Eliminates checkout counter freezes during cellular congestion or fiber outages.
+- **Data Sovereignty**: All financial ledgers, inventory counts, and customer transaction records reside exclusively on the merchant's physical machine.
+
+## 3. Key Feature Modules
+### 3.1 Multi-Unit Inventory & Decimal Stocking
+- Supports selling products in discrete units (piece, packet, box, dozen) or continuous fractional units (kilogram, gram, litre, millilitre, meter).
+- Decimal arithmetic ensures precision for loose grocery items (e.g., 2.75 kg rice or 1.5 litres oil).
+- Real-time stock movement audit logging (purchases, sales, supplier returns, adjustments) with low-stock alerts.
+
+### 3.2 Sequential Bill Invoicing & Tax Calculations
+- Automated sequential invoice numbering formatted as `BILL-YYYYMMDD-XXXX`.
+- Automatic subtotal, itemized line discounts, flat bill discounts, and tax computation.
+- Fully compatible with both VAT (13%) and non-VAT retail stores.
+
+### 3.3 Customer Khata & Dues Tracking
+- Built-in customer ledger for credit sales.
+- Supports partial cash/digital payment at checkout.
+- Automated balance calculation on every transaction: Previous Due + Current Due = Total Due Balance.
+- Total outstanding balance printed directly on the thermal receipt for customer clarity.
+
+### 3.4 Hardware Integration
+- Standard ESC/POS 80mm and 58mm thermal receipt printers via USB, Network, or Serial.
+- Plug-and-play USB barcode scanners (HID emulation).
+- Electronic cash drawer triggering via RJ11/RJ12 printer kick pulse.
+
+### 3.5 Database Backup & Data Portability
+- 1-click clean SQL script export (`.sql`) containing complete DDL schema and DML records for local USB archiving and instant machine migration.
+- Optional 1-click Google Sheets synchronization for merchants who wish to retain remote spreadsheet backups without recurring subscription locks.
+
+## 4. Canonical Web Routes
+- https://stockforge.app/ - Main overview and interactive billing demo.
+- https://stockforge.app/features - Technical feature breakdown across 14 modules.
+- https://stockforge.app/about - Company background and offline engineering philosophy.
+- https://stockforge.app/testimonials - Verified store owner reviews across Nepal.
+- https://stockforge.app/faqs - Frequently answered questions.
+- https://stockforge.app/contact - Demo requests and support inquiries.
+

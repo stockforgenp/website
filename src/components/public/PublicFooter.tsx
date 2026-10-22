@@ -87,11 +87,18 @@ export const PublicFooter: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
           <div className="lg:col-span-2 space-y-4">
             <Link to="/" className="flex items-center gap-3 group select-none">
-              <img
-                src="/icon.png"
-                alt="StockForge Logo"
-                className="w-9 h-9 rounded-xl object-contain shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform"
-              />
+              <picture>
+                <source srcSet="/icon-96.avif" type="image/avif" />
+                <img
+                  src="/icon-96.png"
+                  alt="StockForge Logo"
+                  width={36}
+                  height={36}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-9 h-9 rounded-xl object-contain shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform"
+                />
+              </picture>
               <div>
                 <span className="text-base font-black text-neutral-100 tracking-tight group-hover:text-emerald-400 transition-colors">
                   StockForge POS
@@ -303,7 +310,7 @@ export const PublicFooter: React.FC = () => {
         </div>
 
         {/* Bottom copyright & integrity */}
-        <div className="pt-8 mt-8 border-t border-neutral-900 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-neutral-500">
+        <div className="pt-8 mt-8 border-t border-neutral-900 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-neutral-400">
           <div>
             © {new Date().getFullYear()} StockForge POS.{" "}
             {isNepali ? "सर्वाधिकार सुरक्षित।" : "All rights reserved."}

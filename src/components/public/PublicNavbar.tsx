@@ -64,11 +64,17 @@ export const PublicNavbar: React.FC = () => {
           className="flex items-center gap-3 cursor-pointer group select-none shrink-0"
           aria-label="StockForge POS Home"
         >
-          <img
-            src="/icon.png"
-            alt="StockForge Logo"
-            className="w-10 h-10 rounded-xl object-contain shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform"
-          />
+          <picture>
+            <source srcSet="/icon-96.avif" type="image/avif" />
+            <img
+              src="/icon-96.png"
+              alt="StockForge Logo"
+              width={40}
+              height={40}
+              decoding="async"
+              className="w-10 h-10 rounded-xl object-contain shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform"
+            />
+          </picture>
           <div>
             <div className="flex items-center gap-2">
               <span className="text-lg font-black tracking-tight text-neutral-100 group-hover:text-emerald-400 transition-colors">

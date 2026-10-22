@@ -1,20 +1,70 @@
+import React, { lazy, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { PublicLayout } from "./pages/PublicLayout.tsx";
-import { HomePage } from "./pages/HomePage.tsx";
-import { FeaturesPage } from "./pages/FeaturesPage.tsx";
-import { AboutPage } from "./pages/AboutPage.tsx";
-import { TestimonialsPage } from "./pages/TestimonialsPage.tsx";
-import { FaqPage } from "./pages/FaqPage.tsx";
-import { ContactPage } from "./pages/ContactPage.tsx";
+
+const HomePage = lazy(() =>
+  import("./pages/HomePage.tsx").then((m) => ({ default: m.HomePage }))
+);
+const FeaturesPage = lazy(() =>
+  import("./pages/FeaturesPage.tsx").then((m) => ({ default: m.FeaturesPage }))
+);
+const AboutPage = lazy(() =>
+  import("./pages/AboutPage.tsx").then((m) => ({ default: m.AboutPage }))
+);
+const TestimonialsPage = lazy(() =>
+  import("./pages/TestimonialsPage.tsx").then((m) => ({
+    default: m.TestimonialsPage,
+  }))
+);
+const FaqPage = lazy(() =>
+  import("./pages/FaqPage.tsx").then((m) => ({ default: m.FaqPage }))
+);
+const ContactPage = lazy(() =>
+  import("./pages/ContactPage.tsx").then((m) => ({ default: m.ContactPage }))
+);
+
+const PageFallback = () => (
+  <div className="min-h-[60vh] flex items-center justify-center">
+    <div className="w-6 h-6 border-2 border-emerald-500/30 border-t-emerald-500 rounded-full animate-spin" />
+  </div>
+);
 
 export default function App() {
   return (
     <Routes>
       <Route element={<PublicLayout />}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/features" element={<FeaturesPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/testimonials" element={<TestimonialsPage />} />
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<PageFallback />}>
+              <HomePage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/features"
+          element={
+            <Suspense fallback={<PageFallback />}>
+              <FeaturesPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <Suspense fallback={<PageFallback />}>
+              <AboutPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/testimonials"
+          element={
+            <Suspense fallback={<PageFallback />}>
+              <TestimonialsPage />
+            </Suspense>
+          }
+        />
         <Route
           path="/clients"
           element={<Navigate to="/testimonials" replace />}
@@ -23,11 +73,25 @@ export default function App() {
           path="/reviews"
           element={<Navigate to="/testimonials" replace />}
         />
-        <Route path="/faqs" element={<FaqPage />} />
+        <Route
+          path="/faqs"
+          element={
+            <Suspense fallback={<PageFallback />}>
+              <FaqPage />
+            </Suspense>
+          }
+        />
         <Route path="/faq" element={<Navigate to="/faqs" replace />} />
         <Route path="/help" element={<Navigate to="/faqs" replace />} />
         <Route path="/demo" element={<Navigate to="/contact" replace />} />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route
+          path="/contact"
+          element={
+            <Suspense fallback={<PageFallback />}>
+              <ContactPage />
+            </Suspense>
+          }
+        />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>

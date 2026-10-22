@@ -398,7 +398,7 @@ export const WebsiteChatbot: React.FC = () => {
                       </div>
                     )}
                   </div>
-                  <span className="text-[9px] text-neutral-500 font-mono mt-1 px-1">
+                  <span className="text-[9px] text-neutral-400 font-mono mt-1 px-1">
                     {msg.timestamp}
                   </span>
                 </div>

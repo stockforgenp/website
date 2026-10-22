@@ -1,0 +1,36 @@
+# StockForge POS
+
+> Offline-first native desktop retail POS & inventory management system with embedded SQLite ACID storage for Windows, macOS, and Linux.
+
+StockForge is a zero-latency desktop point-of-sale and store inventory software engineered for independent retailers, grocery marts, supermarkets, hardware stores, dairies, and boutiques in Nepal and worldwide. It operates 100% offline with zero cloud dependency and zero cloud latency.
+
+## Key Capabilities
+- **100% Offline-First Architecture**: Powered by embedded local SQLite with ACID transaction guarantees. Runs on Windows, macOS, and Linux without internet connectivity.
+- **Sequential Invoicing**: Automated sequential bill numbering (`BILL-YYYYMMDD-XXXX`) compliant with Nepal retail audit standards.
+- **Multi-Unit Inventory**: Full support for decimal weights and measurement units (piece, kg, litre, packet, box, meter, dozen).
+- **Snapshot Profit Analytics**: Real-time Gross Profit and Cost of Goods Sold (COGS) tracking locked at the moment of sale.
+- **Customer Khata & Dues**: Complete customer credit ledger tracking previous dues, current bill dues, and total outstanding balances directly on printed receipts.
+- **Hardware Compatibility**: Native support for standard 80mm and 58mm ESC/POS thermal receipt printers, USB barcode scanners, and cash drawers.
+- **Staff & Payroll Management**: Staff directory with monthly wage disbursement vouchers and salary advance tracking.
+- **Database Backup & Portability**: 1-click clean `.sql` database script export for offline USB archiving, plus optional Google Sheets cloud sync when connected.
+- **Bilingual Interface**: Seamless toggle between English and Nepali (नेपाली) with automatic currency sync (`Rs.` / `रु.`).
+
+## Core Site Pages
+- [Home Page](https://stockforge.app/): Product overview, offline architecture breakdown, and interactive live billing simulator.
+- [Features](https://stockforge.app/features): Detailed specifications across all 14 core modules including multi-unit stock, sequential billing, and COGS calculations.
+- [About Us](https://stockforge.app/about): Company background, mission, architecture comparison between legacy cloud POS and local desktop SQLite.
+- [Testimonials](https://stockforge.app/testimonials): Real-world case studies and feedback from retail merchants across Kathmandu Valley and Nepal.
+- [Frequently Asked Questions](https://stockforge.app/faqs): Comprehensive FAQ covering offline operation, hardware requirements, pricing, and backup workflows.
+- [Contact & Support](https://stockforge.app/contact): Schedule a free on-site demonstration in Nepal or contact customer support.
+
+## System Requirements
+- Operating System: Windows 10/11 (64-bit), macOS 11+ (Intel & Apple Silicon), Linux (Ubuntu, Debian, Fedora)
+- Memory: Minimum 2 GB RAM (4 GB recommended)
+- Storage: 150 MB disk space for application + SQLite database
+- Network: None required for day-to-day operation
+
+## Contact Information
+- Location: Kathmandu, Nepal
+- Support: Direct phone and WhatsApp support available
+- Website: https://stockforge.app/
+
