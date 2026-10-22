@@ -19,27 +19,163 @@ import {
   Sun,
   Languages,
   Calendar,
+  BookOpen,
+  CheckCircle2,
+  BadgeCheck,
+  FileText,
+  CreditCard,
+  Boxes,
+  Tag,
+  RotateCcw,
+  Barcode,
+  AlertOctagon,
 } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext.tsx";
 
 export const FeaturesSection = () => {
   const { isNepali } = useLanguage();
+  const [activeCategory, setActiveCategory] = useState<string>("all");
+
+  const filterTabs = [
+    { id: "all", label_en: "All Features", label_np: "सबै सुविधाहरू" },
+    {
+      id: "dues_crm",
+      label_en: "Dues & Ledgers",
+      label_np: "बाँकी, लेजर र फर्स्यौट",
+    },
+    { id: "billing", label_en: "Billing & Receipts", label_np: "बिलिङ र रसिद" },
+    {
+      id: "finance",
+      label_en: "Profit & Expenses",
+      label_np: "नाफा तथा खर्च",
+    },
+    { id: "inventory", label_en: "Multi-Unit Stock", label_np: "एकाइ र स्टक" },
+    { id: "system", label_en: "Offline & Backups", label_np: "अफलाइन र ब्याकअप" },
+  ];
 
   const features = [
     {
-      category: "inventory",
-      icon: Scale,
+      category: "finance",
+      icon: BookOpen,
+      color: "cyan",
+      title: isNepali
+        ? "दैनिक हिसाब किताब (Daily Book / Day Book)"
+        : "Daily Book (Day Book Ledger)",
+      subtitle: isNepali
+        ? "ओपनिङ ब्यालेन्स, दैनिक नगद प्रवाह (+डेबिट/-क्रेडिट) र बाँकी अडिट"
+        : "Opening balance, daily cash flow (+debit/-credit) & dues audit",
+      description: isNepali
+        ? "बिक्री, खरिद, खर्च, ग्राहक बाँकी संकलन, भेन्डर भुक्तानी, तलब र फिर्ताको सम्पूर्ण दैनिक कारोबार एउटै ठाउँमा। ओपनिङ क्यास ब्यालेन्स, दैनिक खुद नगद प्रवाह र क्लोजिङ ब्यालेन्सको स्पष्ट हिसाब। साथै, १-क्लिकमा A4 वा ८०mm थर्मल प्रिन्ट रिपोर्ट!"
+        : "A dedicated double-entry day book auditing daily transactions across Sales, Purchases, Expenses, Customer Due Collections, Vendor Due Payments, Staff Salaries, and Returns. Calculates real Opening Cash Balance, Inflow (+Debit), Outflow (-Credit), Net Cash in Hand, and Closing Balance with 1-click A4 & 80mm thermal reports.",
+      badges: [
+        "Day Book (रोजिन्दा)",
+        "Opening & Closing Balance",
+        "+Debit & -Credit Cash Flow",
+        "Payment Mode Summary",
+        "A4 & 80mm Print Reports",
+      ],
+    },
+    {
+      category: "billing",
+      icon: CreditCard,
       color: "emerald",
       title: isNepali
-        ? "बहु-एकाइ इन्भेन्टरी (Multi-Unit)"
-        : "Multi-Unit Inventory (kg, ltr, pcs)",
+        ? "बहु-माध्यम भुक्तानी (Multi-Mode Payments)"
+        : "Multi-Mode Payment Tracking",
       subtitle: isNepali
-        ? "पिस, केजी वा लिटरमा सहज बिक्री"
-        : "Sell loose or packaged items effortlessly",
+        ? "नगद, Fonepay / QR, बैंक ट्रान्सफर, चेक र उधारो विभाजन"
+        : "Split & audit Cash, Online/QR, Bank Transfer, Cheque & Credit",
       description: isNepali
-        ? "खुला चामल, तेल वा प्याकेट सामान—दशमलव तौलसहित सजिलै बिक्री गर्नुहोस्। स्टक सकिन लाग्दा तत्काल अलर्ट!"
-        : "Sell loose, weighted, or packaged stock with fractional precision. Real-time deduction with instant low-stock alerts.",
-      badges: ["kg, litre, pcs", "Real-Time Deduct", "Low-Stock Alerts"],
+        ? "काउन्टर बिलिङ, खरिद, पसल खर्च, पेरोल र बाँकी फर्स्यौट गर्दा भुक्तानी माध्यम (नगद, Fonepay/QR, बैंक, चेक वा उधारो) प्रविष्ट गर्नुहोस्। दिनभर कुन माध्यमबाट कति रकम आयो वा गयो, डे-बुक र लेजरमा १ सेकेन्डमै अडिट हुन्छ।"
+        : "Record explicit payment modes (Cash, Online/QR like Fonepay/eSewa/Khalti, Bank Transfer, Cheque, or Store Credit) across checkout sales, purchase restocks, operating expenses, payroll, and debt settlements. Instantly audit physical drawer cash vs digital receipts.",
+      badges: [
+        "Cash & Till Float",
+        "Fonepay / QR / eSewa",
+        "Bank & Cheque",
+        "Store Credit / Khata",
+        "Channel Breakdown",
+      ],
+    },
+    {
+      category: "inventory",
+      icon: Boxes,
+      color: "amber",
+      title: isNepali
+        ? "ब्याच तथा म्याद ट्र्याकिङ (FEFO)"
+        : "Batch & Expiry Tracking (FEFO)",
+      subtitle: isNepali
+        ? "ब्याच अनुसार मौज्दात र ३०-दिने म्याद अलर्ट"
+        : "Batch-wise stock with automated 30-day expiry radar",
+      description: isNepali
+        ? "औषधि, किराना तथा कस्मेटिक्सका लागि ब्याच नं., उत्पादन र म्याद सकिने मिति ट्र्याकिङ। बिलिङमा स्वतः पहिले म्याद सकिने ब्याच (FEFO) बाट स्टक घट्छ।"
+        : "Enterprise batch-lot tracking with FEFO (First Expiring, First Out) automated depletion. Track manufacturing and expiry dates, get 30-day early warnings, and prevent selling expired goods.",
+      badges: ["Batch # Lots", "FEFO Auto-Depletion", "30-Day Expiry Radar", "Receipt Batch Printing"],
+    },
+    {
+      category: "billing",
+      icon: Tag,
+      color: "teal",
+      title: isNepali
+        ? "थोक तथा खुद्रा दोहोरो मूल्य (Wholesale Pricing)"
+        : "Wholesale vs. Retail Dual Pricing",
+      subtitle: isNepali
+        ? "ग्राहक वर्ग वा न्यूनतम परिमाणका आधारमा स्वतः थोक दर"
+        : "Tiered pricing by customer type or volume thresholds",
+      description: isNepali
+        ? "एउटै उत्पादनमा खुद्रा (MRP) र थोक मूल्य सेट गर्नुहोस्। थोक ग्राहक छान्दा वा न्यूनतम अर्डर परिमाण पुग्दा काउन्टरमा स्वतः थोक दर लागू हुन्छ। १-क्लिकमा दर फेर्न सकिने!"
+        : "Define both retail and wholesale rates per product with minimum volume triggers. When selecting a wholesale buyer or meeting quantity thresholds, StockForge automatically applies wholesale pricing.",
+      badges: ["Dual Pricing", "Wholesale Slab Qty", "Auto Customer Tier", "1-Click Rate Switch"],
+    },
+    {
+      category: "inventory",
+      icon: Layers,
+      color: "cyan",
+      title: isNepali
+        ? "एकाइ तथा प्याकेजिङ रूपान्तरण (Multi-UOM Hierarchy)"
+        : "Multi-UOM & Packaging Hierarchy",
+      subtitle: isNepali
+        ? "१ कार्टुन = २४ पिस, १ बोरा = २५ केजी स्वतः स्टक रूपान्तरण"
+        : "Seamless bulk-to-loose packaging conversion (1 Ctn = 24 pcs)",
+      description: isNepali
+        ? "थोक कार्टुन, पेटी, बोरा वा क्यारेटमा खरिद गर्नुहोस् र खुद्रा पिस वा लिटरमा बिक्री गर्नुहोस्। खरिद तथा बिक्री दुवैमा स्वतः गुणक (Multiplier) अनुसार आधारभूत मौज्दात समायोजन हुन्छ।"
+        : "Configure nested packaging tiers (e.g. 1 Carton = 24 pcs, 1 Sack = 25 kg). Sell or purchase by package or loose units with automated base inventory deduction and package-specific pricing.",
+      badges: ["Multi-UOM Hierarchy", "Carton-to-Pcs Conversion", "Package Multipliers", "Dual POS Selector"],
+    },
+    {
+      category: "inventory",
+      icon: Barcode,
+      color: "emerald",
+      title: isNepali
+        ? "बारकोड तथा सेल्फ ट्याग प्रिन्ट (Barcode Generator)"
+        : "Barcode & Shelf Tag Generator",
+      subtitle: isNepali
+        ? "थर्मल स्टिकर (50x25mm) र सुपरमार्केट सेल्फ मूल्य ट्याग"
+        : "Direct thermal stickers & supermarket shelf edge price tags",
+      description: isNepali
+        ? "पसलको आफ्नै बारकोड लेबल र सेल्फ ट्याग तत्काल प्रिन्ट गर्नुहोस्। TSC, Xprinter, Zebra वा A4 ग्रिडमा मूल्य (MRP), ब्याच नं., म्याद र पसलको नामसहित अफलाइन बारकोड उत्पादन।"
+        : "Generate and print professional Code 128 retail barcodes and shelf edge tags directly from your product catalog. Compatible with TSC, Xprinter, Zebra thermal roll printers (50x25mm / 38x25mm) and standard A4 label sheets, with price, MRP, batch, and expiry overlays.",
+      badges: ["Code 128 Barcodes", "50x25mm Thermal Roll", "Supermarket Shelf Tags", "Batch & MRP Overlays", "A4 Label Sheets"],
+    },
+    {
+      category: "inventory",
+      icon: AlertOctagon,
+      color: "rose",
+      title: isNepali
+        ? "ड्यामेज, म्याद नाघेका र नोक्सानी व्यवस्थापन (Write-Off & Scrap)"
+        : "Damaged & Expired Stock Write-Off",
+      subtitle: isNepali
+        ? "क्वारेन्टाइन, नष्ट वाउचर (WO-...) र नाफा-नोक्सान खर्च समायोजन"
+        : "Quarantine radar, scrap vouchers (WO-...) & P&L loss posting",
+      description: isNepali
+        ? "म्याद नाघेका, फुटेका, कुहिएका वा हराएका सामानलाई बिक्री हुनबाट रोक्न छुट्टै क्वारेन्टाइन गर्नुहोस्। नष्ट गर्दा औपचारिक वाउचर (WO-...) जारी हुने, स्टक स्वतः घट्ने र चाहेमा खरिद मूल्यलाई नोक्सानी खर्चका रूपमा नाफा-नोक्सान हिसाबमा देखाउने सुविधा।"
+        : "Isolate expired and damaged inventory in a dedicated quarantine radar. Issue formal Scrap Vouchers (WO-...), deduct units from live stock, and optionally book the cost loss into your expense ledger so financial bottom-line profits remain 100% honest and audited.",
+      badges: [
+        "Quarantine Segregation",
+        "Scrap Vouchers (WO-...)",
+        "Automated Stock Deduction",
+        "P&L Spoilage Expense",
+        "Loss Value Analytics",
+      ],
     },
     {
       category: "billing",
@@ -54,10 +190,127 @@ export const FeaturesSection = () => {
       description: isNepali
         ? "हरेक बिक्रीमा स्वतः क्रमबद्ध बिल नम्बर तयार। छुट, कर र कुल रकम १ सेकेन्डमै हिसाब!"
         : "Every sale generates a unique sequential bill number (BILL-YYYYMMDD-XXXX). Subtotals, discounts, and taxes calculated in a snap.",
+      badges: ["Sequential Bill #", "Tax Breakdown", "Instant Total"],
+    },
+    {
+      category: "dues_crm",
+      icon: UserCheck,
+      color: "emerald",
+      title: isNepali
+        ? "ग्राहक उधारो तथा बाँकी बक्यौता (Customer Dues)"
+        : "Customer Dues & Credit Khata",
+      subtitle: isNepali
+        ? "साविकको बाँकी + हालको बिल = कुल बाँकी स्वतः हिसाब"
+        : "Auto Previous + Current Due = Total Due Math",
+      description: isNepali
+        ? "काउन्टरमा बिल काट्दा ग्राहकको साविकको बाँकी, हालको बाँकी र आंशिक भुक्तानीपछि बाँकी रहने कुल रकम रसिद तथा खातामा स्वतः हिसाब हुन्छ। कुनै म्यानुअल क्यालकुलेटर चाहिँदैन!"
+        : "Accept partial payments at counter checkout without manual math. Automatically calculates Previous Due + Current Bill Due = Total Due Balance and itemizes all amounts directly on printed thermal receipts.",
       badges: [
-        "Sequential Bill #",
-        "Tax Breakdown",
-        "Instant Total",
+        "Credit Khata",
+        "Previous + Current Due",
+        "Receipt Breakdown",
+        "Customer Directory",
+      ],
+    },
+    {
+      category: "dues_crm",
+      icon: Truck,
+      color: "teal",
+      title: isNepali
+        ? "आपूर्तिकर्ता (Vendor) तथा खरिद बाँकी बक्यौता"
+        : "Vendor Management & Accounts Payable",
+      subtitle: isNepali
+        ? "थोक खरिद बिल, आंशिक भुक्तानी र आपूर्तिकर्ता बक्यौता"
+        : "Wholesale restock invoices & supplier payables",
+      description: isNepali
+        ? "थोक आपूर्तिकर्ताहरूको सम्पर्क, खरिद इनभ्वाइसहरू, भुक्तानी गरिएको रकम र तिर्न बाँकी बक्यौता एकै ठाउँमा व्यवस्थापन गर्नुहोस्। कुन सप्लायरलाई कति रकम कहिले तिर्नुपर्ने हो, तत्काल हेर्नुहोस्।"
+        : "Track wholesale distributors, restock purchase invoices, cash paid, and outstanding accounts payable in one central hub. Maintain strong supplier relationships and plan inventory cash flow with ease.",
+      badges: [
+        "Vendor Directory",
+        "Accounts Payable",
+        "Purchase Invoices",
+        "Restock History",
+      ],
+    },
+    {
+      category: "dues_crm",
+      icon: BookOpen,
+      color: "cyan",
+      title: isNepali
+        ? "व्यक्तिगत ग्राहक र भेन्डर लेजर (Party Statements)"
+        : "Dedicated Party Ledgers & Statements",
+      subtitle: isNepali
+        ? "प्रत्येक ग्राहक र आपूर्तिकर्ताको पूर्ण खाता विवरण"
+        : "Full chronological transaction ledger with print statements",
+      description: isNepali
+        ? "हरेक ग्राहक र भेन्डरको छुट्टाछुट्टै विस्तृत लेजर खाता। मितिअनुसार सम्पूर्ण खरिद/बिक्री बिल, डेबिट-क्रेडिट, भुक्तानी र चालु बक्यौता (Running Balance) हेर्नुहोस् र १-क्लिकमा थर्मल वा A4 स्टेटमेन्ट प्रिन्ट गर्नुहोस्।"
+        : "Access an individualized chronological transaction ledger for every customer and vendor. View all invoices, debits, credits, payments, and running balances, with 1-click printable statements in 80mm thermal or A4 formats.",
+      badges: [
+        "Individual Ledgers",
+        "Debit & Credit Entries",
+        "Running Balance",
+        "Print Statement (A4/Thermal)",
+      ],
+    },
+    {
+      category: "dues_crm",
+      icon: CheckCircle2,
+      color: "amber",
+      title: isNepali
+        ? "१-क्लिक रकम फर्स्यौट र भुक्तानी रसिद (Settlement)"
+        : "1-Click Dues Settlement & Payment Receipts",
+      subtitle: isNepali
+        ? "नगद, eSewa, Khalti, बैंकबाट तत्काल बाँकी चुक्ता"
+        : "Settle dues in full or partial with instant vouchers",
+      description: isNepali
+        ? "ग्राहकबाट बाँकी रकम संकलन गर्दा वा भेन्डरलाई भुक्तानी गर्दा कुल बाँकी वा निश्चित बिल नम्बरअनुसार १-क्लिकमा रकम फर्स्यौट गर्नुहोस्। नगद, बैंक, eSewa, Khalti, ConnectIPS मार्फत फर्स्यौट गरी तत्काल भुक्तानी रसिद निकाल्नुहोस्।"
+        : "Settle outstanding balances seamlessly against the entire account balance or specific bill numbers. Supports Cash, Bank Transfer, eSewa, Khalti, ConnectIPS, and Cheque with automated printable settlement vouchers.",
+      badges: [
+        "Full / Partial Settlement",
+        "Bill-Specific Settlement",
+        "eSewa, Khalti, Bank",
+        "Printable Payment Receipts",
+      ],
+    },
+    {
+      category: "dues_crm",
+      icon: RotateCcw,
+      color: "rose",
+      title: isNepali
+        ? "फिर्ता तथा क्रेडिट र डेबिट नोट (Returns & Notes)"
+        : "Returns & Credit / Debit Notes",
+      subtitle: isNepali
+        ? "बिक्री तथा खरिद फिर्ता, रिस्टक वा ड्यामेज राइट-अफ"
+        : "Customer & vendor returns with restock or damage write-off",
+      description: isNepali
+        ? "ग्राहक बिक्री फिर्ताका लागि क्रमबद्ध क्रेडिट नोट (CN-...) र आपूर्तिकर्ता खरिद फिर्ताका लागि डेबिट नोट (DN-...) जारी गर्नुहोस्। बिग्रेका सामान नष्ट (Damaged Write-off) गर्ने वा सुरक्षित सामान स्वतः स्टकमा फर्काउने (Restock) विकल्प र खाता मिलान।"
+        : "Issue sequential Credit Notes (CN-...) for customer sales returns and Debit Notes (DN-...) for vendor purchase returns. Choose whether returned goods are restocked into live inventory or written off as damaged, with automatic khata ledger balance adjustments.",
+      badges: [
+        "Credit Notes (CN-...)",
+        "Debit Notes (DN-...)",
+        "Restock vs. Damaged Write-off",
+        "Khata Balance Adjustment",
+      ],
+    },
+    {
+      category: "billing",
+      icon: Wallet,
+      color: "amber",
+      title: isNepali
+        ? "काउन्टर सिफ्ट तथा क्यास ड्रयर (Shift Management)"
+        : "Cash Drawer & Shift Management",
+      subtitle: isNepali
+        ? "ओपनिङ फ्लोट, दिनभरको क्यास रिकन्सिलिएसन र ओभर/सर्ट हिसाब"
+        : "Opening float, live drawer balance & cash over/short variance",
+      description: isNepali
+        ? "क्यासियर सिफ्ट व्यवस्थापन र ड्रयर सुरक्षा। सुरुमा ओपनिङ क्यास फ्लोट राख्नुहोस्, काउन्टर बन्द गर्दा वास्तविक गनेको क्यास प्रविष्टि गरी प्रणालीको हिसाबसँग स्वतः मिलान गर्नुहोस्। बढी वा घटी (Variance) र Z-Report स्लिप तत्काल प्रिन्ट!"
+        : "Streamline cashier shift handovers with opening till floats, live drawer balance tracking, physical cash counting, and automated cash over/short variance auditing. Generate comprehensive end-of-shift Z-Reports on 80mm thermal receipts.",
+      badges: [
+        "Opening Float",
+        "Physical Till Count",
+        "Over/Short Variance",
+        "Z-Report Slips",
+        "Cashier Audit Trail",
       ],
     },
     {
@@ -182,63 +435,6 @@ export const FeaturesSection = () => {
       badges: ["80mm / 58mm Ready", "Instant Print", "Store Branding"],
     },
     {
-      category: "billing",
-      icon: Wallet,
-      color: "amber",
-      title: isNepali
-        ? "आंशिक भुक्तानी र बाँकी बक्यौता (Dues)"
-        : "Smart Dues & Partial Payments",
-      subtitle: isNepali
-        ? "साविकको बाँकी + हालको बाँकी = कुल बाँकी"
-        : "Auto-math: Previous + Current = Total Due",
-      description: isNepali
-        ? "आंशिक भुक्तानी सहजै दर्ता गर्नुहोस्। साविकको बाँकी र हालको बाँकी जोडेर कुल बाँकी रकम रसिद तथा खातामा स्वतः हिसाब!"
-        : "Accept partial payments without calculator headaches. Automatically tracks previous, current, and total dues on receipts.",
-      badges: [
-        "Partial Payments",
-        "Auto Due Math",
-        "Receipt Dues",
-      ],
-    },
-    {
-      category: "crm",
-      icon: UserCheck,
-      color: "emerald",
-      title: isNepali
-        ? "ग्राहक खाता र उधारो (Credit Khata)"
-        : "Customer Directory & Credit Khata",
-      subtitle: isNepali
-        ? "डिजिटल उधारो खाता—कापी-कलमको झन्झटमुक्त"
-        : "Digital credit khata with zero math errors",
-      description: isNepali
-        ? "ग्राहकको नाम, फोन र खरिद इतिहास राख्नुहोस्। उधारो खाता (Khata) मार्फत बाँकी बक्यौता र भुक्तानी चुट्कीमै व्यवस्थापन!"
-        : "Save customer profiles, visit history, and credit ledgers. Track outstanding balances and log settlements effortlessly.",
-      badges: [
-        "Credit Khata",
-        "Due Balance",
-        "Customer Profiles",
-      ],
-    },
-    {
-      category: "crm",
-      icon: Truck,
-      color: "teal",
-      title: isNepali
-        ? "आपूर्तिकर्ता (Vendor) तथा खरिद खाता"
-        : "Vendor & Supplier Ledger",
-      subtitle: isNepali
-        ? "थोक बिक्रेता र खरिद बिलको सरल व्यवस्थापन"
-        : "Streamline restocks and wholesale payables",
-      description: isNepali
-        ? "सप्लायरको सम्पर्क, खरिद बिल र तिर्न बाँकी रकम एकै ठाउँमा। कुन सामान कहिले आयो र कति भुक्तानी बाँकी छ तुरुन्त हेर्नुहोस्।"
-        : "Organize distributors, wholesale bills, and payment terms in one place. Always know what you owe and when to restock.",
-      badges: [
-        "Vendor Directory",
-        "Accounts Payable",
-        "Purchase Invoices",
-      ],
-    },
-    {
       category: "system",
       icon: Keyboard,
       color: "purple",
@@ -313,6 +509,11 @@ export const FeaturesSection = () => {
     },
   ];
 
+  const displayedFeatures =
+    activeCategory === "all"
+      ? features
+      : features.filter((f) => f.category === activeCategory);
+
   return (
     <section
       id="features"
@@ -353,11 +554,32 @@ export const FeaturesSection = () => {
               ? "साना किराना पसलदेखि ठूला सुपरमार्ट र निर्माण सामग्री विक्रेतासम्मका लागि आवश्यक सबै उपकरणहरू एउटै सफ्टवेयरमा।"
               : "From corner grocery marts to bustling supermarkets and hardware distributors, StockForge delivers comprehensive retail control without cloud lock-in."}
           </p>
+
+          {/* Interactive Feature Category Tabs */}
+          <div className="flex flex-wrap items-center justify-center gap-1.5 pt-4">
+            {filterTabs.map((tab) => {
+              const isActive = activeCategory === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveCategory(tab.id)}
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer border ${
+                    isActive
+                      ? "bg-emerald-500/15 text-emerald-300 border-emerald-500/40 shadow-xs"
+                      : "bg-neutral-900/60 text-neutral-400 hover:text-neutral-200 border-neutral-800 hover:border-neutral-700"
+                  }`}
+                >
+                  {isNepali ? tab.label_np : tab.label_en}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {features.map((feat, idx) => {
+          {displayedFeatures.map((feat, idx) => {
             const Icon = feat.icon;
             return (
               <div

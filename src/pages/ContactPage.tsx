@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "../components/common/SEO.tsx";
-import { Breadcrumbs } from "../components/common/Breadcrumbs.tsx";
 import {
   Mail,
   Phone,
@@ -185,14 +184,6 @@ export const ContactPage: React.FC = () => {
       {/* Header Banner */}
       <section className="pt-16 pb-12 bg-neutral-950 border-b border-neutral-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <Breadcrumbs
-            items={[
-              { name: isNepali ? "गृहपृष्ठ" : "Home", path: "/" },
-              { name: isNepali ? "सम्पर्क" : "Contact", path: "/contact" },
-            ]}
-            className="justify-center mb-2"
-          />
-
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-semibold">
             <Mail className="w-3.5 h-3.5" />
             <span>
@@ -241,27 +232,11 @@ export const ContactPage: React.FC = () => {
                 <div className="space-y-4 text-xs sm:text-sm">
                   <div className="flex items-start gap-3.5">
                     <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0">
-                      <User className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-neutral-200">
-                        {isNepali ? "सम्पर्क व्यक्ति" : "Contact Person"}
-                      </div>
-                      <div className="text-neutral-400 text-xs mt-0.5">
-                        {isNepali ? CONTACT_INFO.nameNp : CONTACT_INFO.name}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3.5">
-                    <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0">
                       <MapPin className="w-4 h-4" />
                     </div>
                     <div>
                       <div className="font-semibold text-neutral-200">
-                        {isNepali
-                          ? "स्थान तथा कार्यालय"
-                          : "Location & Office"}
+                        {isNepali ? "स्थान तथा कार्यालय" : "Location & Office"}
                       </div>
                       <div className="text-neutral-400 text-xs mt-0.5 leading-relaxed">
                         {isNepali
@@ -304,7 +279,8 @@ export const ContactPage: React.FC = () => {
                         rel="noopener noreferrer"
                         className="text-neutral-400 text-xs font-mono mt-0.5 block hover:text-emerald-400 transition-colors"
                       >
-                        {CONTACT_INFO.whatsapp.display} ({isNepali ? "च्याट उपलब्ध" : "Chat available"})
+                        {CONTACT_INFO.whatsapp.display} (
+                        {isNepali ? "च्याट उपलब्ध" : "Chat available"})
                       </a>
                     </div>
                   </div>
@@ -335,7 +311,9 @@ export const ContactPage: React.FC = () => {
                         {isNepali ? "सञ्चालन समय" : "Store Support Hours"}
                       </div>
                       <div className="text-neutral-400 text-xs mt-0.5">
-                        {isNepali ? CONTACT_INFO.hours.np : CONTACT_INFO.hours.en}
+                        {isNepali
+                          ? CONTACT_INFO.hours.np
+                          : CONTACT_INFO.hours.en}
                       </div>
                     </div>
                   </div>

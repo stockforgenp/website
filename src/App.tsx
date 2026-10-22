@@ -22,6 +22,16 @@ const FaqPage = lazy(() =>
 const ContactPage = lazy(() =>
   import("./pages/ContactPage.tsx").then((m) => ({ default: m.ContactPage }))
 );
+const PrivacyPolicyPage = lazy(() =>
+  import("./pages/PrivacyPolicyPage.tsx").then((m) => ({
+    default: m.PrivacyPolicyPage,
+  }))
+);
+const TermsOfUsePage = lazy(() =>
+  import("./pages/TermsOfUsePage.tsx").then((m) => ({
+    default: m.TermsOfUsePage,
+  }))
+);
 
 const PageFallback = () => (
   <div className="min-h-[60vh] flex items-center justify-center">
@@ -92,6 +102,25 @@ export default function App() {
             </Suspense>
           }
         />
+        <Route
+          path="/privacy"
+          element={
+            <Suspense fallback={<PageFallback />}>
+              <PrivacyPolicyPage />
+            </Suspense>
+          }
+        />
+        <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
+        <Route
+          path="/terms"
+          element={
+            <Suspense fallback={<PageFallback />}>
+              <TermsOfUsePage />
+            </Suspense>
+          }
+        />
+        <Route path="/terms-of-use" element={<Navigate to="/terms" replace />} />
+        <Route path="/terms-of-service" element={<Navigate to="/terms" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>

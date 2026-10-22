@@ -22,11 +22,12 @@ StockForge is a standalone desktop point-of-sale (POS) and inventory management 
 - Automatic subtotal, itemized line discounts, flat bill discounts, and tax computation.
 - Fully compatible with both VAT (13%) and non-VAT retail stores.
 
-### 3.3 Customer Khata & Dues Tracking
-- Built-in customer ledger for credit sales.
-- Supports partial cash/digital payment at checkout.
-- Automated balance calculation on every transaction: Previous Due + Current Due = Total Due Balance.
-- Total outstanding balance printed directly on the thermal receipt for customer clarity.
+### 3.3 Customer & Vendor Dues, Individual Ledgers & Settlement
+- **Customer Dues Math**: Supports partial payments at checkout with automatic Previous Due + Current Bill Due = Total Due calculation printed directly on thermal receipts.
+- **Vendor Accounts Payable**: Organize wholesale restock invoices, supplier contact directories, cash payments, and outstanding payables.
+- **Dedicated Party Statements & Ledgers**: Chronological account statement for every individual customer and vendor detailing all invoices, debits, credits, and real-time running balances.
+- **Printable Statements**: 1-click printable statement reports in both standard 80mm/58mm thermal slips and A4 sheet formats.
+- **1-Click Balance Settlement (रकम फर्स्यौट)**: Settle balances against total account dues or specific bills using Cash, Bank Transfer, eSewa, Khalti, ConnectIPS, or Cheque with instant printable payment receipts.
 
 ### 3.4 Hardware Integration
 - Standard ESC/POS 80mm and 58mm thermal receipt printers via USB, Network, or Serial.

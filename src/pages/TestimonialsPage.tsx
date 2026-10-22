@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { SEO } from "../components/common/SEO.tsx";
-import { Breadcrumbs } from "../components/common/Breadcrumbs.tsx";
 import { ClientsTestimonialsSection } from "../components/public/ClientsTestimonialsSection.tsx";
 import {
   Users,
@@ -92,17 +91,6 @@ export const TestimonialsPage: React.FC = () => {
       {/* Header Banner */}
       <section className="pt-16 pb-12 bg-neutral-950 border-b border-neutral-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <Breadcrumbs
-            items={[
-              { name: isNepali ? "गृहपृष्ठ" : "Home", path: "/" },
-              {
-                name: isNepali ? "ग्राहक प्रतिक्रिया" : "Client Stories",
-                path: "/testimonials",
-              },
-            ]}
-            className="justify-center mb-2"
-          />
-
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-semibold">
             <Users className="w-3.5 h-3.5" />
             <span>

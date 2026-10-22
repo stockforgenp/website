@@ -117,6 +117,24 @@ export const FaqSection: React.FC = () => {
     },
     {
       question: isNepali
+        ? "दैनिक हिसाब किताब (Daily Book / Day Book) ले कसरी काम गर्छ?"
+        : "How does the dedicated Daily Cash Book (Day Book) audit work?",
+      category: "finance",
+      answer: isNepali
+        ? "StockForge मा दैनिक हिसाब किताब (Day Book / रोजिन्दा हिसाब) को छुट्टै मेनु छ। यसले दिनभरको सम्पूर्ण कारोबार (बिक्री, खरिद, पसल खर्च, ग्राहक बाँकी असुली, आपूर्तिकर्ता भुक्तानी, कर्मचारी तलब, बिक्री/खरिद फिर्ता) को एकमुष्ट हिसाब देखाउँछ। यसले अघिल्लो दिनसम्मको संचित ओपनिङ क्यास ब्यालेन्स, दिनभरको कुल आम्दानी (+डेबिट), कुल खर्च (-क्रेडिट), र दिनको अन्त्यमा गल्लामा हुनुपर्ने वास्तविक क्लोजिङ ब्यालेन्स ठ्याक्कै निकाल्छ। साथै, १-क्लिकमा A4 वा ८०mm थर्मल प्रिन्ट रिपोर्ट निकाल्न सकिन्छ।"
+        : "StockForge features a dedicated Day Book view (shortcut Ctrl+J / ⌘+J) unifying all daily financial transactions: Sales, Restocks, Expenses, Customer Dues Collected, Vendor Dues Paid, Staff Salaries, and Returns. It automatically computes prior cumulative Opening Cash Balance, Total Inflow (+Debit), Total Outflow (-Credit), Net Cash Flow, and Closing Drawer Balance, complete with payment mode breakdown and 1-click A4 & 80mm printable reports.",
+    },
+    {
+      question: isNepali
+        ? "के काउन्टरमा नगदबाहेक Fonepay, QR, बैंक र चेकबाट भुक्तानी दर्ता गर्न सकिन्छ?"
+        : "Can I record payments across Cash, Fonepay, QR, Bank Transfer, and Cheque?",
+      category: "billing",
+      answer: isNepali
+        ? "सकिन्छ! बिक्री गर्दा, खरिद इन्ट्री गर्दा, पसलको खर्च लेख्दा वा ग्राहक/भेन्डरको बाँकी फर्स्यौट गर्दा भुक्तानी माध्यम (नगद Cash, अनलाइन QR जस्तै Fonepay/eSewa/Khalti, बैंक ट्रान्सफर, चेक वा उधारो) प्रविष्ट गर्न सकिन्छ। डे-बुक र रिपोर्टहरूमा नगद र डिजिटल रकम छुट्टाछुट्टै हिसाब देखिन्छ, जसले गर्दा गल्लाको क्यास गन्न र बैंक स्टेटमेन्ट मिलाउन सजिलो हुन्छ।"
+        : "Yes! Every sale, purchase restock, store expense, payroll voucher, and due settlement supports explicit payment modes: Cash, Online/QR (Fonepay, eSewa, Khalti), Bank Transfer, Cheque, and Store Credit. This keeps physical till cash segregated from digital bank receipts, making end-of-day register closing and bank reconciliations effortless.",
+    },
+    {
+      question: isNepali
         ? "के म वास्तविक सामानहरू प्रविष्ट गर्नुअघि नमूना (Demo) डेटाबाट परीक्षण गर्न सक्छु?"
         : "Can I test StockForge with sample demo data before entering real stock?",
       answer: isNepali

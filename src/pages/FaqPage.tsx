@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "../components/common/SEO.tsx";
-import { Breadcrumbs } from "../components/common/Breadcrumbs.tsx";
 import { FaqSection } from "../components/public/FaqSection.tsx";
 import { HelpCircle, MessageSquare, Sparkles, ArrowRight } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext.tsx";
@@ -101,6 +100,22 @@ export const FaqPage: React.FC = () => {
           text: "Yes, and it is enabled by default. StockForge includes a 100% offline Bikram Sambat (B.S.) calendar engine that displays official Nepali dates across bills, invoices, salary slips, and accounting ledgers, with a 1-click toggle to A.D. in Settings.",
         },
       },
+      {
+        "@type": "Question",
+        name: "How does the dedicated Daily Cash Book (Day Book) audit work?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "StockForge includes a dedicated Daily Book (shortcut Ctrl+J / ⌘+J) that aggregates daily Sales, Restock Purchases, Store Overheads, Staff Salaries, Customer Due Collections, and Vendor Due Payments. It computes cumulative Opening Cash Balance, +Debit Inflows, -Credit Outflows, and Closing Balance with 1-click printable A4 & 80mm thermal reports.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I record payments across Cash, Fonepay, QR, Bank Transfer, and Cheque?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Every sale, purchase restock, expense, payroll voucher, and due settlement supports explicit payment modes: Cash, Online/QR (Fonepay, eSewa, Khalti), Bank Transfer, Cheque, and Store Credit.",
+        },
+      },
     ],
   };
 
@@ -139,14 +154,6 @@ export const FaqPage: React.FC = () => {
       {/* Header Banner */}
       <section className="pt-16 pb-12 bg-neutral-950 border-b border-neutral-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <Breadcrumbs
-            items={[
-              { name: isNepali ? "गृहपृष्ठ" : "Home", path: "/" },
-              { name: isNepali ? "प्रश्नोत्तर" : "FAQs", path: "/faqs" },
-            ]}
-            className="justify-center mb-2"
-          />
-
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-semibold">
             <HelpCircle className="w-3.5 h-3.5" />
             <span>

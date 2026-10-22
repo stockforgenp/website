@@ -221,7 +221,7 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
     category: 'khata',
     keywords: [
       'due', 'dues', 'partial payment', 'paid', 'previous due', 'total due',
-      'current due', 'customer due', 'vendor due', 'ayub', 'balance due', 'बाँकी',
+      'current due', 'customer due', 'vendor due', 'balance due', 'बाँकी',
       'बक्यौता', 'साविकको बाँकी', 'आंशिक भुक्तानी', 'तिर्न बाँकी', 'उधारो बाँकी'
     ],
     question_en: 'How do dues, partial payments, and previous balances work for sales and purchases?',
@@ -267,6 +267,41 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
     actionUrl: '/features',
     actionLabel_en: 'Vendor Ledger Info',
     actionLabel_np: 'आपूर्तिकर्ता खाता हेर्नुहोस्',
+  },
+  {
+    id: 'party_statements_and_ledgers',
+    category: 'khata',
+    keywords: [
+      'ledger', 'statement', 'customer statement', 'vendor statement', 'party ledger',
+      'account statement', 'debit credit', 'running balance', 'लेजर', 'स्टेटमेन्ट', 'खाता लेजर',
+      'हिसाब किताब', 'विवरण'
+    ],
+    question_en: 'How do individual customer and vendor ledgers and account statements work?',
+    question_np: 'ग्राहक तथा आपूर्तिकर्ताको व्यक्तिगत लेजर र खाता स्टेटमेन्ट कसरी हेर्न र छाप्न सकिन्छ?',
+    answer_en:
+      'StockForge provides an individual, chronological ledger statement for every customer and vendor. You can review all purchase and sales bills, payments, debit/credit entries, and running balances with date filters. Statements can be printed in standard 80mm/58mm thermal slips or A4 paper with a single click.',
+    answer_np:
+      'StockForge मा प्रत्येक ग्राहक र भेन्डरको छुट्टाछुट्टै ऐतिहासिक लेजर खाता हुन्छ। मितिअनुसार सम्पूर्ण बिक्री तथा खरिद इनभ्वाइस, भुक्तानी, डेबिट-क्रेडिट र बाँकी रकम (Running Balance) स्पष्ट देखिन्छ। १-क्लिकमा ८०mm/५८mm थर्मल रसिद वा A4 पानामा पूरा खाता स्टेटमेन्ट छाप्न सकिन्छ।',
+    actionUrl: '/features',
+    actionLabel_en: 'Explore Party Ledgers',
+    actionLabel_np: 'लेजर सुविधा हेर्नुहोस्',
+  },
+  {
+    id: 'dues_settlement_and_receipts',
+    category: 'khata',
+    keywords: [
+      'settlement', 'settle balance', 'clear dues', 'payment receipt', 'esewa', 'khalti',
+      'bank transfer', 'cheque', 'फर्स्यौट', 'बाँकी चुक्ता', 'रकम फर्स्यौट', 'भुक्तानी रसिद'
+    ],
+    question_en: 'How do 1-click dues settlements and payment receipt vouchers work?',
+    question_np: '१-क्लिकमा बाँकी रकम फर्स्यौट (Settlement) र भुक्तानी रसिद कसरी काटिन्छ?',
+    answer_en:
+      'When collecting customer dues or paying vendor payables, you can settle balances in full or partial amounts against total account dues or specific bills. StockForge records payment methods (Cash, Bank Transfer, eSewa, Khalti, ConnectIPS, Cheque) and instantly issues a printable payment receipt voucher with real-time balance reconciliation.',
+    answer_np:
+      'ग्राहकबाट बाँकी रकम बुझ्दा वा आपूर्तिकर्तालाई भुक्तानी गर्दा कुल बक्यौता वा निश्चित बिलअनुसार १-क्लिकमा रकम फर्स्यौट (Settle) गर्न सकिन्छ। नगद, बैंक, eSewa, Khalti, ConnectIPS, चेक रोजेर फर्स्यौट दर्ता गर्न र तत्काल आधिकारिक भुक्तानी रसिद (Payment Receipt) छाप्न सकिन्छ।',
+    actionUrl: '/features',
+    actionLabel_en: 'Dues Settlement Specs',
+    actionLabel_np: 'फर्स्यौट सुविधा हेर्नुहोस्',
   },
 
   // ==================== FEATURES: FINANCE, COGS, PAYROLL, EXPENSES ====================
@@ -320,6 +355,41 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
     actionUrl: '/features',
     actionLabel_en: 'Expense Ledger Info',
     actionLabel_np: 'खर्च लेजर हेर्नुहोस्',
+  },
+  {
+    id: 'day_book_audit',
+    category: 'features',
+    keywords: [
+      'day book', 'daily book', 'rojinda', 'rojinda hisab', 'hisab kitab', 'cash flow',
+      'opening balance', 'closing balance', 'debit', 'credit', 'inflow', 'outflow',
+      'डे बुक', 'दैनिक हिसाब', 'रोजिन्दा हिसाब', 'नगद खाता', 'ओपनिङ', 'क्लोजिङ'
+    ],
+    question_en: 'How does the Daily Book (Day Book / रोजिन्दा हिसाब) cash ledger work?',
+    question_np: 'दैनिक हिसाब किताब (Daily Book / Day Book) ले कसरी काम गर्छ?',
+    answer_en:
+      'StockForge features an integrated Daily Book (shortcut Ctrl+J / ⌘+J) that synthesizes all daily financial movements into an authoritative double-entry journal. It computes prior cumulative Opening Cash Balance, Inflow (+Debit from sales, dues collections, returns), Outflow (-Credit for purchases, expenses, salaries, dues payments), Net Cash in Hand, and final Closing Balance. Includes payment mode summaries and 1-click A4 & 80mm thermal printable reports.',
+    answer_np:
+      'StockForge मा दैनिक हिसाब किताब (Day Book / रोजिन्दा हिसाब किताब) को छुट्टै मेनु छ (सर्टकट Ctrl+J / ⌘+J)। यसले दिनभरको सम्पूर्ण बिक्री, खरिद, पसल खर्च, ग्राहक बाँकी संकलन, आपूर्तिकर्ता भुक्तानी, कर्मचारी तलब र फिर्तालाई दोहोरो लेखा प्रणालीमा देखाउँछ। सुरुको ओपनिङ क्यास, दिनको कुल आम्दानी (+डेबिट), कुल खर्च (-क्रेडिट), र दिनको अन्त्यमा हुनुपर्ने क्लोजिङ ब्यालेन्स स्वतः हिसाब गरी A4 वा ८०mm रसिदमा १-क्लिक प्रिन्ट गर्न सकिन्छ।',
+    actionUrl: '/features',
+    actionLabel_en: 'Explore Day Book',
+    actionLabel_np: 'दैनिक हिसाब सुविधा हेर्नुहोस्',
+  },
+  {
+    id: 'payment_modes_tracking',
+    category: 'billing',
+    keywords: [
+      'payment mode', 'fonepay', 'esewa', 'khalti', 'qr', 'online payment', 'cheque',
+      'bank transfer', 'store credit', 'नगद', 'क्युआर', 'अनलाइन भुक्तानी', 'चेक', 'बैंक'
+    ],
+    question_en: 'Can I record and audit payment modes like Cash, Fonepay/QR, Bank, Cheque, and Credit?',
+    question_np: 'के नगद, अनलाइन QR (Fonepay/eSewa), बैंक र चेक भुक्तानी ट्र्याक गर्न सकिन्छ?',
+    answer_en:
+      'Yes! Across checkout sales, purchase restocks, overhead expenses, payroll vouchers, and debt settlements, you can designate the exact payment mode: Cash, Online/QR (Fonepay, eSewa, Khalti), Bank Transfer, Cheque, or Store Credit. The Daily Book and drawer shift registers keep cash in hand cleanly segregated from digital bank receipts for effortless reconciliation.',
+    answer_np:
+      'सकिन्छ! बिक्री बिलिङ, खरिद, पसल खर्च, कर्मचारी तलब र बाँकी फर्स्यौट गर्दा भुक्तानी माध्यम (नगद, Fonepay/eSewa/Khalti QR, बैंक ट्रान्सफर, चेक वा उधारो) प्रविष्ट गर्न सकिन्छ। दिनको अन्त्यमा कुन माध्यमबाट कति रकम आयो वा गयो, डे-बुक र लेजरमा १ सेकेन्डमै अडिट हुन्छ।',
+    actionUrl: '/features',
+    actionLabel_en: 'Payment Features',
+    actionLabel_np: 'भुक्तानी सुविधा हेर्नुहोस्',
   },
 
   // ==================== INTEGRATIONS ====================
@@ -483,14 +553,14 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
     category: 'contact',
     keywords: [
       'contact', 'support', 'help', 'phone', 'call', 'location', 'office',
-      'birgunj', 'parsa', 'nepal', 'hours', 'whatsapp', 'number', 'ayub', 'सम्पर्क', 'फोन', 'ह्वाट्सएप', 'ठेगाना', 'कार्यालय'
+      'birgunj', 'parsa', 'nepal', 'hours', 'whatsapp', 'number', 'सम्पर्क', 'फोन', 'ह्वाट्सएप', 'ठेगाना', 'कार्यालय'
     ],
     question_en: 'What are your support contact numbers, office location, and hours?',
     question_np: 'सहयोगको लागि सम्पर्क फोन नम्बर, कार्यालय र समय के हो?',
     answer_en:
-      `You can reach our team directly:\n• Contact Person: ${CONTACT_INFO.name}\n• Mobile / WhatsApp: ${CONTACT_INFO.phone.display}\n• Email: ${CONTACT_INFO.email.address}\n• Office: ${CONTACT_INFO.address.displayEn}\n• Support Hours: ${CONTACT_INFO.hours.en}`,
+      `You can reach our team directly:\n• Support / Contact: ${CONTACT_INFO.name}\n• Mobile / WhatsApp: ${CONTACT_INFO.phone.display}\n• Email: ${CONTACT_INFO.email.address}\n• Office: ${CONTACT_INFO.address.displayEn}\n• Support Hours: ${CONTACT_INFO.hours.en}`,
     answer_np:
-      `तपाईंले हाम्रो टोलीसँग प्रत्यक्ष सम्पर्क गर्न सक्नुहुन्छ:\n• सम्पर्क व्यक्ति: ${CONTACT_INFO.nameNp} (${CONTACT_INFO.name})\n• मोबाइल / ह्वाट्सएप: ${CONTACT_INFO.phone.display}\n• इमेल: ${CONTACT_INFO.email.address}\n• कार्यालय: ${CONTACT_INFO.address.displayNp}\n• समय: ${CONTACT_INFO.hours.np}`,
+      `तपाईंले हाम्रो टोलीसँग प्रत्यक्ष सम्पर्क गर्न सक्नुहुन्छ:\n• सम्पर्क / सहायता: ${CONTACT_INFO.nameNp} (${CONTACT_INFO.name})\n• मोबाइल / ह्वाट्सएप: ${CONTACT_INFO.phone.display}\n• इमेल: ${CONTACT_INFO.email.address}\n• कार्यालय: ${CONTACT_INFO.address.displayNp}\n• समय: ${CONTACT_INFO.hours.np}`,
     actionUrl: '/contact',
     actionLabel_en: 'Open Contact Form',
     actionLabel_np: 'सम्पर्क फाराम खोल्नुहोस्',
@@ -599,10 +669,45 @@ export const KNOWLEDGE_BASE: KnowledgeItem[] = [
     actionLabel_np: 'डेटा माइग्रेसन अनुरोध गर्नुहोस्',
     suggestWhatsApp: true,
   },
+  {
+    id: 'privacy_policy_overview',
+    category: 'faqs',
+    keywords: [
+      'privacy', 'privacy policy', 'data security', 'confidentiality', 'cloud tracking',
+      'store data', 'गोपनीयता', 'डेटा सुरक्षा', 'गोपनीयता नीति', 'सुरक्षा नीति'
+    ],
+    question_en: 'What is the StockForge Privacy Policy regarding store data?',
+    question_np: 'StockForge को गोपनीयता नीति (Privacy Policy) के हो?',
+    answer_en:
+      'StockForge operates with a strict 100% offline-first local data sovereignty policy. All product details, billing history, sales profits, and customer credit khata records remain strictly on your local PC in an embedded SQLite database. We do not track, collect, or upload your business data to remote cloud servers. Cloud backups (Google Sheets) sync directly to your personal Google Drive without intermediary access.',
+    answer_np:
+      'StockForge को गोपनीयता नीतिअनुसार तपाईंको पसलको सम्पूर्ण डेटा १००% स्थानीय र निजी रहन्छ। बिक्री, नाफा, ग्राहक खाता र स्टक विवरण तपाईंको आफ्नै कम्प्युटरको SQLite डेटाबेसमा मात्र रहन्छ र कुनै पनि क्लाउड सर्भरमा ट्र्याकिङ हुँदैन। गुगल सिट ब्याकअप पनि सिधै तपाईंको आफ्नै गुगल ड्राइभमा सुरक्षित हुन्छ।',
+    actionUrl: '/privacy',
+    actionLabel_en: 'Read Privacy Policy',
+    actionLabel_np: 'गोपनीयता नीति पढ्नुहोस्',
+  },
+  {
+    id: 'terms_of_use_overview',
+    category: 'faqs',
+    keywords: [
+      'terms', 'terms of use', 'terms of service', 'agreement', 'conditions', 'license',
+      'सर्तहरू', 'प्रयोगका सर्तहरू', 'लाइसेन्स', 'नियम'
+    ],
+    question_en: 'What are the Terms of Use and Software Licensing conditions?',
+    question_np: 'StockForge सफ्टवेयर प्रयोगका सर्तहरू (Terms of Use) के हुन्?',
+    answer_en:
+      'StockForge provides a native desktop software license for retail checkout, multi-unit inventory, and ledger management. Users retain 100% ownership of all business records with zero lock-in, and are responsible for operating counter hardware and maintaining regular backups (.db, .sql, or Google Sheets). We offer rapid emergency counter support (< 2 hrs SLA) for active users.',
+    answer_np:
+      'StockForge ले खुद्रा काउन्टर, इन्भेन्टरी र बिलिङका लागि डेस्कटप सफ्टवेयर लाइसेन्स प्रदान गर्छ। तपाईंको सम्पूर्ण डेटाको १००% स्वामित्व तपाईंकै रहनेछ र कुनै क्लाउड बन्देज हुँदैन। प्रयोगकर्ताले हार्डवेयर सुरक्षा र नियमित ब्याकअप (.sql/.db/गुगल सिट) राख्नुपर्छ। आपतकालीन काउन्टर समस्याका लागि २ घण्टाभित्र द्रुत सहयोग उपलब्ध छ।',
+    actionUrl: '/terms',
+    actionLabel_en: 'Read Terms of Use',
+    actionLabel_np: 'प्रयोगका सर्तहरू पढ्नुहोस्',
+  },
 ];
 
 export const POPULAR_QUESTIONS = [
   'Does StockForge work completely offline?',
+  'How does the Daily Book (Day Book) cash ledger work?',
   'Is StockForge a native desktop app or a web app?',
   'How do measurement units (kg, litre, pcs) work?',
   'How do I backup to Google Sheets or flash drive?',
@@ -615,6 +720,7 @@ export const POPULAR_QUESTIONS = [
 
 export const POPULAR_QUESTIONS_NP = [
   'के StockForge इन्टरनेट नभए पनि चल्छ?',
+  'दैनिक हिसाब किताब (Day Book) ले कसरी काम गर्छ?',
   'के StockForge डेस्कटप एप हो कि वेब एप?',
   'सामानको एकाइ (केजी, लिटर, पिस) कसरी चल्छ?',
   'गुगल सिट वा पेनड्राइभमा डेटा ब्याकअप कसरी लिने?',

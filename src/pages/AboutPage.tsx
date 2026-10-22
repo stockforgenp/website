@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { SEO } from "../components/common/SEO.tsx";
-import { Breadcrumbs } from "../components/common/Breadcrumbs.tsx";
 import { AboutSection } from "../components/public/AboutSection.tsx";
 import {
   Info,
@@ -11,7 +10,6 @@ import {
   Users2,
   Sparkles,
   ArrowRight,
-  MapPin,
   Heart,
   CheckCircle2,
 } from "lucide-react";
@@ -39,16 +37,6 @@ export const AboutPage: React.FC = () => {
       },
     },
   };
-
-  const hubs = [
-    { city: "Birgunj", area: "Main Road & Parsa Retail Hub" },
-    { city: "Kathmandu", area: "New Road & Asan Mart Hub" },
-    { city: "Lalitpur", area: "Patan, Kumaripati & Sanepa" },
-    { city: "Bhaktapur", area: "Suryabinayak & Durbar Square" },
-    { city: "Pokhara", area: "Prithvi Chowk & Lakeside" },
-    { city: "Chitwan", area: "Narayangarh & Bharatpur" },
-    { city: "Butwal", area: "Traffic Chowk Commercial Marts" },
-  ];
 
   return (
     <div>
@@ -86,14 +74,6 @@ export const AboutPage: React.FC = () => {
       {/* Header Banner */}
       <section className="pt-16 pb-12 bg-neutral-950 border-b border-neutral-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <Breadcrumbs
-            items={[
-              { name: isNepali ? "गृहपृष्ठ" : "Home", path: "/" },
-              { name: isNepali ? "हाम्रोबारे" : "About Us", path: "/about" },
-            ]}
-            className="justify-center mb-2"
-          />
-
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-semibold">
             <Info className="w-3.5 h-3.5" />
             <span>
@@ -129,54 +109,6 @@ export const AboutPage: React.FC = () => {
 
       {/* Main About Component */}
       <AboutSection />
-
-      {/* Regional Deployment Hubs */}
-      <section className="py-16 bg-neutral-900/40 border-t border-neutral-800/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-            <h2 className="text-xl sm:text-2xl font-bold text-neutral-100">
-              {isNepali
-                ? "देशभरिका मुख्य खुद्रा बजारहरूमा उपस्थिति"
-                : "Active Retail Hubs Across Nepal"}
-            </h2>
-            <p className="text-xs sm:text-sm text-neutral-400">
-              {isNepali
-                ? "काठमाडौँ उपत्यकादेखि प्रमुख आर्थिक सहरहरूमा StockForge प्रयोगकर्ताहरूको सञ्जाल।"
-                : "Powering groceries, supermarkets, hardware, and liquid marts from the capital to regional commercial hubs."}
-            </p>
-          </div>
-
-          {/* Visual Architecture Map */}
-          <div className="flex justify-center mb-10">
-            <img
-              src="/nepal-retail-network.svg"
-              alt="Autonomous decentralized retail store nodes across Nepal powered by StockForge offline native desktop application for Windows, macOS, and Linux"
-              width={920}
-              height={400}
-              loading="lazy"
-              decoding="async"
-              className="w-full max-w-4xl rounded-2xl border border-neutral-800 shadow-2xl bg-neutral-950/70"
-            />
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-            {hubs.map((hub, idx) => (
-              <div
-                key={idx}
-                className="p-4 rounded-xl bg-neutral-950 border border-neutral-800 text-center space-y-1 hover:border-emerald-500/40 transition-colors"
-              >
-                <div className="w-7 h-7 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto mb-2">
-                  <MapPin className="w-3.5 h-3.5" />
-                </div>
-                <div className="text-xs font-bold text-neutral-200">
-                  {hub.city}
-                </div>
-                <div className="text-[10px] text-neutral-400">{hub.area}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Bottom CTA */}
       <section className="py-12 bg-neutral-950 border-t border-neutral-800 text-center">

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "../components/common/SEO.tsx";
-import { Breadcrumbs } from "../components/common/Breadcrumbs.tsx";
 import { FeaturesSection } from "../components/public/FeaturesSection.tsx";
 import {
   Check,
@@ -25,6 +24,12 @@ import {
   Moon,
   Languages,
   Calendar,
+  BookOpen,
+  Receipt,
+  Boxes,
+  Tag,
+  Wallet,
+  CreditCard,
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext.tsx";
 
@@ -41,6 +46,17 @@ export const FeaturesPage: React.FC = () => {
       "Features breakdown of StockForge POS: multi-unit inventory (piece, kg, litre), automated sequential billing, offline SQLite database, COGS profit analytics, and staff payroll.",
     featureList: [
       "Multi-Unit Inventory (kg, litre, piece, dozen, packet, box, meter)",
+      "Daily Book (Day Book / रोजिन्दा हिसाब किताब) with Opening Cash Balance, Inflow (+Debit) & Outflow (-Credit) Auditing, and A4/Thermal Reports",
+      "Multi-Mode Payment Tracking (Cash, Online/QR, Cheque, Bank Transfer, Store Credit) across Sales, Purchases, Expenses & Payroll",
+      "Multi-UOM & Packaging Hierarchy (Bulk Carton/Box to Loose Piece automated inventory conversion)",
+      "Batch Number & Expiry Date Tracking with FEFO (First Expiring, First Out) Inventory Depletion",
+      "Automated 30-Day Near-Expiry Alerts & Expired Stock Quarantine Radar",
+      "Wholesale vs. Retail Dual-Tiered Pricing with Customer Classification and Volume Breakpoints",
+      "Thermal Barcode Label & Supermarket Shelf Tag Printing (Code 128, 50x25mm / 38x25mm rolls & A4 sheets)",
+      "Customer Sales Returns & Credit Notes (CN-XXXXX) with Restock or Damaged Write-off options",
+      "Damaged, Expired & Spoilage Write-Off with Scrap Vouchers (WO-XXXXX) and Automated P&L Loss Expense Integration",
+      "Vendor Purchase Returns & Debit Notes (DN-XXXXX) with Inventory Outflow & Balance Deduction",
+      "Cash Drawer & Cashier Shift Management (Opening Float, Live Reconciliation, Over/Short Variance & Z-Report)",
       "Automated Sequential Invoicing and Bill Number Generation",
       "Offline-First Native Desktop SQLite Architecture with Local ACID Persistence",
       "Google Sheets Cloud Backup & Restore with Google OAuth Permission (Internet Required)",
@@ -50,8 +66,11 @@ export const FeaturesPage: React.FC = () => {
       "Staff Management & Monthly Salary Disbursement Vouchers",
       "Sales & Purchase Dues Tracking with Previous Due, Current Due & Total Outstanding Due",
       "Partial Payments at Checkout & Inflow with Due Breakdown on Thermal Receipts",
+      "Multi-Mode Payment Tracking (Cash, Online/QR, Cheque, Bank Transfer) across Sales, Purchases, Expenses & Cash Drawer",
       "Customer Directory & Credit Khata Ledger with Total Due Balance Tracking",
       "Vendor & Supplier Management with Wholesale Purchase Payables",
+      "Individual Customer & Vendor Ledgers with Detailed Debit/Credit Entries and Running Balance",
+      "1-Click Balance Settlement with Multi-Channel Payments (Cash, eSewa, Khalti, Bank) and Payment Receipts",
       "Dark & Light Theme Mode Toggle with Ergonomic Contrast Persistence",
       "Bilingual Switch (English & नेपाली) with Automatic Currency रु./Rs. Sync",
       "Offline Bikram Sambat (B.S.) Nepali Calendar with A.D. / B.S. Toggle and Fiscal Year Month Boundaries",
@@ -75,7 +94,8 @@ export const FeaturesPage: React.FC = () => {
         ? "विक्रम संवत् मिति र क्यालेन्डर (Bikram Sambat B.S.)"
         : "Bikram Sambat (B.S.) Official Nepali Calendar",
       stockforge: true,
-      stockforgeNote: "Native offline B.S. calendar, bills & fiscal month filters",
+      stockforgeNote:
+        "Native offline B.S. calendar, bills & fiscal month filters",
       cloudPos: false,
       cloudPosNote: "English Gregorian (A.D.) dates only",
     },
@@ -96,6 +116,78 @@ export const FeaturesPage: React.FC = () => {
       stockforgeNote: "1-Click theme toggle for eye comfort",
       cloudPos: false,
       cloudPosNote: "Fixed glaring white screen only",
+    },
+    {
+      feature: isNepali
+        ? "ब्याच र म्याद सकिने मिति ट्र्याकिङ (Batch & Expiry FEFO)"
+        : "Batch Number & Expiry Tracking with FEFO Auto-Depletion",
+      stockforge: true,
+      stockforgeNote: "Native batch tracking, FEFO billing, & 30-day expiry radar",
+      cloudPos: false,
+      cloudPosNote: "Basic flat stock count only; requires expensive pharma add-on",
+    },
+    {
+      feature: isNepali
+        ? "थोक तथा खुद्रा दोहोरो मूल्य दर (Dual Wholesale/Retail Pricing)"
+        : "Wholesale vs. Retail Dual Pricing & Volume Slabs",
+      stockforge: true,
+      stockforgeNote: "Native dual rates, auto-tiering by customer & min qty triggers",
+      cloudPos: false,
+      cloudPosNote: "Single fixed price only; manual discount overrides required",
+    },
+    {
+      feature: isNepali
+        ? "एकाइ तथा प्याकेजिङ रूपान्तरण (Multi-UOM Hierarchy)"
+        : "Packaging Hierarchy & Unit Conversion (Carton to Pcs)",
+      stockforge: true,
+      stockforgeNote: "Auto conversion multipliers (1 Ctn = 24 pcs) with dual sales/purchase selection",
+      cloudPos: false,
+      cloudPosNote: "Manual stock adjustments needed for bulk vs loose goods",
+    },
+    {
+      feature: isNepali
+        ? "फिर्ता तथा क्रेडिट/डेबिट नोट (Returns & Notes)"
+        : "Comprehensive Buy/Sell Returns & Credit/Debit Notes",
+      stockforge: true,
+      stockforgeNote: "Built-in Credit Notes (CN-...) & Debit Notes (DN-...) with restock or damaged write-off",
+      cloudPos: false,
+      cloudPosNote: "Manual bill deletions or cumbersome third-party return plugins",
+    },
+    {
+      feature: isNepali
+        ? "बारकोड स्टिकर तथा सेल्फ ट्याग (Barcode Printing)"
+        : "Barcode Sticker & Supermarket Shelf Tag Printing",
+      stockforge: true,
+      stockforgeNote: "Direct thermal roll (TSC/Xprinter 50x25mm) & A4 sheets with batch, price, and MRP",
+      cloudPos: false,
+      cloudPosNote: "Requires costly external barcode software subscription",
+    },
+    {
+      feature: isNepali
+        ? "काउन्टर सिफ्ट तथा क्यास ड्रयर (Shift Management)"
+        : "Cash Drawer & Cashier Shift Reconciliation",
+      stockforge: true,
+      stockforgeNote: "Native opening float, live drawer calculation, physical count & over/short Z-reports",
+      cloudPos: false,
+      cloudPosNote: "Blind cash registers with zero shift variance accountability",
+    },
+    {
+      feature: isNepali
+        ? "दैनिक हिसाब किताब र डे-बुक (Daily Cash Day Book)"
+        : "Dedicated Daily Day Book & Cash Flow Ledger",
+      stockforge: true,
+      stockforgeNote: "Opening/closing balances, +Debit/-Credit, and A4/thermal printout",
+      cloudPos: false,
+      cloudPosNote: "Fragmented receipts; lacks double-entry day book reconciliation",
+    },
+    {
+      feature: isNepali
+        ? "ड्यामेज, म्याद नाघेका र नोक्सानी (Write-Off & Scrap)"
+        : "Damaged, Expired & Spoilage Write-Off Vouchers",
+      stockforge: true,
+      stockforgeNote: "Formal Scrap Vouchers (WO-...), quarantine radar, and automated P&L loss expense posting",
+      cloudPos: false,
+      cloudPosNote: "Manual stock overrides that distort financial profit and inventory balance",
     },
     {
       feature: isNepali
@@ -124,6 +216,36 @@ export const FeaturesPage: React.FC = () => {
         "Auto Previous Due + Current Due = Total Due on bills & ledgers",
       cloudPos: false,
       cloudPosNote: "Forces full payment or requires external manual ledger",
+    },
+    {
+      feature: isNepali
+        ? "बहु-माध्यम भुक्तानी ट्र्याकिङ (Multi-Mode Payment Tracking)"
+        : "Multi-Mode Payment Tracking & Cash Float Segregation",
+      stockforge: true,
+      stockforgeNote:
+        "Cash, Online/QR, Cheque, Bank separated on bills, receipts & cash drawer shifts",
+      cloudPos: false,
+      cloudPosNote: "Lumps all transactions together or lacks drawer cash segregation",
+    },
+    {
+      feature: isNepali
+        ? "व्यक्तिगत पार्टी लेजर तथा स्टेटमेन्ट (Individual Party Statements)"
+        : "Dedicated Individual Ledgers & Printable Statements",
+      stockforge: true,
+      stockforgeNote:
+        "Chronological debit/credit history & 1-click print (A4/Thermal)",
+      cloudPos: false,
+      cloudPosNote:
+        "Only aggregated summaries; detailed statements locked behind ERP",
+    },
+    {
+      feature: isNepali
+        ? "१-क्लिक रकम फर्स्यौट तथा भुक्तानी रसिद (1-Click Balance Settlement)"
+        : "1-Click Dues Settlement & Multi-Channel Receipts",
+      stockforge: true,
+      stockforgeNote: "Cash, eSewa, Khalti, Bank with instant payment receipts",
+      cloudPos: false,
+      cloudPosNote: "Rigid settlement flows or manual journal entries required",
     },
     {
       feature: isNepali
@@ -237,14 +359,6 @@ export const FeaturesPage: React.FC = () => {
       {/* Hero Header */}
       <section className="pt-16 pb-12 bg-neutral-950 border-b border-neutral-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <Breadcrumbs
-            items={[
-              { name: isNepali ? "गृहपृष्ठ" : "Home", path: "/" },
-              { name: isNepali ? "सुविधाहरू" : "Features", path: "/features" },
-            ]}
-            className="justify-center mb-2"
-          />
-
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-semibold">
             <Layers className="w-3.5 h-3.5" />
             <span>
@@ -551,7 +665,7 @@ export const FeaturesPage: React.FC = () => {
       {/* Customer & Vendor Ledger + Theme & Language Showcase */}
       <section className="py-16 bg-neutral-950 border-t border-neutral-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="space-y-6">
             {/* Card 1: Customer Khata, Vendor Directory & Dues Tracking */}
             <div className="p-7 sm:p-8 rounded-2xl border border-neutral-800 bg-neutral-900/50 space-y-5 hover:border-emerald-500/40 transition-colors">
               <div className="flex items-center gap-3">
@@ -560,7 +674,7 @@ export const FeaturesPage: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                    CRM, Khata & Dues
+                    CRM & Dues Math
                   </span>
                   <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100">
                     {isNepali
@@ -605,6 +719,131 @@ export const FeaturesPage: React.FC = () => {
                     {isNepali
                       ? "थोक बिल, आंशिक भुक्तानी र पेएबल्स"
                       : "Wholesale restock partial payments"}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: Individual Ledgers & 1-Click Balance Settlement */}
+            <div className="p-7 sm:p-8 rounded-2xl border border-neutral-800 bg-neutral-900/50 space-y-5 hover:border-emerald-500/40 transition-colors">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                  <BookOpen className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
+                    Ledgers & Settlement
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100">
+                    {isNepali
+                      ? "व्यक्तिगत खाता लेजर (Statements) र १-क्लिक रकम फर्स्यौट"
+                      : "Individual Party Ledgers & 1-Click Balance Settlement"}
+                  </h3>
+                </div>
+              </div>
+
+              <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                {isNepali
+                  ? "प्रत्येक ग्राहक तथा आपूर्तिकर्ताको छुट्टाछुट्टै ऐतिहासिक खाता विवरण (Account Statement)। मितिअनुसार सबै बिल, डेबिट, क्रेडिट, भुक्तानी र चालु बाँकी (Running Balance) स्पष्ट हेर्नुहोस्। बाँकी रकम संकलन वा भुक्तानी गर्दा कुल बक्यौता वा निश्चित बिलअनुसार १-क्लिकमा रकम फर्स्यौट गर्नुहोस् (नगद, eSewa, Khalti, बैंक वा चेक) र तत्काल प्रिन्ट गर्न मिल्ने भुक्तानी रसिद (Payment Receipt) निकाल्नुहोस्।"
+                  : "Maintain dedicated chronological account statements for each customer and supplier. Audit every invoice, debit, credit payment, and real-time running balance with date filtering. Settle balances instantly in 1-click against total account dues or specific bills using Cash, eSewa, Khalti, Bank Transfer, ConnectIPS, or Cheque with instant printable settlement receipts."}
+              </p>
+
+              <div className="grid grid-cols-2 gap-3 pt-1">
+                <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800">
+                  <div className="flex items-center gap-2 text-xs font-bold text-neutral-200 mb-1">
+                    <BookOpen className="w-4 h-4 text-cyan-400" />
+                    <span>
+                      {isNepali
+                        ? "व्यक्तिगत लेजर स्टेटमेन्ट"
+                        : "Party Account Statements"}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-neutral-400">
+                    {isNepali
+                      ? "थर्मल र A4 ढाँचामा १-क्लिक प्रिन्ट"
+                      : "80mm thermal & A4 print ready"}
+                  </p>
+                </div>
+                <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800">
+                  <div className="flex items-center gap-2 text-xs font-bold text-neutral-200 mb-1">
+                    <CheckCircle2 className="w-4 h-4 text-amber-400" />
+                    <span>
+                      {isNepali
+                        ? "१-क्लिक रकम फर्स्यौट"
+                        : "1-Click Dues Settlement"}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-neutral-400">
+                    {isNepali
+                      ? "नगद, eSewa, Khalti, बैंक भुक्तानी रसिद"
+                      : "Cash, eSewa, Khalti, Bank & vouchers"}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card: Daily Cash Book & Multi-Mode Flow Audit */}
+            <div className="p-7 sm:p-8 rounded-2xl border border-neutral-800 bg-neutral-900/50 space-y-5 hover:border-cyan-500/40 transition-colors">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                  <Wallet className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
+                    Audit & Cash Reconciliation
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-100">
+                    {isNepali
+                      ? "दैनिक हिसाब किताब (Daily Book) र बहु-माध्यम नगद प्रवाह अडिट"
+                      : "Daily Cash Book (Day Book) & Multi-Channel Audit"}
+                  </h3>
+                </div>
+              </div>
+
+              <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                {isNepali
+                  ? "पसलको दिनभरको सम्पूर्ण आम्दानी र खर्चको दोहोरो हिसाब (Double-Entry Day Book)। सुरुको नगद मौज्दात (Opening Cash Balance), बिक्री आम्दानी, खरिद भुक्तानी, पसल खर्च, कर्मचारी तलब, ग्राहकबाट बाँकी असुली र आपूर्तिकर्ता भुक्तानीलाई नगद, Fonepay/QR, बैंक, चेक र उधारो अनुसार छुट्टाछुट्टै देखाउँछ। दिनको अन्त्यमा गल्लामा हुनुपर्ने वास्तविक नगद (Closing Cash Balance) ठ्याक्कै हिसाब गरी १-क्लिकमा A4 वा ८०mm थर्मल रिपोर्ट प्रिन्ट गर्न सकिन्छ।"
+                  : "A dedicated financial Day Book unifying all daily transactions across Sales, Restock Purchases, Store Overheads, Staff Salaries, Customer Due Collections, and Vendor Due Payments. Categorizes flows into Cash, Fonepay/QR, Bank Transfer, Cheque, and Store Credit. Automatically calculates prior cumulative Opening Cash Balance, Inflow (+Debit), Outflow (-Credit), Net Cash in Hand, and Closing Balance with 1-click A4 ledger and 80mm thermal register closing slips."}
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800">
+                  <div className="flex items-center gap-2 text-xs font-bold text-neutral-200 mb-1">
+                    <Wallet className="w-4 h-4 text-cyan-400" />
+                    <span>
+                      {isNepali ? "ओपनिङ र क्लोजिङ ब्यालेन्स" : "Opening & Closing Float"}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-neutral-400">
+                    {isNepali
+                      ? "गल्लाको वास्तविक नगद अडिट"
+                      : "Cumulative cash in hand tracking"}
+                  </p>
+                </div>
+                <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800">
+                  <div className="flex items-center gap-2 text-xs font-bold text-neutral-200 mb-1">
+                    <CreditCard className="w-4 h-4 text-emerald-400" />
+                    <span>
+                      {isNepali ? "नगद, QR र बैंक विभाजन" : "Cash vs. Digital QR & Bank"}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-neutral-400">
+                    {isNepali
+                      ? "Fonepay, eSewa, चेक र खाता"
+                      : "Segmented by payment channels"}
+                  </p>
+                </div>
+                <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800">
+                  <div className="flex items-center gap-2 text-xs font-bold text-neutral-200 mb-1">
+                    <Printer className="w-4 h-4 text-teal-400" />
+                    <span>
+                      {isNepali ? "A4 र थर्मल प्रिन्ट रिपोर्ट" : "A4 & 80mm Day Book Slips"}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-neutral-400">
+                    {isNepali
+                      ? "दिनको अन्त्यमा १-क्लिक प्रिन्ट"
+                      : "Instant register closing receipts"}
                   </p>
                 </div>
               </div>
@@ -693,7 +932,9 @@ export const FeaturesPage: React.FC = () => {
                   <div className="flex items-center gap-2 text-xs font-bold text-neutral-200 mb-1">
                     <Calendar className="w-4 h-4 text-teal-400" />
                     <span>
-                      {isNepali ? "पूर्वनिर्धारित वि.सं. (Default B.S.)" : "Default B.S. Format"}
+                      {isNepali
+                        ? "पूर्वनिर्धारित वि.सं. (Default B.S.)"
+                        : "Default B.S. Format"}
                     </span>
                   </div>
                   <p className="text-[11px] text-neutral-400">

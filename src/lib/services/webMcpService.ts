@@ -42,7 +42,9 @@ export function registerWebMcpTools(): void {
               features: [
                 "Multi-Unit Inventory (kg, litre, pcs, box)",
                 "Sequential Bill Invoicing (BILL-YYYYMMDD-XXXX)",
-                "Customer Khata & Vendor Dues Tracking",
+                "Customer & Vendor Dues Tracking (Previous + Current = Total Due)",
+                "Individual Party Ledgers with Printable Account Statements (A4/Thermal)",
+                "1-Click Balance Settlement (Cash, eSewa, Khalti, Bank) with Payment Receipts",
                 "80mm & 58mm Thermal Printing",
                 "Google Sheets & SQL File Backup",
               ],

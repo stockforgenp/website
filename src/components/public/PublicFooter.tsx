@@ -120,12 +120,6 @@ export const PublicFooter: React.FC = () => {
             {/* Quick Contact & Specs */}
             <div className="space-y-1.5 pt-1 text-[11px] text-neutral-400">
               <div className="flex items-center gap-2">
-                <User className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span className="text-neutral-300 font-medium">
-                  {isNepali ? CONTACT_INFO.nameNp : CONTACT_INFO.name}
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                 <span>
                   {isNepali
@@ -305,15 +299,47 @@ export const PublicFooter: React.FC = () => {
                   {isNepali ? "सम्पर्क तथा सहयोग" : "Contact Support Hub"}
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/privacy"
+                  className="hover:text-emerald-400 transition-colors"
+                >
+                  {isNepali ? "गोपनीयता नीति (Privacy)" : "Privacy Policy"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/terms"
+                  className="hover:text-emerald-400 transition-colors"
+                >
+                  {isNepali ? "प्रयोगका सर्तहरू (Terms)" : "Terms of Use"}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom copyright & integrity */}
         <div className="pt-8 mt-8 border-t border-neutral-900 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-neutral-400">
-          <div>
-            © {new Date().getFullYear()} StockForge POS.{" "}
-            {isNepali ? "सर्वाधिकार सुरक्षित।" : "All rights reserved."}
+          <div className="flex flex-wrap items-center gap-2">
+            <span>
+              © {new Date().getFullYear()} StockForge POS.{" "}
+              {isNepali ? "सर्वाधिकार सुरक्षित।" : "All rights reserved."}
+            </span>
+            <span className="text-neutral-700">·</span>
+            <Link
+              to="/privacy"
+              className="text-neutral-400 hover:text-emerald-400 transition-colors"
+            >
+              {isNepali ? "गोपनीयता नीति" : "Privacy"}
+            </Link>
+            <span className="text-neutral-700">·</span>
+            <Link
+              to="/terms"
+              className="text-neutral-400 hover:text-emerald-400 transition-colors"
+            >
+              {isNepali ? "सर्तहरू" : "Terms"}
+            </Link>
           </div>
 
           <div className="flex flex-wrap items-center gap-4 text-[11px]">

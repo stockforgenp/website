@@ -486,6 +486,12 @@ export const WebsiteChatbot: React.FC = () => {
                     q_np: "ग्राहकको उधारो खाता (Credit Khata) ले कसरी काम गर्छ?",
                   },
                   {
+                    en: "Dues & Settlement",
+                    np: "बाँकी र फर्स्यौट",
+                    q_en: "How do 1-click dues settlements and payment receipt vouchers work?",
+                    q_np: "१-क्लिकमा बाँकी रकम फर्स्यौट (Settlement) र भुक्तानी रसिद कसरी काटिन्छ?",
+                  },
+                  {
                     en: "Pricing Plans",
                     np: "लाइसेन्स मूल्य",
                     q_en: "What are the pricing plans and licensing options in Nepal?",

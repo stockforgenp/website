@@ -19,6 +19,8 @@ import {
   Cpu,
   Layers,
   PhoneCall,
+  BookOpen,
+  Boxes,
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext.tsx";
 import { CONTACT_INFO } from "../constants/contactInfo.ts";
@@ -56,6 +58,13 @@ export const HomePage: React.FC = () => {
         "Customer Directory & Credit Khata Ledger with Total Due Balance Tracking",
         "Vendor & Supplier Management with Accounts Payable Tracking",
         "Google Sheets Cloud & SQL File Database Backup & Restore (.sql)",
+        "Daily Book (Day Book / रोजिन्दा हिसाब किताब) with Opening Cash Balance, +Debit & -Credit Auditing, and 80mm/A4 Print Reports",
+        "Multi-Mode Payment Tracking (Cash, Fonepay / QR, Bank Transfer, Cheque, Store Credit)",
+        "Batch Number & Expiry Date Tracking with FEFO (First Expiring, First Out) Depletion",
+        "Wholesale vs. Retail Dual-Tiered Pricing with Customer Type & Slab Volume Triggers",
+        "Damaged, Expired & Spoilage Write-Off with Scrap Vouchers (WO-XXXXX)",
+        "Customer Sales Returns (Credit Notes CN-...) and Vendor Purchase Returns (Debit Notes DN-...)",
+        "Cash Drawer & Cashier Shift Management with Opening Float and Z-Reports",
         "Bilingual Switch (English & नेपाली) with Automatic Currency रु./Rs. Sync",
         "Dark & Light Theme Mode Ergonomic Toggle",
         "Thermal Receipt Printing (80mm / 58mm)",
@@ -199,7 +208,7 @@ export const HomePage: React.FC = () => {
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-100 tracking-tight">
                 {isNepali
-                  ? "आधुनिक खुद्रा काउन्टरका लागि आवश्यक ६ शक्तिशाली क्षमताहरू"
+                  ? "आधुनिक खुद्रा काउन्टरका लागि आवश्यक शक्तिशाली क्षमताहरू"
                   : "Essential Capabilities for Modern High-Velocity Retail Counters"}
               </h2>
             </div>
@@ -210,7 +219,7 @@ export const HomePage: React.FC = () => {
               <span>
                 {isNepali
                   ? "सबै सुविधाहरू हेर्नुहोस्"
-                  : "Explore All 14 Features"}
+                  : "Explore All Features"}
               </span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
@@ -303,7 +312,7 @@ export const HomePage: React.FC = () => {
               </Link>
             </div>
 
-            {/* 4. Customer & Vendor Dues */}
+            {/* 4. Customer & Vendor Dues, Ledgers & Settlement */}
             <div className="p-5 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-emerald-500/40 transition-all flex flex-col justify-between">
               <div>
                 <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-3">
@@ -311,13 +320,13 @@ export const HomePage: React.FC = () => {
                 </div>
                 <h3 className="text-sm sm:text-base font-bold text-neutral-100 mb-1.5">
                   {isNepali
-                    ? "ग्राहक तथा आपूर्तिकर्ता बाँकी बक्यौता (Dues Tracking)"
-                    : "Sales & Purchase Dues with Partial Payments"}
+                    ? "बाँकी बक्यौता (Dues), व्यक्तिगत लेजर र १-क्लिक फर्स्यौट"
+                    : "Customer & Vendor Dues, Ledgers & Settlement"}
                 </h3>
                 <p className="text-xs text-neutral-400 leading-relaxed mb-3">
                   {isNepali
-                    ? "आंशिक भुक्तानी सहजै दर्ता गर्नुहोस्। साविकको बाँकी र हालको बाँकी जोडेर कुल बाँकी रकम रसिद तथा खातामा स्वतः हिसाब!"
-                    : "Accept partial payments without math headaches. Automatically tracks previous, current, and total dues on receipts."}
+                    ? "आंशिक भुक्तानी, साविक र हालको बाँकी हिसाब, प्रत्येक ग्राहक र आपूर्तिकर्ताको विस्तृत खाता लेजर, र १-क्लिकमा नगद/eSewa/बैंकबाट रकम फर्स्यौट!"
+                    : "Manage partial payments, Previous + Current Due math on receipts, individual party ledgers, and 1-click balance settlements via Cash, eSewa, or Bank."}
                 </p>
               </div>
               <Link
@@ -325,7 +334,7 @@ export const HomePage: React.FC = () => {
                 className="text-[11px] font-semibold text-emerald-400 hover:underline inline-flex items-center gap-1"
               >
                 <span>
-                  {isNepali ? "बाँकी हिसाब प्रणाली हेर्नुहोस्" : "Dues tracking specs"}
+                  {isNepali ? "लेजर तथा फर्स्यौट प्रणाली हेर्नुहोस्" : "Dues, ledgers & settlement specs"}
                 </span>
                 <ArrowRight className="w-3 h-3" />
               </Link>
@@ -382,6 +391,62 @@ export const HomePage: React.FC = () => {
               >
                 <span>
                   {isNepali ? "ब्याकअप प्रश्नोत्तर हेर्नुहोस्" : "Backup FAQs"}
+                </span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+
+            {/* 7. Daily Book & Multi-Mode Cash Flow */}
+            <div className="p-5 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-cyan-500/40 transition-all flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-3">
+                  <BookOpen className="w-5 h-5" />
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-neutral-100 mb-1.5">
+                  {isNepali
+                    ? "दैनिक हिसाब किताब (Daily Book / Day Book)"
+                    : "Daily Book & Cash Flow Ledger"}
+                </h3>
+                <p className="text-xs text-neutral-400 leading-relaxed mb-3">
+                  {isNepali
+                    ? "दिनभरको बिक्री, खरिद, खर्च, ग्राहक बाँकी संकलन र तलबको दोहोरो हिसाब। सुरुको ओपनिङ नगद, दिनको आम्दानी-खर्च (+डेबिट/-क्रेडिट), र गल्लाको क्लोजिङ ब्यालेन्स तत्काल अडिट!"
+                    : "Track daily sales, purchases, expenses, and due collections. Computes opening float, +debit inflow vs -credit outflow, and final closing cash in hand with 80mm/A4 reports."}
+                </p>
+              </div>
+              <Link
+                to="/features"
+                className="text-[11px] font-semibold text-cyan-400 hover:underline inline-flex items-center gap-1"
+              >
+                <span>
+                  {isNepali ? "डे-बुक सुविधा हेर्नुहोस्" : "Daily book details"}
+                </span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+
+            {/* 8. Batch Expiry & Spoilage Write-Off */}
+            <div className="p-5 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-amber-500/40 transition-all flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-3">
+                  <Boxes className="w-5 h-5" />
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-neutral-100 mb-1.5">
+                  {isNepali
+                    ? "ब्याच, FEFO म्याद र नोक्सानी व्यवस्थापन"
+                    : "Batch Lots, FEFO Expiry & Spoilage"}
+                </h3>
+                <p className="text-xs text-neutral-400 leading-relaxed mb-3">
+                  {isNepali
+                    ? "उत्पादन तथा म्याद सकिने मिति, ३०-दिने पूर्वचेतावनी, र पहिले म्याद सकिने सामान (FEFO) स्वतः बिक्री। बिग्रेका सामान नष्ट गर्न स्क्र्याप भौचर (WO-...) र नाफा-नोक्सान समायोजन।"
+                    : "Track batch lots with FEFO automated depletion, early 30-day expiry radar, and formal scrap write-off vouchers (WO-...) to keep inventory and accounting crystal clear."}
+                </p>
+              </div>
+              <Link
+                to="/features"
+                className="text-[11px] font-semibold text-amber-400 hover:underline inline-flex items-center gap-1"
+              >
+                <span>
+                  {isNepali ? "ब्याच तथा म्याद विवरण" : "Batch & FEFO specs"}
                 </span>
                 <ArrowRight className="w-3 h-3" />
               </Link>

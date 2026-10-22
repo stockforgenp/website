@@ -9,7 +9,9 @@ StockForge is a zero-latency desktop point-of-sale and store inventory software 
 - **Sequential Invoicing**: Automated sequential bill numbering (`BILL-YYYYMMDD-XXXX`) compliant with Nepal retail audit standards.
 - **Multi-Unit Inventory**: Full support for decimal weights and measurement units (piece, kg, litre, packet, box, meter, dozen).
 - **Snapshot Profit Analytics**: Real-time Gross Profit and Cost of Goods Sold (COGS) tracking locked at the moment of sale.
-- **Customer Khata & Dues**: Complete customer credit ledger tracking previous dues, current bill dues, and total outstanding balances directly on printed receipts.
+- **Customer & Vendor Dues Tracking**: Complete customer and vendor credit tracking with automatic Previous Due + Current Bill Due = Total Due calculations directly itemized on thermal receipts.
+- **Dedicated Party Statements & Ledgers**: Individual chronological account ledgers for each customer and supplier with debit/credit entries, running balance, and 1-click printable statements (A4 and 80mm/58mm thermal).
+- **1-Click Balance Settlement**: Fast dues clearance against total outstanding balance or specific invoices using Cash, Bank Transfer, eSewa, Khalti, or Cheque with instant printable payment receipts.
 - **Hardware Compatibility**: Native support for standard 80mm and 58mm ESC/POS thermal receipt printers, USB barcode scanners, and cash drawers.
 - **Staff & Payroll Management**: Staff directory with monthly wage disbursement vouchers and salary advance tracking.
 - **Database Backup & Portability**: 1-click clean `.sql` database script export for offline USB archiving, plus optional Google Sheets cloud sync when connected.
