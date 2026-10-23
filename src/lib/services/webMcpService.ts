@@ -87,8 +87,8 @@ export function registerWebMcpTools(): void {
           return {
             status: "success",
             contact: {
-              phone: "+977-9800000000",
-              location: "Kathmandu Valley, Nepal",
+              phone: "+977 9809167106",
+              location: "Birgunj & Pokhariya, Parsa, Nepal",
               url: "https://stockforge.app/contact",
             },
           };

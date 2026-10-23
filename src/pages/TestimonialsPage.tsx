@@ -32,24 +32,24 @@ export const TestimonialsPage: React.FC = () => {
     review: [
       {
         "@type": "Review",
-        author: { "@type": "Person", name: "Ramesh Shrestha" },
+        author: { "@type": "Person", name: "Rajesh Prasad Sah" },
         reviewRating: { "@type": "Rating", ratingValue: "5" },
         reviewBody:
-          "Managing inventory in kg, litre, and pieces with automated sequential bill numbers saved us 3 hours every single evening.",
+          "Managing multi-unit grocery stock in kg, litre, and pieces with automated sequential bill numbers in Adarshnagar, Birgunj saved us 3 hours every single evening.",
       },
       {
         "@type": "Review",
-        author: { "@type": "Person", name: "Bikash Adhikari" },
+        author: { "@type": "Person", name: "Amit Kumar Patel" },
         reviewRating: { "@type": "Rating", ratingValue: "5" },
         reviewBody:
-          "During peak festival rush in New Road when cell networks crashed, StockForge never stopped for even a single second.",
+          "During peak festive rush in Main Road Birgunj when mobile networks were jammed, StockForge ran 100% offline without pausing for even a single second.",
       },
       {
         "@type": "Review",
-        author: { "@type": "Person", name: "Sunita Thapa" },
+        author: { "@type": "Person", name: "Sunita Devi Yadav" },
         reviewRating: { "@type": "Rating", ratingValue: "5" },
         reviewBody:
-          "Selling milk in litres and cheese in kg with fractional quantities is effortless now. Stock reduction and invoice bills are exact.",
+          "Selling milk in litres and paneer in kg in Pokhariya Bazaar with fractional decimals is completely effortless now. Stock deductions and bills are exact.",
       },
     ],
   };
@@ -59,22 +59,24 @@ export const TestimonialsPage: React.FC = () => {
       <SEO
         title={
           isNepali
-            ? "ग्राहक समीक्षा – नेपालका ३५०+ खुद्रा व्यापारी"
-            : "Storekeeper Reviews – 350+ Verified Retailers in Nepal"
+            ? "ग्राहक समीक्षा – वीरगञ्ज र पोखरियाका खुद्रा व्यापारीहरू"
+            : "Storekeeper Reviews – Verified Retailers in Birgunj & Pokhariya"
         }
         description={
           isNepali
-            ? "नेपालका ३५०+ किराना मार्ट, डेरी र हार्डवेयर पसलहरूको वास्तविक अनुभव। द्रुत बिलिङ र अफलाइन विश्वसनीयता बारे व्यापारीहरूका समीक्षा पढ्नुहोस्।"
-            : "Read verified stories from 350+ grocery marts, dairies, and hardware shops across Nepal using StockForge offline POS. Discover why store owners trust us."
+            ? "वीरगञ्ज र पोखरियाका किराना मार्ट, डेरी, कपडा र हार्डवेयर पसलहरूको वास्तविक अनुभव। १००% अफलाइन द्रुत बिलिङ र ग्राहक खाता बारे व्यापारीहरूका सफलताका कथाहरू।"
+            : "Read verified success stories from retail marts, dairies, and hardware suppliers across Birgunj and Pokhariya, Parsa using StockForge offline desktop POS."
         }
         keywords={[
           "retail POS reviews Nepal",
           "verified customer stories POS",
-          "store owner testimonials Kathmandu",
-          "mart POS ratings Nepal",
-          "offline POS experience",
+          "store owner testimonials Birgunj",
+          "retailers Pokhariya Parsa",
+          "offline POS Birgunj",
+          "mart billing Pokhariya",
           "नेपाल पसल ग्राहक समीक्षा",
-          "सन्तुष्ट व्यापारीहरू",
+          "वीरगञ्ज पसल सफ्टवेयर",
+          "पोखरिया बिलिङ",
         ]}
         locale={isNepali ? "ne_NP" : "en_NP"}
         canonicalPath="/testimonials"

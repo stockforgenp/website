@@ -608,7 +608,7 @@ export const HomePage: React.FC = () => {
           <p className="text-xs sm:text-sm text-neutral-400 max-w-2xl mx-auto leading-relaxed">
             {isNepali
               ? "हाम्रा प्राविधिक इन्जिनियरहरू तपाईंको पसलमै आएर निःशुल्क डेमो देखाउन तयार छन्। तपाईंको हालकै ल्यापटप र प्रिन्टरसँग सिधै चल्छ।"
-              : "Our retail solutions engineers provide hands-on demonstrations across Kathmandu Valley and major retail commercial hubs. Works directly with your existing laptop, PC, and 80mm receipt printer."}
+              : "Our retail solutions engineers provide hands-on demonstrations across Birgunj, Pokhariya, Parsa, and retail commercial hubs. Works directly with your existing laptop, PC, and 80mm receipt printer."}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
