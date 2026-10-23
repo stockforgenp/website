@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Plus Jakarta Sans', 'Noto Sans Devanagari', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-sans:
+    "Plus Jakarta Sans", "Noto Sans Devanagari", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
 
   --color-neutral-950: var(--app-neutral-950);
   --color-neutral-900: var(--app-neutral-900);
@@ -114,21 +118,22 @@ button:disabled {
   cursor: not-allowed;
 }
 
-  /* Keep number fields visually clean; values remain editable by keyboard. */
-  input[type="number"] {
-    -moz-appearance: textfield;
-    appearance: textfield;
-  }
+/* Keep number fields visually clean; values remain editable by keyboard. */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
 
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    margin: 0;
-    -webkit-appearance: none;
-  }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
 
 /* Print bill & receipt media styles */
 @media print {
-  html, body {
+  html,
+  body {
     background: #ffffff !important;
     color: #000000 !important;
     overflow: visible !important;

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Scale,
   Receipt,
   Database,
   TrendingUp,
@@ -21,8 +20,6 @@ import {
   Calendar,
   BookOpen,
   CheckCircle2,
-  BadgeCheck,
-  FileText,
   CreditCard,
   Boxes,
   Tag,
@@ -50,7 +47,11 @@ export const FeaturesSection = () => {
       label_np: "नाफा तथा खर्च",
     },
     { id: "inventory", label_en: "Multi-Unit Stock", label_np: "एकाइ र स्टक" },
-    { id: "system", label_en: "Offline & Backups", label_np: "अफलाइन र ब्याकअप" },
+    {
+      id: "system",
+      label_en: "Offline & Backups",
+      label_np: "अफलाइन र ब्याकअप",
+    },
   ];
 
   const features = [
@@ -109,7 +110,12 @@ export const FeaturesSection = () => {
       description: isNepali
         ? "औषधि, किराना तथा कस्मेटिक्सका लागि ब्याच नं., उत्पादन र म्याद सकिने मिति ट्र्याकिङ। बिलिङमा स्वतः पहिले म्याद सकिने ब्याच (FEFO) बाट स्टक घट्छ।"
         : "Enterprise batch-lot tracking with FEFO (First Expiring, First Out) automated depletion. Track manufacturing and expiry dates, get 30-day early warnings, and prevent selling expired goods.",
-      badges: ["Batch # Lots", "FEFO Auto-Depletion", "30-Day Expiry Radar", "Receipt Batch Printing"],
+      badges: [
+        "Batch # Lots",
+        "FEFO Auto-Depletion",
+        "30-Day Expiry Radar",
+        "Receipt Batch Printing",
+      ],
     },
     {
       category: "billing",
@@ -124,7 +130,12 @@ export const FeaturesSection = () => {
       description: isNepali
         ? "एउटै उत्पादनमा खुद्रा (MRP) र थोक मूल्य सेट गर्नुहोस्। थोक ग्राहक छान्दा वा न्यूनतम अर्डर परिमाण पुग्दा काउन्टरमा स्वतः थोक दर लागू हुन्छ। १-क्लिकमा दर फेर्न सकिने!"
         : "Define both retail and wholesale rates per product with minimum volume triggers. When selecting a wholesale buyer or meeting quantity thresholds, StockForge automatically applies wholesale pricing.",
-      badges: ["Dual Pricing", "Wholesale Slab Qty", "Auto Customer Tier", "1-Click Rate Switch"],
+      badges: [
+        "Dual Pricing",
+        "Wholesale Slab Qty",
+        "Auto Customer Tier",
+        "1-Click Rate Switch",
+      ],
     },
     {
       category: "inventory",
@@ -139,7 +150,12 @@ export const FeaturesSection = () => {
       description: isNepali
         ? "थोक कार्टुन, पेटी, बोरा वा क्यारेटमा खरिद गर्नुहोस् र खुद्रा पिस वा लिटरमा बिक्री गर्नुहोस्। खरिद तथा बिक्री दुवैमा स्वतः गुणक (Multiplier) अनुसार आधारभूत मौज्दात समायोजन हुन्छ।"
         : "Configure nested packaging tiers (e.g. 1 Carton = 24 pcs, 1 Sack = 25 kg). Sell or purchase by package or loose units with automated base inventory deduction and package-specific pricing.",
-      badges: ["Multi-UOM Hierarchy", "Carton-to-Pcs Conversion", "Package Multipliers", "Dual POS Selector"],
+      badges: [
+        "Multi-UOM Hierarchy",
+        "Carton-to-Pcs Conversion",
+        "Package Multipliers",
+        "Dual POS Selector",
+      ],
     },
     {
       category: "inventory",
@@ -154,7 +170,13 @@ export const FeaturesSection = () => {
       description: isNepali
         ? "पसलको आफ्नै बारकोड लेबल र सेल्फ ट्याग तत्काल प्रिन्ट गर्नुहोस्। TSC, Xprinter, Zebra वा A4 ग्रिडमा मूल्य (MRP), ब्याच नं., म्याद र पसलको नामसहित अफलाइन बारकोड उत्पादन।"
         : "Generate and print professional Code 128 retail barcodes and shelf edge tags directly from your product catalog. Compatible with TSC, Xprinter, Zebra thermal roll printers (50x25mm / 38x25mm) and standard A4 label sheets, with price, MRP, batch, and expiry overlays.",
-      badges: ["Code 128 Barcodes", "50x25mm Thermal Roll", "Supermarket Shelf Tags", "Batch & MRP Overlays", "A4 Label Sheets"],
+      badges: [
+        "Code 128 Barcodes",
+        "50x25mm Thermal Roll",
+        "Supermarket Shelf Tags",
+        "Batch & MRP Overlays",
+        "A4 Label Sheets",
+      ],
     },
     {
       category: "inventory",
@@ -345,11 +367,7 @@ export const FeaturesSection = () => {
       description: isNepali
         ? "सामान, बिक्री र खाताको डेटा १-क्लिकमै आफ्नै गुगल सिटमा सुरक्षित ब्याकअप राख्नुहोस् र जुनसुकै बेला रिस्टोर गर्नुहोस्।"
         : "Back up products, sales, and khata records directly to your personal Google Sheet in 1 click, and restore anytime with ease.",
-      badges: [
-        "Google Sheets",
-        "1-Click Sync",
-        "Cloud Backup & Restore",
-      ],
+      badges: ["Google Sheets", "1-Click Sync", "Cloud Backup & Restore"],
     },
     {
       category: "system",
@@ -364,11 +382,7 @@ export const FeaturesSection = () => {
       description: isNepali
         ? "सम्पूर्ण डेटा .sql फाइलमा पेनड्राइभमा सुरक्षित गर्नुहोस्। नयाँ कम्प्युटरमा सार्न वा ब्याकअप राख्न १-क्लिकमै सम्भव!"
         : "Export your complete store database as clean standard .sql files. Keep USB copies or migrate between PCs in seconds.",
-      badges: [
-        ".sql Script",
-        "USB Portable",
-        "1-Click Restore",
-      ],
+      badges: [".sql Script", "USB Portable", "1-Click Restore"],
     },
     {
       category: "finance",
@@ -404,20 +418,14 @@ export const FeaturesSection = () => {
       category: "finance",
       icon: Wallet,
       color: "rose",
-      title: isNepali
-        ? "दैनिक पसल खर्च खाता"
-        : "Daily Overhead Expense Ledger",
+      title: isNepali ? "दैनिक पसल खर्च खाता" : "Daily Overhead Expense Ledger",
       subtitle: isNepali
         ? "भाडा, बिजुली र खुद नाफाको हिसाब"
         : "Track rent, bills, and see real net profit",
       description: isNepali
         ? "पसलको भाडा, बिजुली र ढुवानी खर्च रेकर्ड गर्नुहोस् र कुल आम्दानीबाट कटाएर वास्तविक खुद नाफा (Net Profit) हेर्नुहोस्।"
         : "Log daily shop overheads (rent, bills, logistics). Auto-deducted from gross revenue to reveal your actual take-home profit.",
-      badges: [
-        "Expense Categories",
-        "Net Profit Clarity",
-        "Cash Flow",
-      ],
+      badges: ["Expense Categories", "Net Profit Clarity", "Cash Flow"],
     },
     {
       category: "billing",
@@ -462,11 +470,7 @@ export const FeaturesSection = () => {
       description: isNepali
         ? "१-क्लिकमै डार्क र लाइट मोड स्विच गर्नुहोस्। लामो समय काउन्टरमा बस्दा पनि आँखा दुख्ने वा थकान हुने समस्या शून्य!"
         : "Switch between crisp dark mode and clean daylight mode with 1-click. Zero glare, reducing fatigue during long shifts.",
-      badges: [
-        "Dark & Light Modes",
-        "1-Click Switch",
-        "Eye Comfort",
-      ],
+      badges: ["Dark & Light Modes", "1-Click Switch", "Eye Comfort"],
     },
     {
       category: "experience",
@@ -481,11 +485,7 @@ export const FeaturesSection = () => {
       description: isNepali
         ? "१-क्लिकमै नेपाली वा अङ्ग्रेजी भाषा रोज्नुहोस्। पेज रिलोड नभई सम्पूर्ण मेनु र मुद्रा (रु. / Rs.) स्वतः अपडेट!"
         : "Switch the entire app between English and Nepali in 1 click with zero reload and automatic रु. / Rs. currency adaptation.",
-      badges: [
-        "English & नेपाली",
-        "रु. / Rs. Sync",
-        "Zero Reload",
-      ],
+      badges: ["English & नेपाली", "रु. / Rs. Sync", "Zero Reload"],
     },
     {
       category: "experience",

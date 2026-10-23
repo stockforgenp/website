@@ -25,9 +25,6 @@ import {
   Languages,
   Calendar,
   BookOpen,
-  Receipt,
-  Boxes,
-  Tag,
   Wallet,
   CreditCard,
 } from "lucide-react";
@@ -122,25 +119,30 @@ export const FeaturesPage: React.FC = () => {
         ? "ब्याच र म्याद सकिने मिति ट्र्याकिङ (Batch & Expiry FEFO)"
         : "Batch Number & Expiry Tracking with FEFO Auto-Depletion",
       stockforge: true,
-      stockforgeNote: "Native batch tracking, FEFO billing, & 30-day expiry radar",
+      stockforgeNote:
+        "Native batch tracking, FEFO billing, & 30-day expiry radar",
       cloudPos: false,
-      cloudPosNote: "Basic flat stock count only; requires expensive pharma add-on",
+      cloudPosNote:
+        "Basic flat stock count only; requires expensive pharma add-on",
     },
     {
       feature: isNepali
         ? "थोक तथा खुद्रा दोहोरो मूल्य दर (Dual Wholesale/Retail Pricing)"
         : "Wholesale vs. Retail Dual Pricing & Volume Slabs",
       stockforge: true,
-      stockforgeNote: "Native dual rates, auto-tiering by customer & min qty triggers",
+      stockforgeNote:
+        "Native dual rates, auto-tiering by customer & min qty triggers",
       cloudPos: false,
-      cloudPosNote: "Single fixed price only; manual discount overrides required",
+      cloudPosNote:
+        "Single fixed price only; manual discount overrides required",
     },
     {
       feature: isNepali
         ? "एकाइ तथा प्याकेजिङ रूपान्तरण (Multi-UOM Hierarchy)"
         : "Packaging Hierarchy & Unit Conversion (Carton to Pcs)",
       stockforge: true,
-      stockforgeNote: "Auto conversion multipliers (1 Ctn = 24 pcs) with dual sales/purchase selection",
+      stockforgeNote:
+        "Auto conversion multipliers (1 Ctn = 24 pcs) with dual sales/purchase selection",
       cloudPos: false,
       cloudPosNote: "Manual stock adjustments needed for bulk vs loose goods",
     },
@@ -149,16 +151,19 @@ export const FeaturesPage: React.FC = () => {
         ? "फिर्ता तथा क्रेडिट/डेबिट नोट (Returns & Notes)"
         : "Comprehensive Buy/Sell Returns & Credit/Debit Notes",
       stockforge: true,
-      stockforgeNote: "Built-in Credit Notes (CN-...) & Debit Notes (DN-...) with restock or damaged write-off",
+      stockforgeNote:
+        "Built-in Credit Notes (CN-...) & Debit Notes (DN-...) with restock or damaged write-off",
       cloudPos: false,
-      cloudPosNote: "Manual bill deletions or cumbersome third-party return plugins",
+      cloudPosNote:
+        "Manual bill deletions or cumbersome third-party return plugins",
     },
     {
       feature: isNepali
         ? "बारकोड स्टिकर तथा सेल्फ ट्याग (Barcode Printing)"
         : "Barcode Sticker & Supermarket Shelf Tag Printing",
       stockforge: true,
-      stockforgeNote: "Direct thermal roll (TSC/Xprinter 50x25mm) & A4 sheets with batch, price, and MRP",
+      stockforgeNote:
+        "Direct thermal roll (TSC/Xprinter 50x25mm) & A4 sheets with batch, price, and MRP",
       cloudPos: false,
       cloudPosNote: "Requires costly external barcode software subscription",
     },
@@ -167,27 +172,33 @@ export const FeaturesPage: React.FC = () => {
         ? "काउन्टर सिफ्ट तथा क्यास ड्रयर (Shift Management)"
         : "Cash Drawer & Cashier Shift Reconciliation",
       stockforge: true,
-      stockforgeNote: "Native opening float, live drawer calculation, physical count & over/short Z-reports",
+      stockforgeNote:
+        "Native opening float, live drawer calculation, physical count & over/short Z-reports",
       cloudPos: false,
-      cloudPosNote: "Blind cash registers with zero shift variance accountability",
+      cloudPosNote:
+        "Blind cash registers with zero shift variance accountability",
     },
     {
       feature: isNepali
         ? "दैनिक हिसाब किताब र डे-बुक (Daily Cash Day Book)"
         : "Dedicated Daily Day Book & Cash Flow Ledger",
       stockforge: true,
-      stockforgeNote: "Opening/closing balances, +Debit/-Credit, and A4/thermal printout",
+      stockforgeNote:
+        "Opening/closing balances, +Debit/-Credit, and A4/thermal printout",
       cloudPos: false,
-      cloudPosNote: "Fragmented receipts; lacks double-entry day book reconciliation",
+      cloudPosNote:
+        "Fragmented receipts; lacks double-entry day book reconciliation",
     },
     {
       feature: isNepali
         ? "ड्यामेज, म्याद नाघेका र नोक्सानी (Write-Off & Scrap)"
         : "Damaged, Expired & Spoilage Write-Off Vouchers",
       stockforge: true,
-      stockforgeNote: "Formal Scrap Vouchers (WO-...), quarantine radar, and automated P&L loss expense posting",
+      stockforgeNote:
+        "Formal Scrap Vouchers (WO-...), quarantine radar, and automated P&L loss expense posting",
       cloudPos: false,
-      cloudPosNote: "Manual stock overrides that distort financial profit and inventory balance",
+      cloudPosNote:
+        "Manual stock overrides that distort financial profit and inventory balance",
     },
     {
       feature: isNepali
@@ -225,7 +236,8 @@ export const FeaturesPage: React.FC = () => {
       stockforgeNote:
         "Cash, Online/QR, Cheque, Bank separated on bills, receipts & cash drawer shifts",
       cloudPos: false,
-      cloudPosNote: "Lumps all transactions together or lacks drawer cash segregation",
+      cloudPosNote:
+        "Lumps all transactions together or lacks drawer cash segregation",
     },
     {
       feature: isNepali
@@ -811,7 +823,9 @@ export const FeaturesPage: React.FC = () => {
                   <div className="flex items-center gap-2 text-xs font-bold text-neutral-200 mb-1">
                     <Wallet className="w-4 h-4 text-cyan-400" />
                     <span>
-                      {isNepali ? "ओपनिङ र क्लोजिङ ब्यालेन्स" : "Opening & Closing Float"}
+                      {isNepali
+                        ? "ओपनिङ र क्लोजिङ ब्यालेन्स"
+                        : "Opening & Closing Float"}
                     </span>
                   </div>
                   <p className="text-[11px] text-neutral-400">
@@ -824,7 +838,9 @@ export const FeaturesPage: React.FC = () => {
                   <div className="flex items-center gap-2 text-xs font-bold text-neutral-200 mb-1">
                     <CreditCard className="w-4 h-4 text-emerald-400" />
                     <span>
-                      {isNepali ? "नगद, QR र बैंक विभाजन" : "Cash vs. Digital QR & Bank"}
+                      {isNepali
+                        ? "नगद, QR र बैंक विभाजन"
+                        : "Cash vs. Digital QR & Bank"}
                     </span>
                   </div>
                   <p className="text-[11px] text-neutral-400">
@@ -837,7 +853,9 @@ export const FeaturesPage: React.FC = () => {
                   <div className="flex items-center gap-2 text-xs font-bold text-neutral-200 mb-1">
                     <Printer className="w-4 h-4 text-teal-400" />
                     <span>
-                      {isNepali ? "A4 र थर्मल प्रिन्ट रिपोर्ट" : "A4 & 80mm Day Book Slips"}
+                      {isNepali
+                        ? "A4 र थर्मल प्रिन्ट रिपोर्ट"
+                        : "A4 & 80mm Day Book Slips"}
                     </span>
                   </div>
                   <p className="text-[11px] text-neutral-400">

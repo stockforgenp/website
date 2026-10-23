@@ -1,24 +1,13 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { SEO } from "../components/common/SEO.tsx";
 import { AboutSection } from "../components/public/AboutSection.tsx";
-import {
-  Info,
-  ShieldCheck,
-  Target,
-  Building2,
-  Users2,
-  Sparkles,
-  ArrowRight,
-  Heart,
-  CheckCircle2,
-} from "lucide-react";
+import { Info, Sparkles, ArrowRight } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext.tsx";
 import { CONTACT_INFO } from "../constants/contactInfo.ts";
 
 export const AboutPage: React.FC = () => {
   const { isNepali } = useLanguage();
-  const navigate = useNavigate();
 
   const schemaJson = {
     "@context": "https://schema.org",

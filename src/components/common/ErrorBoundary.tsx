@@ -1,5 +1,5 @@
-import React, { Component, ErrorInfo, ReactNode } from 'react';
-import { RotateCcw, ShieldAlert, Home } from 'lucide-react';
+import { Component, ErrorInfo, ReactNode } from "react";
+import { RotateCcw, ShieldAlert, Home } from "lucide-react";
 
 interface Props {
   children: ReactNode;
@@ -24,7 +24,7 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error('StockForge Website Uncaught Error:', error, errorInfo);
+    console.error("StockForge Website Uncaught Error:", error, errorInfo);
     this.setState({ errorInfo });
   }
 
@@ -33,7 +33,7 @@ export class ErrorBoundary extends Component<Props, State> {
   };
 
   private handleReload = () => {
-    window.location.href = '/';
+    window.location.href = "/";
   };
 
   public render() {
@@ -62,7 +62,8 @@ export class ErrorBoundary extends Component<Props, State> {
             {/* Error Message Box */}
             <div className="p-3.5 bg-neutral-950 border border-neutral-800 rounded-xl text-xs space-y-2">
               <div className="font-mono text-rose-400 font-semibold break-words">
-                {this.state.error?.message || 'An unexpected runtime error occurred.'}
+                {this.state.error?.message ||
+                  "An unexpected runtime error occurred."}
               </div>
               {this.state.errorInfo?.componentStack && (
                 <details className="mt-2 text-[11px] text-neutral-400 font-mono">

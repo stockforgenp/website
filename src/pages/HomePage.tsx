@@ -17,7 +17,6 @@ import {
   UserCheck,
   FileSpreadsheet,
   Cpu,
-  Layers,
   PhoneCall,
   BookOpen,
   Boxes,
@@ -217,9 +216,7 @@ export const HomePage: React.FC = () => {
               className="inline-flex items-center gap-2 text-xs font-bold text-emerald-400 hover:text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 px-4 py-2.5 rounded-xl border border-emerald-500/25 transition-all shrink-0"
             >
               <span>
-                {isNepali
-                  ? "सबै सुविधाहरू हेर्नुहोस्"
-                  : "Explore All Features"}
+                {isNepali ? "सबै सुविधाहरू हेर्नुहोस्" : "Explore All Features"}
               </span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
@@ -334,7 +331,9 @@ export const HomePage: React.FC = () => {
                 className="text-[11px] font-semibold text-emerald-400 hover:underline inline-flex items-center gap-1"
               >
                 <span>
-                  {isNepali ? "लेजर तथा फर्स्यौट प्रणाली हेर्नुहोस्" : "Dues, ledgers & settlement specs"}
+                  {isNepali
+                    ? "लेजर तथा फर्स्यौट प्रणाली हेर्नुहोस्"
+                    : "Dues, ledgers & settlement specs"}
                 </span>
                 <ArrowRight className="w-3 h-3" />
               </Link>

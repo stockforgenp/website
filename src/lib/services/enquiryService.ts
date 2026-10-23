@@ -92,7 +92,9 @@ export async function submitEnquiry(
     const errorMsg =
       data?.error ||
       data?.message ||
-      (data?.details ? JSON.stringify(data.details) : `Server error (${response.status})`);
+      (data?.details
+        ? JSON.stringify(data.details)
+        : `Server error (${response.status})`);
     throw new Error(errorMsg);
   }
 

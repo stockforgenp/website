@@ -13,7 +13,6 @@ import {
   FileCheck2,
   Lock,
   Globe2,
-  CheckCircle2,
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext.tsx";
 import { CONTACT_INFO } from "../constants/contactInfo.ts";
@@ -125,7 +124,9 @@ export const TermsOfUsePage: React.FC = () => {
                 <Monitor className="w-4 h-4" />
               </div>
               <h3 className="text-xs font-bold text-neutral-100">
-                {isNepali ? "नेटिभ डेस्कटप लाइसेन्स" : "Desktop Terminal License"}
+                {isNepali
+                  ? "नेटिभ डेस्कटप लाइसेन्स"
+                  : "Desktop Terminal License"}
               </h3>
               <p className="text-[11px] text-neutral-400 leading-relaxed">
                 {isNepali
@@ -153,7 +154,9 @@ export const TermsOfUsePage: React.FC = () => {
                 <ShieldCheck className="w-4 h-4" />
               </div>
               <h3 className="text-xs font-bold text-neutral-100">
-                {isNepali ? "द्रुत स्थानीय सहयोग (SLA)" : "Rapid Local Support (SLA)"}
+                {isNepali
+                  ? "द्रुत स्थानीय सहयोग (SLA)"
+                  : "Rapid Local Support (SLA)"}
               </h3>
               <p className="text-[11px] text-neutral-400 leading-relaxed">
                 {isNepali
@@ -168,7 +171,6 @@ export const TermsOfUsePage: React.FC = () => {
       {/* Main Terms Content */}
       <section className="py-14 bg-neutral-950 text-neutral-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 leading-relaxed text-xs sm:text-sm">
-          
           {/* Section 1 */}
           <div className="space-y-3">
             <h2 className="text-base sm:text-lg font-bold text-neutral-100 flex items-center gap-2">
@@ -292,7 +294,9 @@ export const TermsOfUsePage: React.FC = () => {
             <ul className="list-disc list-inside space-y-2 pl-2 text-neutral-400">
               <li>
                 <strong className="text-neutral-200">
-                  {isNepali ? "अधिकृत काउन्टर टर्मिनल:" : "Authorized Counter Terminals:"}
+                  {isNepali
+                    ? "अधिकृत काउन्टर टर्मिनल:"
+                    : "Authorized Counter Terminals:"}
                 </strong>{" "}
                 {isNepali
                   ? "लाइसेन्स सम्झौताअनुसार खरिद गरिएका तोकिएका काउन्टर पीसी/टर्मिनलमा मात्र सफ्टवेयर सञ्चालन गर्न पाइनेछ।"
@@ -300,7 +304,9 @@ export const TermsOfUsePage: React.FC = () => {
               </li>
               <li>
                 <strong className="text-neutral-200">
-                  {isNepali ? "स्रोत कोडको सुरक्षा र निषेध:" : "Prohibition of Decompilation:"}
+                  {isNepali
+                    ? "स्रोत कोडको सुरक्षा र निषेध:"
+                    : "Prohibition of Decompilation:"}
                 </strong>{" "}
                 {isNepali
                   ? "तपाईंले सफ्टवेयरको बाइनरी कोडलाई रिभर्स-इन्जिनियर, डिकम्पाइल, मोडिफाई वा अनधिकृत रूपमा तेस्रो पक्षलाई रिप्याकेज/पुनर्वितरण गर्न पाउनुहुने छैन।"
@@ -308,7 +314,9 @@ export const TermsOfUsePage: React.FC = () => {
               </li>
               <li>
                 <strong className="text-neutral-200">
-                  {isNepali ? "व्यापारिक प्रयोगको सीमा:" : "Permitted Commercial Usage:"}
+                  {isNepali
+                    ? "व्यापारिक प्रयोगको सीमा:"
+                    : "Permitted Commercial Usage:"}
                 </strong>{" "}
                 {isNepali
                   ? "सफ्टवेयर केवल वैध व्यवसाय र प्रचलित कानुनबमोजिम दर्ता भएका पसलको आन्तरिक लेखा तथा बिलिङका लागि मात्र प्रयोग गर्न पाइनेछ।"
@@ -402,7 +410,9 @@ export const TermsOfUsePage: React.FC = () => {
             <ul className="list-disc list-inside space-y-2 pl-2 text-neutral-400">
               <li>
                 <strong className="text-neutral-200">
-                  {isNepali ? "विद्युतीय भोल्टेज र ब्याकअप सावधानी:" : "Electrical Surge & Power Spikes:"}
+                  {isNepali
+                    ? "विद्युतीय भोल्टेज र ब्याकअप सावधानी:"
+                    : "Electrical Surge & Power Spikes:"}
                 </strong>{" "}
                 {isNepali
                   ? "नेपालमा हुन सक्ने बिजुलीको उतारचढाव (Voltage Fluctuation) वा आकस्मिक लोडसेडिङबाट कम्प्युटरको हार्डडिस्क बिग्रन सक्ने भएकाले उपयुक्त UPS प्रयोग गर्न र दैनिक रूपमा पेनड्राइभमा ब्याकअप राख्न अनिवार्य छ।"
@@ -410,7 +420,9 @@ export const TermsOfUsePage: React.FC = () => {
               </li>
               <li>
                 <strong className="text-neutral-200">
-                  {isNepali ? "काबु बाहिरको परिस्थिति (Force Majeure):" : "Force Majeure Clause:"}
+                  {isNepali
+                    ? "काबु बाहिरको परिस्थिति (Force Majeure):"
+                    : "Force Majeure Clause:"}
                 </strong>{" "}
                 {isNepali
                   ? "प्राकृतिक विपद् (भूकम्प, बाढी, चट्याङ), देशव्यापी इन्टरनेट बन्द, लामो समयको विद्युतीय अवरोध, वा हार्डवेयरको भौतिक क्षतिबाट हुने प्रत्यक्ष वा अप्रत्यक्ष व्यापारिक नोक्सानीका लागि कम्पनी जिम्मेवार हुने छैन।"
@@ -493,7 +505,9 @@ export const TermsOfUsePage: React.FC = () => {
                 १०
               </span>
               <span>
-                {isNepali ? "१०. कानुनी तथा सहायता सम्पर्क" : "10. Legal & Support Contacts"}
+                {isNepali
+                  ? "१०. कानुनी तथा सहायता सम्पर्क"
+                  : "10. Legal & Support Contacts"}
               </span>
             </h2>
             <p>
@@ -503,7 +517,9 @@ export const TermsOfUsePage: React.FC = () => {
             </p>
 
             <div className="p-4 rounded-xl bg-neutral-900/60 border border-neutral-800 space-y-2 mt-2">
-              <div className="text-neutral-200 font-bold">StockForge (स्टकफोर्ज)</div>
+              <div className="text-neutral-200 font-bold">
+                StockForge (स्टकफोर्ज)
+              </div>
               <p className="text-[11px] text-neutral-400">
                 {isNepali
                   ? "लाइसेन्सिङ तथा कानुनी डेस्क · नेपाल"

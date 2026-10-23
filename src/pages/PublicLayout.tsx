@@ -6,7 +6,7 @@ import { PublicFooter } from "../components/public/PublicFooter.tsx";
 const WebsiteChatbot = lazy(() =>
   import("../components/public/WebsiteChatbot.tsx").then((m) => ({
     default: m.WebsiteChatbot,
-  }))
+  })),
 );
 
 export const PublicLayout: React.FC = () => {

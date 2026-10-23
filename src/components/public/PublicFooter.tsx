@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  Store,
   Receipt,
-  ShieldCheck,
   Scale,
   Sparkles,
   ArrowRight,
@@ -11,7 +9,6 @@ import {
   Mail,
   Phone,
   MapPin,
-  User,
 } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext.tsx";
 import { CONTACT_INFO } from "../../constants/contactInfo.ts";

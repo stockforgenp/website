@@ -13,7 +13,6 @@ import {
   ShieldCheck,
   MessageCircle,
   AlertCircle,
-  User,
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext.tsx";
 import { submitEnquiry } from "../lib/services/enquiryService.ts";

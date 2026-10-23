@@ -1,22 +1,12 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { SEO } from "../components/common/SEO.tsx";
 import { ClientsTestimonialsSection } from "../components/public/ClientsTestimonialsSection.tsx";
-import {
-  Users,
-  Star,
-  Quote,
-  CheckCircle2,
-  TrendingUp,
-  Sparkles,
-  ArrowRight,
-  ShieldCheck,
-} from "lucide-react";
+import { Users, Sparkles, ArrowRight } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext.tsx";
 
 export const TestimonialsPage: React.FC = () => {
   const { isNepali } = useLanguage();
-  const navigate = useNavigate();
 
   const schemaJson = {
     "@context": "https://schema.org",

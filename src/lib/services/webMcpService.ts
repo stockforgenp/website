@@ -29,7 +29,8 @@ export function registerWebMcpTools(): void {
           properties: {
             topic: {
               type: "string",
-              description: "The topic or feature to look up (e.g., 'offline', 'billing', 'printers')",
+              description:
+                "The topic or feature to look up (e.g., 'offline', 'billing', 'printers')",
             },
           },
         },
@@ -69,7 +70,8 @@ export function registerWebMcpTools(): void {
               ram: "Minimum 2 GB RAM (4 GB recommended)",
               storage: "150 MB disk space",
               network: "None required (100% offline-first)",
-              hardware: "Supports standard USB barcode scanners, 80mm/58mm thermal printers, cash drawers",
+              hardware:
+                "Supports standard USB barcode scanners, 80mm/58mm thermal printers, cash drawers",
             },
           };
         },
@@ -99,4 +101,3 @@ export function registerWebMcpTools(): void {
     }
   }
 }
-
